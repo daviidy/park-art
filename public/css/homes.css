@@ -1,0 +1,12 @@
+.dropdown-toggle::after {
+    margin-left: 1.255em!important;
+    border-top:0 !important;
+    border-right: 0 solid transparent!important;
+    border-bottom: 0!important;
+    border-left: 0 solid transparent!important;
+}
+@media only screen and (min-width: 700px) {
+  .dropdown-menu {
+      left: -118px!important;
+  }
+}
