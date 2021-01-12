@@ -1,4 +1,4 @@
-<h1>Home client</h1>
+<h1>Profil client</h1>
 
 <form action="/logout"  method="post">
     @csrf
