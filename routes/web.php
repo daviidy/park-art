@@ -17,12 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/client/home', function () {
+Route::get('/client/profil', function () {
     return view('users.client.home');
 });
 
 
-Route::get('/freelance/home', function () {
+Route::get('/freelance/profil', function () {
     return view('users.freelancer.home');
 });
 

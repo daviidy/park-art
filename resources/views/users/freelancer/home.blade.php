@@ -1,4 +1,4 @@
-<h1>Home Freelance</h1>
+<h1>Profil Freelance</h1>
 
 <form action="/logout"  method="post">
     @csrf
