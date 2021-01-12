@@ -58,6 +58,24 @@ p {
   font-family: serif;
   color: #ececec;
 }
+/*login and register*/
+.img-login{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.btn-close{
+  right: 15px;
+    top: 0px;
+    z-index: 10;
+}
+.form-control:focus {
+    box-shadow: 0px 3px 0 0.02rem rgb(0 123 255 / 25%)!important;
+}
+.modal-body {
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 31%), 0 6px 20px 0 rgb(0 0 0 / 50%);
+}
+
 @media only screen and (max-width: 600px) {
   .header-text {
       top: 100px;
