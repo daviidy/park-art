@@ -1,9 +1,14 @@
 <h3>Inscription</h3>
 
-<form action="/register" method="post">
+<form action="register" method="post">
     @csrf
     
-
+    
+    <label for="">Votre nom</label>
+    <input type="name" name="name" id="">
+    @error('name')
+    <p>{{ $message }}</p>
+    @enderror
     <label for="">Email</label>
     <input type="email" name="email" id="">
     @error('email')
@@ -20,16 +25,16 @@
 
     <label for="client">
         Je suisn client 
-        <input type="radio" value="1" name="role_id" id="client">
     </label>
+    <input type="radio" value="1" name="role_id" id="client">
 
     <label for="freelance">
         Je suisn freelance 
-        <input type="radio" value="2" name="role_id" id="freelance">
     </label>
+    <input type="radio" value="2" name="role_id" id="freelance">
 
     @error('role_id')
         <p>{{ $message }}</p>
     @enderror
-    <button type="submit">Connexion</button>
+    <button type="submit">S'enregister</button>
 </form>
