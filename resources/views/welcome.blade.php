@@ -5,7 +5,7 @@
             <div class="col-md-12">
               <div class="text-center position-relative header-text">
                 <h1 class="display-1 font-weight-bold text-white">Swipe Right</h1>
-                <button class="btn mt-4 text-white rounded-pill px-5 font-weight-bolder" data-toggle="modal" data-target="#registerModal"><a style="font-decoration: none; color: white;" href="{{ url('register') }}"> Créer un compte</a></button>
+                <button class="btn mt-4 text-white rounded-pill px-5 font-weight-bolder" data-toggle="modal" data-target="#registerModal"><a style="font-decoration: none; color: white;" href="#"> Créer un compte</a></button>
               </div>
             </div>
           </div>
