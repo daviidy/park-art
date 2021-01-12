@@ -22,27 +22,27 @@
                   </div>
                   <div class="">
                     <div class="list-group text-center h1">
-                        <a href="/client/profil" class="mr-2 mb-2 p-1 active text-white text-decoration-none">
+                        <a href="/client/profil" class="mr-2 py-2 active text-white text-decoration-none">
                           <i class="bi bi-layout-text-window-reverse"></i><br>
                           <span class="font-text-menu">Mes projets</span>
                         </a>
-                        <a href="#" class="mr-2 mb-2 p-1 text-decoration-none">
+                        <a href="#" class="mr-2 py-2 text-decoration-none">
                           <i class="fas fa-paper-plane text-white"></i><br>
                           <span class="font-text-menu">Publier</span>
                         </a>
-                        <a href="#" class="mr-2 mb-2 p-1 text-decoration-none">
+                        <a href="#" class="mr-2 py-2 text-decoration-none">
                           <i class="bi bi-people-fill text-white"></i>
                           <span class="font-text-menu">Prestataires</span>
                         </a>
-                        <a href="#" class="mr-2 mb-2 p-1 text-decoration-none">
+                        <a href="#" class="mr-2 py-2 text-decoration-none">
                           <i class="bi bi-person-square text-white"></i><br>
                           <span class="font-text-menu">Mon profil</span>
                         </a>
-                        <a href="#" class="mr-2 mb-2 p-1 text-decoration-none">
+                        <a href="#" class="mr-2 py-2 text-decoration-none">
                           <i class="bi bi-gear-fill text-white"></i><br>
                           <span class="font-text-menu">Paramètre</span>
                         </a>
-                        <a href="#" class="mr-2 mb-2 p-1 text-decoration-none">
+                        <a href="#" class="mr-2 py-2 text-decoration-none">
                           <i class="bi bi-chat-dots-fill text-white"></i><br>
                           <span class="font-text-menu">Méssagerie</span>
                         </a>
