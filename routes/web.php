@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\projectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,15 +18,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Client dashboard
 Route::get('/client/profil', function () {
     return view('users.client.home');
 });
 
+//Project by clients
+Route::resource('client/projects', ProjectController::class);
 
+
+//Freelancer dashboard
 Route::get('/freelance/profil', function () {
     return view('users.freelancer.home');
 });
 
+//Admin dashboard
 Route::get('/admin/dashboard', function () {
     return view('users.admin.home');
 });
+
