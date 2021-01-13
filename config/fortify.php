@@ -62,6 +62,16 @@ return [
     */
 
     'home' => RouteServiceProvider::HOME,
+    // 'registered_client' => RouteServiceProvider::REGISTERED_REDIRECT_CLIENT,
+    // 'registered_freelancer' => RouteServiceProvider::REGISTERED_REDIRECT_FREELANCER,
+    'login_client' => RouteServiceProvider::CLIENT_HOME,
+    'login_freelance' => RouteServiceProvider::FREELANCE_HOME,
+    
+    'registered_client' => '/client/profil',
+    'registered_freelance' => '/freelance/profil',
+
+    'login_client' => '/client/profil',
+    'login_freelance' => '/freelance/profil',
 
     /*
     |--------------------------------------------------------------------------
@@ -137,9 +147,10 @@ return [
         // Features::emailVerification(),
         Features::updateProfileInformation(),
         Features::updatePasswords(),
-        Features::twoFactorAuthentication([
-            'confirmPassword' => true,
-        ]),
+        // Features::twoFactorAuthentication([
+        //     'confirmPassword' => true,
+        // ]),
     ],
+
 
 ];

@@ -18,6 +18,8 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/';
+    public const REGISTERED_REDIRECT_CLIENT = '/client/profil';
+    public const REGISTERED_REDIRECT_FREELANCER = '/freelance/profil';
     public const CLIENT_HOME = '/client/profil';
     public const FREELANCE_HOME = '/freelance/profil';
     public const ADMIN_HOME = '/admin/dashboard';
