@@ -29,7 +29,7 @@
     <input type="radio" value="1" name="role_id" id="client">
 
     <label for="freelance">
-        Je suisn freelance 
+        Je suis freelancer
     </label>
     <input type="radio" value="2" name="role_id" id="freelance">
 
