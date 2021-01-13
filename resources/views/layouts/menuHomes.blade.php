@@ -22,11 +22,11 @@
                   </div>
                   <div class="">
                     <div class="list-group text-center h1">
-                        <a href="/client/profil" class="mr-2 py-2 active text-white text-decoration-none">
+                        <a href="{{ route('projects.index') }}" class="mr-2 py-2 active text-white text-decoration-none">
                           <i class="bi bi-layout-text-window-reverse"></i><br>
                           <span class="font-text-menu">Mes projets</span>
                         </a>
-                        <a href="#" class="mr-2 py-2 text-decoration-none">
+                        <a href="{{ route('projects.create') }}" class="mr-2 py-2 text-decoration-none">
                           <i class="fas fa-paper-plane text-white"></i><br>
                           <span class="font-text-menu">Publier</span>
                         </a>
@@ -50,7 +50,7 @@
                   </div>
                 </div>
                 <div class="text-center p-3 mt-5">
-                  <a href="#" class=" btn-bg-plus text-decoration-none shadow text-white rounded-lg p-2" ><i class="bi bi-plus"></i></a>
+                  <a href="{{ route('projects.create') }}" class=" btn-bg-plus text-decoration-none shadow text-white rounded-lg p-2" ><i class="bi bi-plus"></i></a>
                 </div>
               </div>
             </div>

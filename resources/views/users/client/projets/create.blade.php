@@ -10,6 +10,17 @@
         <div class="card mx-auto shadow " style="width: 30rem;">
             <!--img src="images/projet.jpg" class="card-img-top img-fluid" alt="..."-->
             <div class="card-body">
+
+              @if ($errors->any())
+                  <div class="alert alert-danger">
+                      <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+              @endif
               <form method="POST" action="{{ route('projects.store') }}">
                 @csrf
                 <div class="form-group">
