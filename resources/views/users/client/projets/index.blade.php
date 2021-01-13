@@ -10,7 +10,7 @@
   <div class="p-md-4">
     <div class="align-items-center d-flex justify-content-between mb-5 pt-5">
       <h2>Mes projets</h2>
-      <a href="#" class="btn-bg-plus p-2 p-md-3 rounded-lg text-decoration-none text-white shadow border-white border">Publier un projet</a>
+      <a href="{{ route('projects.create') }}" class="btn-bg-plus p-2 p-md-3 rounded-lg text-decoration-none text-white shadow border-white border">Publier un projet</a>
     </div>
     <div class="pt-md-5">
       <div class="">
@@ -24,7 +24,14 @@
           </thead>
 
           <tbody>
-            <tr>
+            @foreach($datas as $data)
+              <tr>
+                <td>{{ $data->title }}</td>
+                <td>{{ $data->description }}</td>
+                <td>{{ $data->budget }}€</td>
+              </tr>
+            @endforeach
+            {{-- <tr>
                 <td>poisson</td>
                 <td>ke—SVGs, SVG sprite, or web fonts. Use them with or without Bootstrap in any project.</td>
                 <td>200€</td>
@@ -38,7 +45,7 @@
               <td>Larry</td>
               <td>the Bird</td>
               <td>@twitter</td>
-            </tr>
+            </tr> --}}
           </tbody>
         </table>
       </div>

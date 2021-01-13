@@ -27,17 +27,19 @@
                   <a class="nav-link text-white" href="#">A propos</a>
                 </li>
                 <li class="nav-item pr-md-5">
-                  <a class="nav-link text-white" href="{{ url('/login') }}">Contactez-vous</a>
+                  <a class="nav-link text-white" href="#">Contactez-vous</a>
                 </li>
               </ul>
               <span class="navbar-text shadow rounded-pill bg-white">
-                <a href="{{ url('/login') }}" class="text-decoration-none p-3 text-capitalize font-weight-bolder">Connectez-vous</a>
+                <a href="{{ url('/login') }}" class="text-decoration-none p-3 text-capitalize font-weight-bolder" data-toggle="modal" data-target="#loginModal">Connectez-vous</a>
               </span>
             </div>
           </nav>
         </header>
 
         @yield('content')
+        @include('includes.login')
+        @include('includes.register')
 
         <footer class="p-4 border-top">
           <p>Tous droits réservés</p>

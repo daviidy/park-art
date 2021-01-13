@@ -1,0 +1,62 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+button,
+ul,
+li,
+a,
+p {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+  background: transparent;
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.bg-main {
+  background-color: #d2d2d8;
+}
+
+.bg-menu-left {
+  background-color: #373759;
+}
+
+.bg-content {
+  background-color: #eaedf4;
+}
+
+.btn-bg-plus {
+  background-color: #6788ff;
+}
+
+.bi,
+.fas {
+  font-size: 1.5rem;
+}
+
+.list-group a{
+  line-height: 0.3;
+}
+
+.list-group a .font-text-menu{
+  font-size: 10px;
+  color: #fff;
+}
+
+.list-group a:hover,
+.active {
+  background-color: #6788ff;
+  border-radius: 0 5px 5px 0;
+  color: #fff!important;
+}
