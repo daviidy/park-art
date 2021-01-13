@@ -1,3 +1,6 @@
-<div class="alert alert-primary" role="alert">
-  Projet a été bien créer
-</div>
+
+@if ($message = Session::get('success'))
+  <div class="alert alert-primary" role="alert">
+    {{ $message }}
+  </div>
+@endif

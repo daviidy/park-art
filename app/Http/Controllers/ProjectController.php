@@ -47,7 +47,7 @@ class ProjectController extends Controller
         Project::create($request->all());
      
         return redirect()->route('projects.index')
-                        ->with('success','Project created successfully.');
+                        ->with('success','Projet Ajouté avec succès.');
     }
 
     /**
@@ -90,7 +90,7 @@ class ProjectController extends Controller
         $project->update($request->all());
     
             return redirect()->route('client.profile')
-                            ->with('success','Prject updated successfully');
+                            ->with('success','Projet modifié avec succès');
         
     }
 
