@@ -49,9 +49,18 @@ p {
   line-height: 0.3;
 }
 
-.list-group a .font-text-menu{
+.list-group a .font-text-menu,
+.list-group form button .font-text-menu{
   font-size: 10px;
   color: #fff;
+}
+
+button:focus {
+    outline: 0!important;
+    outline: 0!important;
+}
+.btt {
+  line-height: 0;
 }
 
 .list-group a:hover,

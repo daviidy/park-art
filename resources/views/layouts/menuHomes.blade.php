@@ -22,6 +22,10 @@
                   </div>
                   <div class="">
                     <div class="list-group text-center h1">
+                        <a href="/" class="mr-2 py-2 text-white text-decoration-none">
+                          <i class="bi bi-speedometer2"></i><br>
+                          <span class="font-text-menu">Accueil</span>
+                        </a>
                         <a href="{{ route('projects.index') }}" class="mr-2 py-2 active text-white text-decoration-none">
                           <i class="bi bi-layout-text-window-reverse"></i><br>
                           <span class="font-text-menu">Mes projets</span>
@@ -46,6 +50,15 @@
                           <i class="bi bi-chat-dots-fill text-white"></i><br>
                           <span class="font-text-menu">Méssagerie</span>
                         </a>
+
+                          <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                              <button type="submit" class="mr-2 py-2 text-decoration-none btt">
+                                <i class="bi bi-box-arrow-right text-white"></i><br>
+                                <span class="font-text-menu">Deconnecter</span>
+                              </button>
+                          </form>
+
                       </div>
                   </div>
                 </div>
