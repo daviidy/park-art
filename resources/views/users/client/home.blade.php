@@ -22,7 +22,7 @@
           <tbody>
             @foreach($projects as $project)
               <tr>
-                <td>{{ $project->title }}</td>
+                <td>{{ $project->title }} <a href="{{ route('projects.edit', $project->id) }}">modifié</a></td>
                 <td>{{ $project->description }}</td>
                 <td>{{ $project->budget }}€</td>
               </tr>

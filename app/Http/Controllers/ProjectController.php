@@ -69,7 +69,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('projects.edit',compact('project'));
+        return view('users.client.projets.edit', compact('project'));
     }
 
     /**
@@ -89,7 +89,7 @@ class ProjectController extends Controller
     
         $project->update($request->all());
     
-            return redirect()->route('projects.index')
+            return redirect()->route('client.profile')
                             ->with('success','Prject updated successfully');
         
     }
