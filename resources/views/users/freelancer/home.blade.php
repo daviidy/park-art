@@ -1,6 +1,13 @@
 @extends('layouts.menuHomes')
 @section('content')
   <main class="container-fluid">
+    <form action="{{ route('logout') }}" method="post">
+      @csrf
+      <button type="submit">
+        Deconnecter
+      </button>
+    </form>
+
     <div class="row">
       <!--menu left-->
       <div class="col-3 bg-light d-none side-menu d-md-block">
