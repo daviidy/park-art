@@ -20,19 +20,19 @@ Route::get('/', function () {
 });
 
 //Client dashboard
-Route::get('/client/profil', [ClientController::class, 'profile']);
+Route::get('/client/profil', [ClientController::class, 'profile'])->middleware(['auth']);
 
 //Project by clients
-Route::resource('client/projects', ProjectController::class);
+Route::resource('client/projects', ProjectController::class)->middleware(['auth']);
 
 
 //Freelancer dashboard
 Route::get('/freelance/profil', function () {
     return view('users.freelancer.home');
-});
+})->middleware(['auth']);
 
 //Admin dashboard
 Route::get('/admin/dashboard', function () {
     return view('users.admin.home');
-});
+})->middleware(['auth']);
 
