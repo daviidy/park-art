@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\projectController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ClientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +20,7 @@ Route::get('/', function () {
 });
 
 //Client dashboard
-Route::get('/client/profil', function () {
-    return view('users.client.home');
-});
+Route::get('/client/profil', [ClientController::class, 'profile']);
 
 //Project by clients
 Route::resource('client/projects', ProjectController::class);

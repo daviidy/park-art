@@ -15,9 +15,11 @@ class ProjectController extends Controller
     public function index()
     {
         $datas = Project::latest()->paginate(5);
-
+    
         return view('users.client.projets.index', compact('datas'));
+        
     }
+    
 
     /**
      * Show the form for creating a new resource.
