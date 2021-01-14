@@ -2,7 +2,12 @@
   <div class="bg-menu-left rounded-lg shadow">
     <div class="">
       <div class="text-center p-md-4">
-        <img src="https://trello-members.s3.amazonaws.com/5a0488143e7858da0f497a05/a2fe363dd6cf7913f7b1e7e76b11880d/50.png" alt="avatar" width="50" class="img-fluid rounded-circle">
+        @if(Auth::user()->profile_image != "image_default")
+          <img src="/images/{{ Auth::user()->profile_image }}" alt="avatar" width="50" class="img-fluid rounded-circle">
+        @else
+          <img src="/default_image/{{ Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
+        @endif
+
       </div>
       <div class="">
         <div class="list-group text-center h1">
@@ -22,7 +27,11 @@
               <i class="bi bi-people-fill text-white"></i>
               <span class="font-text-menu">Prestataires</span>
             </a>
-            <a href="#" class="mr-2 py-2 text-decoration-none">
+            {{-- @if(Auth::user()->role_id == 1) --}}
+                <a href="{{ route('client.my-profile.index') }}" class="mr-2 py-2 text-decoration-none">
+            {{-- @elseif(Auth::user()->role_id == 1)
+                  <a href="{{ route('freelancer.profile.index') }}" class="mr-2 py-2 text-decoration-none">
+            @endif --}}
               <i class="bi bi-person-square text-white"></i><br>
               <span class="font-text-menu">Mon profil</span>
             </a>

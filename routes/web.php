@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\projectController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ClientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,18 +23,15 @@ Route::get('/nos-prestataires', function () {
     return view('prestataire');
 });
 //Client dashboard
-Route::get('/client/profil', function () {
-    return view('users.client.home');
-});
-
 //Project by clients
-Route::resource('client/projects', ProjectController::class);
+Route::resource('client/my-profile', ClientController::class, ["as"=>"client"])->middleware(['auth']);
+Route::resource('client/projects', ProjectController::class)->middleware(['auth']);
 
 
 //Freelancer dashboard
 Route::get('/freelance/profil', function () {
     return view('users.freelancer.home');
-});
+})->middleware(['auth']);
 
 //Admin dashboard
 Route::get('/admin/dashboard', function () {
