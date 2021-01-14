@@ -19,13 +19,21 @@
               <img src="/default_image/{{ $user->profile_image }}" class="card-img-top p-2 img-fluid rounded-circle w-50 mx-auto" alt="...">
 
               @endif
-              <h3 class="font-weight-bold text-center ">username</h3>
+              <h3 class="font-weight-bold text-center ">first_name</h3>
             </div>
             <div class="card-body p-md-2">
               <ul class="list-group text-center">
                 <li class="align-items-center border-0 list-group-item">
                   <!--span class=""><i class="bi bi-person-circle h2"></i></span-->
-                  <span class="font-weight-bold badge">Nom : </span>{{ $user->name }}
+                  <span class="font-weight-bold badge">Prénoms : </span>{{ $user->first_name }}
+                </li>
+                <li class="align-items-center border-0 list-group-item">
+                  <!--span class=""><i class="bi bi-person-circle h2"></i></span-->
+                  <span class="font-weight-bold badge">Nom : </span>{{ $user->last_name }}
+                </li>
+                <li class="align-items-center border-0 list-group-item">
+                  <!--span class=""><i class="bi bi-person-circle h2"></i></span-->
+                  <span class="font-weight-bold badge">Description : </span>{{ $user->description }}
                 </li>
                 <li class="align-items-center border-0 list-group-item">
                   <!--span class=""><i class="bi bi-envelope h2"></i></span-->
