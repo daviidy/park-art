@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
+        'profile_image',
     ];
 
     /**
@@ -40,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role() 
+    {
+        return $this->belongsTo('App\Models\Role');
+    }
+
+    public function projects()
+    {
+        return $this->hasMany('App\Models\Project');
+    }
 }

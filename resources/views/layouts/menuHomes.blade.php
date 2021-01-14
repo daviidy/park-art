@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/master.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  </head>
+  <body class="bg-main">
+    <div class="main bg-main">
+      <section class="p-md-5">
+        <div class="container-fluid">
+          @include('includes.alert')
+          <div class="row rounded-lg bg-content shadow">
+            @include('includes.menuDashboard')
+            @yield('content')
+
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script>
+      $('.hamburger').click(function() {
+        if ($(window).width() < 600) {
+            $('.side-menu').toggleClass('col-3');
+            $('.side-menu').toggleClass('d-none');
+            $('.side-menu').toggleClass('col-8');
+            $('.side-menu').toggleClass('d-block');
+            $('.main-content').toggleClass('d-none');
+            $('#overlay').fadeToggle(300);
+            } else {
+            $('.side-menu').toggleClass('d-md-block');
+            $('.main-content').toggleClass('col-md-9');
+            $('.main-content').toggleClass('col-md-12');
+            $('main').toggleClass('container-fluid');
+            $('main').toggleClass('container');
+            }
+      });
+    </script>
+  </body>
+</html>

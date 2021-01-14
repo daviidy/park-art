@@ -1,0 +1,93 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+button,
+ul,
+li,
+a,
+p {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+  background: transparent;
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.bg-main {
+  background-color: #d2d2d8;
+}
+
+.bg-menu-left {
+  background-color: #373759;
+}
+
+.bg-content {
+  background-color: #eaedf4;
+}
+
+.btn-bg-plus {
+  background-color: #6788ff;
+}
+
+.bi,
+.fas {
+  font-size: 1.5rem;
+}
+
+.list-group a{
+  line-height: 0.3;
+}
+
+.list-group a .font-text-menu,
+.list-group form button .font-text-menu{
+  font-size: 10px;
+  color: #fff;
+}
+
+button:focus {
+    outline: 0!important;
+    outline: 0!important;
+}
+.btt {
+  line-height: 0;
+}
+
+.list-group a:hover,
+.active {
+  background-color: #6788ff;
+  border-radius: 0 5px 5px 0;
+  color: #fff!important;
+}
+
+/*mon profil*/
+.card-image-box{
+  border-radius: 20px!important;
+}
+
+.box-shadows{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-image-bg {
+  background-color: #6788ff;
+}
+
+.card-image-box-set {
+    border-radius: 0px 0px 20px 20px!important;
+}
+
+.profit-225 .form-control:focus {
+    border-color: transparent!important;
+    box-shadow: none!important;
+}
