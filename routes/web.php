@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 //Client dashboard
 //Project by clients
-Route::resource('client/my-profile', ClientController::class)->middleware(['auth']);
+Route::resource('client/my-profile', ClientController::class, ["as"=>"client"])->middleware(['auth']);
 Route::resource('client/projects', ProjectController::class)->middleware(['auth']);
 
 

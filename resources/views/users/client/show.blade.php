@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="col-md-4 mb-4 d-md-block d-none"></div>
-        <a href="{{ route('my-profile.edit',$user->id) }}">modifier mon profil</a>
+        <a href="{{ route('client.my-profile.edit',$user->id) }}">modifier mon profil</a>
       </div>
     </div>
   </div>
