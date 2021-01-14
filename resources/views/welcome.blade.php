@@ -1,5 +1,6 @@
 @extends('layouts.menu')
 @section('content')
+      <section class="hero" style="background-image:url('/assets/images/image1.jpg') ">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
