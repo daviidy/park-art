@@ -11,31 +11,30 @@
   </head>
   <body>
     <div class="content">
-      <section class="hero" style="background-image:url('/assets/images/image1.jpg') ">
-        <header>
-          <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand text-white font-weight-bold" href="#">Park Art</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav mx-auto font-weight-bold">
-                <li class="nav-item pr-md-5 active">
-                  <a class="nav-link text-white" href="#">Accueil <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item pr-md-5">
-                  <a class="nav-link text-white" href="#">A propos</a>
-                </li>
-                <li class="nav-item pr-md-5">
-                  <a class="nav-link text-white" href="#">Contactez-vous</a>
-                </li>
-              </ul>
-              <span class="navbar-text shadow rounded-pill bg-white">
-                <a href="{{ url('/login') }}" class="text-decoration-none p-3 text-capitalize font-weight-bolder" data-toggle="modal" data-target="#loginModal">Connectez-vous</a>
-              </span>
-            </div>
-          </nav>
-        </header>
+      <header class="position-absolute w-100" style="z-index: 1; top:0">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand text-white font-weight-bold" href="#">Park Art</a>
+          <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mx-auto font-weight-bold">
+              <li class="nav-item pr-md-5 active">
+                <a class="nav-link text-white" href="/">Accueil <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item pr-md-5">
+                <a class="nav-link text-white" href="#">A propos</a>
+              </li>
+              <li class="nav-item pr-md-5">
+                <a class="nav-link text-white" href="#">Contactez-vous</a>
+              </li>
+            </ul>
+            <span class="navbar-text shadow rounded-pill bg-white">
+              <a href="{{ url('/login') }}" class="text-decoration-none p-3 text-capitalize font-weight-bolder" data-toggle="modal" data-target="#loginModal">Connectez-vous</a>
+            </span>
+          </div>
+        </nav>
+      </header>
 
         @yield('content')
         @include('includes.login')

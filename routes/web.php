@@ -17,7 +17,10 @@ use App\Http\Controllers\projectController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//prestataire routes
+Route::get('/nos-prestataires', function () {
+    return view('prestataire');
+});
 //Client dashboard
 Route::get('/client/profil', function () {
     return view('users.client.home');
@@ -36,4 +39,3 @@ Route::get('/freelance/profil', function () {
 Route::get('/admin/dashboard', function () {
     return view('users.admin.home');
 });
-

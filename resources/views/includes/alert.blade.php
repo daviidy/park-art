@@ -1,3 +1,3 @@
-<div class="alert alert-primary" role="alert">
+<div class="alert alert-success" role="alert">
   Projet a été bien créer
 </div>
