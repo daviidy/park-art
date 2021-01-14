@@ -15,9 +15,11 @@ class ProjectController extends Controller
     public function index()
     {
         $datas = Project::latest()->paginate(5);
-
+    
         return view('users.client.projets.index', compact('datas'));
+        
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -45,7 +47,7 @@ class ProjectController extends Controller
         Project::create($request->all());
      
         return redirect()->route('projects.index')
-                        ->with('success','Project created successfully.');
+                        ->with('success','Projet Ajouté avec succès.');
     }
 
     /**
@@ -67,7 +69,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('projects.edit',compact('project'));
+        return view('users.client.projets.edit', compact('project'));
     }
 
     /**
@@ -87,8 +89,8 @@ class ProjectController extends Controller
     
         $project->update($request->all());
     
-            return redirect()->route('projects.index')
-                            ->with('success','Prject updated successfully');
+            return redirect()->route('my-profile.index')
+                            ->with('success','Projet modifié avec succès');
         
     }
 
