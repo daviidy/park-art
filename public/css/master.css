@@ -45,6 +45,13 @@ p {
   font-size: 1.5rem;
 }
 
+.btn-delete {
+  font-size: 15px;
+}
+
+.border-bottoms {
+  border-bottom: 1px solid #fff!important;
+}
 .list-group a{
   line-height: 0.3;
 }
