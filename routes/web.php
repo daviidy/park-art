@@ -18,7 +18,10 @@ use App\Http\Controllers\ClientController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//prestataire routes
+Route::get('/nos-prestataires', function () {
+    return view('prestataire');
+});
 //Client dashboard
 //Project by clients
 Route::resource('client/my-profile', ClientController::class, ["as"=>"client"])->middleware(['auth']);
@@ -33,5 +36,4 @@ Route::get('/freelance/profil', function () {
 //Admin dashboard
 Route::get('/admin/dashboard', function () {
     return view('users.admin.home');
-})->middleware(['auth']);
-
+});

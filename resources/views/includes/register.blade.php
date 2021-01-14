@@ -14,9 +14,16 @@
                 <form method="post" action="register">
                   @csrf
                   <div class="form-group">
-                    <label for="exampleInputtext">Nom et Prénoms</label>
-                    <input type="text" name="name" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputText" aria-describedby="textHelp">
-                    @error('name')
+                    <label for="exampleInputtext">Votre Prénoms</label>
+                    <input type="text" name="first_name" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputText" aria-describedby="textHelp">
+                    @error('first_name')
+                        <p>{{ $message }}</p>
+                    @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputtext">Votre Nom</label>
+                    <input type="text" name="last_name" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputText" aria-describedby="textHelp">
+                    @error('last_name')
                         <p>{{ $message }}</p>
                     @enderror
                   </div>
