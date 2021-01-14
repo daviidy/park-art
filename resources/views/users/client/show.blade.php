@@ -12,7 +12,11 @@
         <div class="col-md-4 mb-4">
           <div class="card card-image-box box-shadows p-1">
             <div class="text-center card-image-box card-image-bg p-md-5">
-              <img src="/images/{{ $user->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
+              @if($user->profile_image != "image_default")
+                <img src="/images/{{ $user->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
+                @else
+                <img src="/default_image/{{ $user->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
+              @endif
             </div>
             <div class="card-body">
               <ul class="list-group">

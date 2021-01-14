@@ -67,10 +67,10 @@ return [
     'login_client' => RouteServiceProvider::CLIENT_HOME,
     'login_freelance' => RouteServiceProvider::FREELANCE_HOME,
     
-    'registered_client' => '/client/profile',
+    'registered_client' => '/client/my-profile',
     'registered_freelance' => '/freelance/profile',
 
-    'login_client' => '/client/profile',
+    'login_client' => '/client/my-profile',
     'login_freelance' => '/freelance/profile',
 
     /*

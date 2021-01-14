@@ -20,11 +20,16 @@
         <div class="col-md-4 mb-4">
           <div class="card box-shadows">
             <div class="text-center card-image-box-set card-image-bg p-md-5">
-              @if(Session::get('image'))
-                <img src="/images/{{ Session::get('image') }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
+              @if($user->profile_image != "image_default")
+                  @if(Session::get('image'))
+                  <img src="/images/{{ Session::get('image') }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
+                  @else
+                    <img src="/images/{{ $user->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
+                  @endif
               @else
-                <img src="/images/{{ $user->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
+                <img src="/default_image/{{ $user->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
               @endif
+              
             </div>
             <div class="card-body">
               <form method="post" action="{{ route('my-profile.update', $user->id) }}" enctype="multipart/form-data">

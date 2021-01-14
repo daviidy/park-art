@@ -20,16 +20,8 @@ Route::get('/', function () {
 });
 
 //Client dashboard
-// Route::get('/client/profile', [ClientController::class, 'profile'])->name('client.profile')->middleware(['auth']);
-
-// Route::get('/client/my-profile', [ClientController::class, 'my_profile'])->name('client.userprofil')->middleware(['auth']);
-
-// Route::get('/client/my-profile/edit', [ClientController::class, 'edit_profile'])->name('client.edit.profile')->middleware(['auth']);
-
 //Project by clients
 Route::resource('client/my-profile', ClientController::class)->middleware(['auth']);
-
-
 Route::resource('client/projects', ProjectController::class)->middleware(['auth']);
 
 
