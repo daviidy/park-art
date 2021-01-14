@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Intervention\Image\Facades\Image as Image;
+use ImageResize;
 
 class ClientController extends Controller
 {
@@ -84,13 +84,13 @@ class ClientController extends Controller
         $image = $request->file('profile_image');
         // return dd($image);
         $ProfileImageName = time().'.'.$image->getClientOriginalExtension();
+        ImageResize::make($image->path())->resize(300, 300)->save(public_path('images/' . $ProfileImageName));
         $image->move(public_path('images'), $ProfileImageName);
-        Image::make($ProfileImageName)->resize(300, 300)->save(public_path('images/' . $ProfileImageName));
         $user->profile_image = $ProfileImageName;
         $user->save();
 
 
-        return redirect()->route('my-profile.show', $id)
+        return back()
             ->with('success','Image ajouté avec succès.')
             ->with('image',$ProfileImageName); 
     }
