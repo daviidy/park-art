@@ -4,7 +4,7 @@
   <div class="p-md-4">
     <div class="align-items-center d-flex justify-content-between mb-5 pt-5">
       <h2>Modifié mon profil</h2>
-      <a href="#" class="btn-bg-plus p-2 p-md-3 rounded-lg text-decoration-none text-white shadow border-white border">Publier un projet</a>
+      <a href="#" class="btn-bg-plus p-2 p-md-3 rounded-lg text-decoration-none text-white shadow">Publier un projet</a>
     </div>
 
     {{-- @if ($message = Session::get('success'))
@@ -29,7 +29,7 @@
               @else
                 <img src="/default_image/{{ $user->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
               @endif
-              
+
             </div>
             <div class="card-body">
               <form method="post" action="{{ route('client.my-profile.update', $user->id) }}" enctype="multipart/form-data">
