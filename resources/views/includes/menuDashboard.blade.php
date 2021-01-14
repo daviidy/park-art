@@ -2,7 +2,12 @@
   <div class="bg-menu-left rounded-lg shadow">
     <div class="">
       <div class="text-center p-md-4">
-        <img src="https://trello-members.s3.amazonaws.com/5a0488143e7858da0f497a05/a2fe363dd6cf7913f7b1e7e76b11880d/50.png" alt="avatar" width="50" class="img-fluid rounded-circle">
+        @if(Auth::user()->profile_image != "image_default")
+          <img src="/images/{{ Auth::user()->profile_image }}" alt="avatar" width="50" class="img-fluid rounded-circle">
+        @else
+          <img src="/default_image/{{ Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
+        @endif
+
       </div>
       <div class="">
         <div class="list-group text-center h1">
