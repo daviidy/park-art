@@ -23,11 +23,15 @@
               <i class="fas fa-paper-plane text-white"></i><br>
               <span class="font-text-menu">Publier</span>
             </a>
-            <a href="{{ route('freelancers.index') }}" class="mr-2 py-2 text-decoration-none">
+            <a href="#" class="mr-2 py-2 text-decoration-none">
               <i class="bi bi-people-fill text-white"></i>
               <span class="font-text-menu">Prestataires</span>
             </a>
-            <a href="#" class="mr-2 py-2 text-decoration-none">
+            {{-- @if(Auth::user()->role_id == 1) --}}
+                <a href="{{ route('client.my-profile.index') }}" class="mr-2 py-2 text-decoration-none">
+            {{-- @elseif(Auth::user()->role_id == 1)
+                  <a href="{{ route('freelancer.profile.index') }}" class="mr-2 py-2 text-decoration-none">
+            @endif --}}
               <i class="bi bi-person-square text-white"></i><br>
               <span class="font-text-menu">Mon profil</span>
             </a>
