@@ -16,4 +16,9 @@ class ClientController extends Controller
         
         return view('users.client.home', compact('projects'));
     }
+
+    public function userprofil()
+    {
+        return view('users.client.show');
+    }
 }

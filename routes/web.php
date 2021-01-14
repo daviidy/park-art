@@ -20,7 +20,10 @@ Route::get('/', function () {
 });
 
 //Client dashboard
-Route::get('/client/profil', [ClientController::class, 'profile'])->name('client.profile')->middleware(['auth']);
+Route::get('/client/profile', [ClientController::class, 'profile'])->name('client.profile')->middleware(['auth']);
+
+Route::get('/client/my-profile', [ClientController::class, 'userprofil'])->name('client.userprofil')->middleware(['auth']);
+
 
 //Project by clients
 Route::resource('client/projects', ProjectController::class)->middleware(['auth']);
