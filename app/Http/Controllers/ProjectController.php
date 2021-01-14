@@ -89,7 +89,7 @@ class ProjectController extends Controller
     
         $project->update($request->all());
     
-            return redirect()->route('client.profile')
+            return redirect()->route('my-profile.index')
                             ->with('success','Projet modifié avec succès');
         
     }
