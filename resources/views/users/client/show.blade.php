@@ -22,7 +22,7 @@
               <ul class="list-group">
                 <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
                   <span class=""><i class="bi bi-person-circle h2"></i></span>
-                  {{ $user->name }}
+                  {{ $user->first_name }} {{ $user->last_name }}
                 </li>
                 <li class="border-0 list-group-item d-flex justify-content-between align-items-center">
                   <span class=""><i class="bi bi-envelope h2"></i></span>

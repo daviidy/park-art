@@ -75,24 +75,33 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request,User $id)
     {
         $request->validate([
-            'profile_image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'profile_image' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $user = Auth::user();
         $image = $request->file('profile_image');
-        // return dd($image);
-        $ProfileImageName = time().'.'.$image->getClientOriginalExtension();
-        ImageResize::make($image->path())->resize(300, 300)->save(public_path('images/' . $ProfileImageName));
-        $image->move(public_path('images'), $ProfileImageName);
-        $user->profile_image = $ProfileImageName;
-        $user->save();
+        
+        if($image){
 
-
-        return back()
+            $ProfileImageName = time().'.'.$image->getClientOriginalExtension();
+            ImageResize::make($image->path())->resize(300, 300)->save(public_path('images/' . $ProfileImageName));
+            $image->move(public_path('images'), $ProfileImageName);
+            $user->profile_image = $ProfileImageName;
+            $user->save();
+            
+            return back()
             ->with('success','Image ajouté avec succès.')
             ->with('image',$ProfileImageName); 
+        }
+        
+        $user->description = $request->input('description');
+        $user->save();
+        
+        return back()
+                ->with('success','Image ajouté avec succès.');
+
     }
 
     /**

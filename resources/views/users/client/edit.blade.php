@@ -43,8 +43,16 @@
                   @enderror
                 </div>
                 <div class="form-group profit-225">
+                  <label>Prénoms</label>
+                  <input type="text" class="form-control" name="name" value="{{ $user->first_name }}" readonly>
+                </div>
+                <div class="form-group profit-225">
                   <label>Nom</label>
-                  <input type="email" class="form-control" name="name" value="{{ $user->name }}" readonly>
+                  <input type="text" class="form-control" name="name" value="{{ $user->last_name }}" readonly>
+                </div>
+                <div class="form-group profit-225">
+                  <label>Votre description</label>
+                  <textarea name="description" id="" cols="30" rows="10">{{ $user->description }}</textarea>
                 </div>
                 <div class="form-group profit-225">
                   <label>Adresse email</label>
