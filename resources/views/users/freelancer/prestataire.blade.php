@@ -14,19 +14,29 @@
 </section>
 <section class="p-md-5 p-3">
   <div class="container-fluid">
+    @if(count($freelancers) > 0)
+      
+
+
+    @foreach($freelancers as $freelance)
+      
       <div class="row">
 
         <div class="col-md-4">
-          <a href="#" class="text-decoration-none ">
+          <a href="{{ url('/prestataire', $freelance->id) }}" class="text-decoration-none ">
             <div class="card border-0 mb-3" style="max-width: 540px;">
               <div class="row rounded-lg box-shadow no-gutters align-items-center">
                 <div class="col-md-4 text-center py-md-0 py-3">
-                  <img src="https://trello-members.s3.amazonaws.com/5a0488143e7858da0f497a05/a2fe363dd6cf7913f7b1e7e76b11880d/30.png" class="card-img img-fluid rounded-circle px-4 img-pr" alt="avatar" width="100">
+                  @if($freelance->profile_image != "image_default")
+                  <img src="/images/{{ $freelance->profile_image }}" class="card-img img-fluid rounded-circle px-4 img-pr" alt="avatar" width="100">
+                  @else
+                  <img src="/default_image/{{ $freelance->profile_image }}" class="card-img img-fluid rounded-circle px-4 img-pr" alt="avatar" width="100">
+                  @endif
                 </div>
                 <div class="col-md-8">
                   <div class="card-body text-muted">
-                    <h5 class="card-title font-weight-bold">Card title</h5>
-                    <p class="card-text">This is a wider card with .</p>
+                    <h5 class="card-title font-weight-bold">{{ $freelance->first_name }} {{ $freelance->last_name }}</h5>
+                    <p class="card-text">{{ $freelance->description }} .</p>
                   </div>
                 </div>
               </div>
@@ -35,6 +45,12 @@
         </div>
 
       </div>
+    @endforeach
+    @else
+      <h3>Pas encore de Prestataire</h3>
+    @endif
+
+
   </div>
 </section>
 @endsection
