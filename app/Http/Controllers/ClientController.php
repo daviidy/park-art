@@ -12,7 +12,7 @@ use ImageResize;
 class ClientController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the user project.
      *
      * @return \Illuminate\Http\Response
      */
@@ -70,6 +70,7 @@ class ClientController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * Update Image and Desciption
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
