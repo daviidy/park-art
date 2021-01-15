@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +18,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'description',
         'email',
         'password',
         'role_id',

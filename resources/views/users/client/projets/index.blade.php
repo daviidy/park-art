@@ -2,10 +2,6 @@
 @section('content')
 <div class="col-12 col-md-11">
 
-  <form action="{{ route('logout') }}" method="post">
-    @csrf
-    <button type="submit">Deconnecter</button>
-  </form>
 
   <div class="p-md-4">
     <div class="align-items-center d-flex justify-content-between mb-5 pt-5">
@@ -24,11 +20,11 @@
           </thead>
 
           <tbody>
-            @foreach($datas as $data)
+            @foreach($projects as $project)
               <tr>
-                <td>{{ $data->title }}</td>
-                <td>{{ $data->description }}</td>
-                <td>{{ $data->budget }}€</td>
+                <td><a href="{{ route('projects.edit', $project->id) }}">{{ $project->title }}  <i class="fa fa-pencil"></i> </a></td>
+                <td>{{ $project->description }}</td>
+                <td>{{ $project->budget }}€</td>
               </tr>
             @endforeach
             {{-- <tr>

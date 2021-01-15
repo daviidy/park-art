@@ -4,10 +4,10 @@
   <div class="p-md-4">
     <div class="align-items-center d-flex justify-content-between mb-5 pt-5">
       <h2>Mes projets</h2>
-      <a href="{{ route('projects.create') }}" class="btn-bg-plus p-2 p-md-3 rounded-lg text-decoration-none text-white shadow border-white border">Publier un projet</a>
+      <a href="{{ route('projects.create') }}" class="btn-bg-plus p-2 p-md-3 rounded-lg text-decoration-none text-white shadow">Publier un projet</a>
     </div>
 
-    
+
     <div class="pt-md-5">
       <div class="">
         <table class="table">
@@ -22,7 +22,7 @@
           <tbody>
             @foreach($projects as $project)
               <tr>
-                <td>{{ $project->title }} <a href="{{ route('projects.edit', $project->id) }}">modifié</a></td>
+                <td> <a href="{{ route('projects.edit', $project->id) }}">{{ $project->title }}  <i class="fa fa-pencil"></i> </a></td>
                 <td>{{ $project->description }}</td>
                 <td>{{ $project->budget }}€</td>
               </tr>

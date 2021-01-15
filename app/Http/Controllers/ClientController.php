@@ -12,7 +12,7 @@ use ImageResize;
 class ClientController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the user project.
      *
      * @return \Illuminate\Http\Response
      */
@@ -70,29 +70,39 @@ class ClientController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * Update Image and Desciption
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request,User $id)
     {
         $request->validate([
-            'profile_image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'profile_image' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $user = Auth::user();
         $image = $request->file('profile_image');
-        // return dd($image);
-        $ProfileImageName = time().'.'.$image->getClientOriginalExtension();
-        ImageResize::make($image->path())->resize(300, 300)->save(public_path('images/' . $ProfileImageName));
-        $image->move(public_path('images'), $ProfileImageName);
-        $user->profile_image = $ProfileImageName;
-        $user->save();
+        
+        if($image){
 
-
-        return back()
+            $ProfileImageName = time().'.'.$image->getClientOriginalExtension();
+            ImageResize::make($image->path())->resize(300, 300)->save(public_path('images/' . $ProfileImageName));
+            $image->move(public_path('images'), $ProfileImageName);
+            $user->profile_image = $ProfileImageName;
+            $user->save();
+            
+            return back()
             ->with('success','Image ajouté avec succès.')
             ->with('image',$ProfileImageName); 
+        }
+        
+        $user->description = $request->input('description');
+        $user->save();
+        
+        return back()
+                ->with('success','Image ajouté avec succès.');
+
     }
 
     /**

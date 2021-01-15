@@ -14,9 +14,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $datas = Project::latest()->paginate(5);
+        $projects = Project::latest()->paginate(5);
     
-        return view('users.client.projets.index', compact('datas'));
+        return view('users.client.projets.index', compact('projects'));
         
     }
     
@@ -89,7 +89,7 @@ class ProjectController extends Controller
     
         $project->update($request->all());
     
-            return redirect()->route('my-profile.index')
+            return redirect()->route('client.my-profile.index')
                             ->with('success','Projet modifié avec succès');
         
     }
