@@ -39,6 +39,7 @@
         @yield('content')
         @include('includes.login')
         @include('includes.register')
+        @include('includes.offert')
 
         <footer class="p-4 border-top">
           <p>Tous droits réservés</p>
