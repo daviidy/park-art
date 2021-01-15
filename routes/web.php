@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 //prestataire routes
 Route::get('/nos-prestataires',[FreelanceController::class, 'allFreelancers']);
-Route::get('/freelance/{id}',[FreelanceController::class, 'freelancerInfo']);
+Route::get('/prestataire/{id}',[FreelanceController::class, 'freelancerInfo']);
 //Client dashboard
 //Project by clients
 Route::resource('client/my-profile', ClientController::class, ["as"=>"client"])->middleware(['auth']);
@@ -41,4 +41,4 @@ Route::get('/admin/dashboard', function () {
 
 
 //Prestataire
-Route::resource('/freelance/my-profile', FreelanceController::class, ["as"=>"freelance"]);
+Route::resource('/freelance/my-profile', FreelanceController::class);
