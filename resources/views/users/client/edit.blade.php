@@ -20,7 +20,7 @@
         <div class="col-md-4 mb-4">
           <div class="card box-shadows">
             <div class="text-center card-image-box-set card-image-bg p-md-5">
-              @if($user->profile_image != "image_default")
+              @if($user->profile_image != "image_default.png")
                   @if(Session::get('image'))
                   <img src="/images/{{ Session::get('image') }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
                   @else
