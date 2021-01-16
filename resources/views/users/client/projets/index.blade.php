@@ -1,8 +1,6 @@
 @extends('layouts.menuHomes')
 @section('content')
 <div class="col-12 col-md-11">
-
-
   <div class="p-md-4">
     <div class="align-items-center d-flex justify-content-between mb-5 pt-5">
       <h2>Mes projets</h2>
