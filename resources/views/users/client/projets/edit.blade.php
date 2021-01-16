@@ -3,7 +3,7 @@
 <div class="col-12 col-md-11">
   <div class="p-md-4">
     <div class="d-md-flex justify-content-between align-items-center">
-      <h2>Publier un projet</h2>
+      <h2>Modifier ce projet</h2>
     </div>
     <div class="pt-md-5">
       <div class="p-4">
@@ -35,15 +35,32 @@
                 <div class="form-group">
                   <label>Budget</label>
                   <select name="budget" class="form-control">
+                    @if($project->budget == "- 500")
+                      <option value="- 500" selected>- 500 €</option>
+                      <option value="500 à 1000">500 à 1000 €</option>
+                      <option value="1000 à 10000">1000 à 10000 €</option>
+                      <option value="+ 10000">+ 10000 €</option>
+                    @elseif($project->budget == "500 à 1000")
+                      <option value="- 500">- 500 €</option>
+                      <option value="500 à 1000" selected>500 à 1000 €</option>
+                      <option value="1000 à 10000">1000 à 10000 €</option>
+                      <option value="+ 10000">+ 10000 €</option>
+                    @elseif($project->budget == "1000 à 10000")
+                      <option value="- 500">- 500 €</option>
+                      <option value="500 à 1000">500 à 1000 €</option>
+                      <option value="1000 à 10000" selected>1000 à 10000 €</option>
+                      <option value="+ 10000">+ 10000 €</option>
+                    @elseif($project->budget == "+ 10000")
                     <option value="- 500">- 500 €</option>
-                    <option value="500 à 1000">500 à 1000 €</option>
-                    <option value="1000 à 10000">1000 à 10000 €</option>
-                    <option value="+ 10000">+ 10000 €</option>
+                      <option value="500 à 1000">500 à 1000 €</option>
+                      <option value="1000 à 10000">1000 à 10000 €</option>
+                      <option value="+ 10000" selected>+ 10000 €</option>
+                    @endif
                   </select>
 
                   <input type="hidden" name="user_id" value="{{ \Auth::user()->id }}">
                 </div>
-                <button type="submit" class="btn btn-primary w-100 rounded-pill">Publier le projet</button>
+                <button type="submit" class="btn btn-primary w-100 rounded-pill">Modifier le projet</button>
               </form>
             </div>
           </div>

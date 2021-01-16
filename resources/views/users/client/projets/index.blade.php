@@ -18,11 +18,11 @@
           </thead>
 
           <tbody>
-            @foreach($datas as $data)
+            @foreach($projects as $project)
               <tr>
-                <td>{{ $data->title }}</td>
-                <td>{{ $data->description }}</td>
-                <td>{{ $data->budget }}€</td>
+                <td><a href="{{ route('projects.edit', $project->id) }}">{{ $project->title }}  <i class="fa fa-pencil"></i> </a></td>
+                <td>{{ $project->description }}</td>
+                <td>{{ $project->budget }}€</td>
               </tr>
             @endforeach
             {{-- <tr>
