@@ -130,6 +130,14 @@ p {
   opacity: 0.7;
 }
 
+/*Nos projets*/
+.rounded-lgs {
+    border-radius: 1rem!important;
+}
+.bg-primarys {
+  background-color: #007bff33!important;
+}
+
 @media only screen and (max-width: 600px) {
   .header-text {
       top: 100px;

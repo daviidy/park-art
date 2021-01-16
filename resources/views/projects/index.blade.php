@@ -5,52 +5,73 @@
     <div class="row">
       <div class="col-md-12">
         <div class="text-center position-relative header-text">
-          <h1 class="display-1 font-weight-bold text-white">Nos Prestataires</h1>
+          <h1 class="display-1 font-weight-bold text-white">Nos Projets</h1>
           <!--button class="btn mt-4 text-white rounded-pill px-5 font-weight-bolder">Créer un compte</button-->
         </div>
       </div>
     </div>
   </div>
 </section>
-<section class="p-md-5 p-3">
+<section class="p-md-4 p-2 bg-light">
   <div class="container-fluid">
-    @if(count($freelancers) > 0)
+    <div class="row">
+      <div class="col-md-3">
+        <div class="">
+          <div class="accordion" id="accordionExample">
+            <div class="card border-0">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-dark text-left font-weight-bold text-decoration-none d-flex justify-content-between align-items-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Catégories <span><i class="bi bi-chevron-up"></i></span>
+                  </button>
+                </h2>
+              </div>
 
-
-
-    @foreach($freelancers as $freelance)
-
-      <div class="row">
-
-        <div class="col-md-4">
-          <a href="{{ url('/prestataire', $freelance->id) }}" class="text-decoration-none ">
-            <div class="card border-0 mb-3" style="max-width: 540px;">
-              <div class="row rounded-lg box-shadow no-gutters align-items-center">
-                <div class="col-md-4 text-center py-md-0 py-3">
-                  @if($freelance->profile_image != "image_default")
-                  <img src="/images/{{ $freelance->profile_image }}" class="card-img img-fluid rounded-circle px-4 img-pr" alt="avatar" width="100">
-                  @else
-                  <img src="/default_image/{{ $freelance->profile_image }}" class="card-img img-fluid rounded-circle px-4 img-pr" alt="avatar" width="100">
-                  @endif
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body text-muted">
-                    <h5 class="card-title font-weight-bold">{{ $freelance->first_name }} {{ $freelance->last_name }}</h5>
-                    <p class="card-text">{{ $freelance->description }} .</p>
-                  </div>
+              <div id="collapseOne" class="collapse show bg-light p-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body p-2">
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 bg-light">
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input">
+                        <label class=" d-flex justify-content-between align-items-center" >Web <span class="badge badge-info"> 25</span> </label>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-          </a>
+
+          </div>
         </div>
-
       </div>
-    @endforeach
-    @else
-      <h3>Pas encore de Prestataire</h3>
-    @endif
+      <div class="col-md-9">
+        <div class="row">
 
+          <div class="col-md-4">
+            <div class="card shadow-sm rounded-lgs">
+              <div class="card-body p-3">
+                <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-lgs p-2" style="width: 100px;height: 100px">
+                <h5 class="card-title h6 font-weight-bold">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <div class="mb-4">
+                  <ul class="list-group list-group-horizontal-md d-flex justify-content-between">
+                    <li class="list-group-item border-0 badge p-2 bg-primarys">Full time</li>
+                    <li class="list-group-item border-0 badge p-2 bg-primarys">Min. 1 an</li>
+                    <li class="list-group-item border-0 badge p-2 bg-primarys">senior level</li>
+                  </ul>
+                </div>
+                <div class="text-center">
+                  <a href="#" class="btn btn-primary px-4">Postuler</a>
+                  <a href="#" class="btn btn-primary px-5">Voir</a>
+                </div>
 
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 @endsection
