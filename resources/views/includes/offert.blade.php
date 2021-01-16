@@ -8,7 +8,7 @@
       <div class="modal-body p-0">
         <div class="card border-0" style="max-width: 540px;">
           <div class="row no-gutters">
-            <div class="col-md-4 img-login" style="background-image: url('images/offert.jpg')">
+            <div class="col-md-4 img-login" style="background-image: url('/assets/images/offert.jpg')">
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">
