@@ -15,11 +15,9 @@
 <section class="p-md-5 p-3">
   <div class="container-fluid">
     @if(count($freelancers) > 0)
-      
-
 
     @foreach($freelancers as $freelance)
-      
+
       <div class="row">
 
         <div class="col-md-4">
