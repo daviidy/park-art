@@ -34,7 +34,7 @@
                         <div class="form-group form-check border-bottom text-center">
                           <input type="checkbox" class="form-check-input" id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>
-                          <p><a href="#">Mot de passe oublié ?</a></p>
+                          <p><a href="{{ url('forgot-password') }}">Mot de passe oublié ?</a></p>
                         </div>
                         <div class="form-group form-check text-center">
                           <p>Vous n'avez pas de compte ?<a href="{{ route('register') }}">Inscrivez-vous</a></p>
