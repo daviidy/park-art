@@ -13,7 +13,7 @@
         <div class="col-md-4 mb-4">
           <div class="card box-shadows p-1">
             <div class="text-center px-md-5 ">
-              @if($user->profile_image != "image_default")
+              @if($user->profile_image != "image_default.png")
               <img src="/images/{{ $user->profile_image }}" class="card-img-top p-2 img-fluid rounded-circle w-50 mx-auto" alt="...">
               @else
               <img src="/default_image/{{ $user->profile_image }}" class="card-img-top p-2 img-fluid rounded-circle w-50 mx-auto" alt="...">

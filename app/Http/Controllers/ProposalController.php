@@ -2,35 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Proposal;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\FreelanceModel;
 
-
-class FreelanceController extends Controller
+class ProposalController extends Controller
 {
-
-    private $freelanceModel = null;
     /**
-     * __construct
-     * This constructor initialize new instance of FreelanceModel
-     * for get all logic on this model
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->freelanceModel = new FreelanceModel;
-    }
-
-    /**
-     * Display a listing of the freelancer.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('users.freelancer.home');
+        //
     }
 
     /**
@@ -57,10 +41,10 @@ class FreelanceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Proposal  $proposal
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Proposal $proposal)
     {
         //
     }
@@ -68,10 +52,10 @@ class FreelanceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Proposal  $proposal
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Proposal $proposal)
     {
         //
     }
@@ -80,10 +64,10 @@ class FreelanceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Proposal  $proposal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Proposal $proposal)
     {
         //
     }
@@ -91,22 +75,11 @@ class FreelanceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Proposal  $proposal
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Proposal $proposal)
     {
         //
-    }
-
-    public function allFreelancers ()
-    {
-        // $freelancers = User::all()->where('role_id', 2);
-        return view('users.freelancer.prestataire', ['freelancers' => $this->freelanceModel->getAllFreelancers()]);
-    }
-
-    public function freelancerInfo ($id)
-    {
-        return view('users.freelancer.freelancer_profile', ['user' => $this->freelanceModel->getFreelancerInfo()]);
     }
 }

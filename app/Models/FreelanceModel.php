@@ -18,13 +18,11 @@ class FreelanceModel extends Model
      * @return void
      */
     public function getAllFreelancers(){
-        $freelancers = User::all()->where('role_id', 2);
-        return $freelancers;
+        return User::all()->where('role_id', 2);
     }
 
     public function getFreelancerInfo ()
     {
-        $freelance = Auth::user()->where('role_id', 2);
-        return $freelance;
+        return Auth::user()->where('role_id', 2);
     }
 }

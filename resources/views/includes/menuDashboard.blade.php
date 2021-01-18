@@ -2,7 +2,7 @@
   <div class="bg-menu-left rounded-lg shadow">
     <div class="">
       <div class="text-center p-md-4">
-        @if(Auth::user()->profile_image != "image_default")
+        @if(Auth::user()->profile_image != "image_default.png")
           <img src="/images/{{ Auth::user()->profile_image }}" alt="avatar" width="50" class="img-fluid rounded-circle">
         @else
           <img src="/default_image/{{ Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
@@ -15,7 +15,7 @@
               <i class="bi bi-speedometer2"></i><br>
               <span class="font-text-menu">Accueil</span>
             </a>
-            <a href="{{ route('projects.index') }}" class="mr-2 py-2 active text-white text-decoration-none">
+            <a href="{{ route('client.my-profile.index') }}" class="mr-2 py-2 active text-white text-decoration-none">
               <i class="bi bi-layout-text-window-reverse"></i><br>
               <span class="font-text-menu">Mes projets</span>
             </a>
