@@ -15,7 +15,7 @@
               <i class="bi bi-speedometer2"></i><br>
               <span class="font-text-menu">Accueil</span>
             </a>
-            <a href="{{ route('projects.index') }}" class="mr-2 py-2 active text-white text-decoration-none">
+            <a href="{{ route('client.my-profile.index') }}" class="mr-2 py-2 active text-white text-decoration-none">
               <i class="bi bi-layout-text-window-reverse"></i><br>
               <span class="font-text-menu">Mes projets</span>
             </a>
