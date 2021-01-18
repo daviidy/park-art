@@ -24,8 +24,8 @@
               <span class="font-text-menu">Publier</span>
             </a>
             <a href="/nos-prestataires" class="mr-2 py-2 text-decoration-none">
-              <i class="bi bi-people-fill text-white"></i><br>
-              <span class="font-text-menu">Prestataires</span>
+              <i class="bi bi-files text-white"></i><br>
+              <span class="font-text-menu">Liste des projets</span>
             </a>
             {{-- @if(Auth::user()->role_id == 1) --}}
                 <a href="{{ route('client.my-profile.index') }}" class="mr-2 py-2 text-decoration-none">
