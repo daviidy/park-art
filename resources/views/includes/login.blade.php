@@ -19,19 +19,25 @@
                         <div class="form-group">
                           <label for="exampleInputEmail1">Adresse E-mail</label>
                           <input type="email" name="email" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputEmail1" aria-describedby="emailHelp">
-                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                          @error('email')
+                                <p class="alert alert-danger">{{ $message }}</p>
+                          @enderror
                         </div>
+
                         <div class="form-group">
                           <label for="exampleInputPassword1">Mot de passe</label>
                          <input type="password" name="password" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputPassword1">
+                         @error('email')
+                            <p class="alert alert-danger">{{ $message }}</p>
+                         @enderror
                         </div>
                         <div class="form-group form-check border-bottom text-center">
                           <input type="checkbox" class="form-check-input" id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>
-                          <p><a href="#">Mot de passe oublié ?</a></p>
+                          <p><a href="{{ url('forgot-password') }}">Mot de passe oublié ?</a></p>
                         </div>
                         <div class="form-group form-check text-center">
-                          <p>Vous n'avez pas de compte ?<a href="#">Inscrivez-vous</a></p>
+                          <p>Vous n'avez pas de compte ?<a href="#" data-toggle="modal" data-target="#registerModal">Inscrivez-vous</a></p>
                         </div>
                         <button type="submit" class="btn btn-primary w-100 rounded-pill">Se connecter</button>
                       </form>
