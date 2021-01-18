@@ -48,9 +48,8 @@
                                   <label for="exampleInputEmail1">Adresse E-mail</label>
                                   <input type="email" name="email" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputEmail1" aria-describedby="emailHelp">
                                   @error('email')
-                                      <p>{{ $message }}</p>
+                                  <small id="emailHelp" class="form-text">{{ $message }}</small>
                                   @enderror
-                                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
                                   <input type="radio" value="1" name="role_id" id="customRadioInline1" class="custom-control-input"/>
@@ -65,7 +64,7 @@
                                   @enderror
                                 </div>
                                 <div class="form-group">
-                                  <label for="exampleInputPassword1">Mot de passe</label>
+                                  <label >Mot de passe</label>
                                   <input type="password" name="password" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputPassword1">
                                   @error('password')
                                       <p>{{ $message }}</p>
