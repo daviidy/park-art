@@ -7,39 +7,67 @@
       <a href="{{ route('projects.create') }}" class="btn-bg-plus p-2 p-md-3 rounded-lg text-decoration-none text-white shadow">Publier un projet</a>
     </div>
 
-
     <div class="pt-md-5">
       <div class="">
-        <table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Titre du projet</th>
-              <th scope="col">Description du projet</th>
-              <th scope="col">Budget</th>
-            </tr>
-          </thead>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 d-md-block d-none">
+              <div class="card border-0 mb-3 bg-transparent">
+                <div class="row rounded-lg border-bottoms no-gutters p-3 align-items-center">
+                  <div class="col-md-3">
+                    <div class="">
+                      <p class="card-text">Titre du projet</p>
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="">
+                      <p class="card-text">Description du projet</p>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="">
+                      <p class="card-text">Card title</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-          <tbody>
-            @foreach($projects as $project)
-              <tr>
-                <td> <a href="{{ route('projects.edit', $project->id) }}">{{ $project->title }}  <i class="fa fa-pencil"></i> </a></td>
-                <td>{{ $project->description }}</td>
-                <td>{{ $project->budget }}€</td>
-              </tr>
-            @endforeach
-            {{-- <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr> --}}
-          </tbody>
-        </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              @foreach($projects as $project)
+              <div class="card border-0 mb-3">
+                <div class="row rounded-lg box-shadow no-gutters p-3 shadow align-items-center">
+                  <div class="col-md-3">
+                    <div class="">
+                      <p class="card-text">{{ $project->title }} </p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="">
+                      <p class="card-text">{{ $project->description }}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="">
+                      <p class="card-text">{{ $project->budget }}€</p>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="">
+                      <p class="card-text"><a href="{{ route('projects.edit', $project->id) }}"><i class="bi bi-trash text-danger btn-delete"></i></a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              @endforeach
+
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
