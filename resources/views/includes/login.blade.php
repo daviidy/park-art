@@ -13,23 +13,24 @@
                   <div class="col-md-4 img-login" style="background-image: url('/assets/images/login.jpg')">
                   </div>
                   <div class="col-md-8">
+                    @if($errors)
+                        @foreach ($errors->all() as $error)
+                            <p class="alert alert-danger">Email ou mot de passe incorrecte</p>
+                        @endforeach
+                    @endif
+
+
                     <div class="card-body p-4">
                       <form action="/login" method="post">
                         @csrf
                         <div class="form-group">
                           <label for="exampleInputEmail1">Adresse E-mail</label>
                           <input type="email" name="email" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputEmail1" aria-describedby="emailHelp">
-                          @error('email')
-                                <p class="alert alert-danger">{{ $message }}</p>
-                          @enderror
                         </div>
 
                         <div class="form-group">
                           <label for="exampleInputPassword1">Mot de passe</label>
                          <input type="password" name="password" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputPassword1">
-                         @error('email')
-                            <p class="alert alert-danger">{{ $message }}</p>
-                         @enderror
                         </div>
                         <div class="form-group form-check border-bottom text-center">
                           <input type="checkbox" class="form-check-input" id="exampleCheck1">
