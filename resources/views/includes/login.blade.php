@@ -37,7 +37,7 @@
                           <p><a href="{{ url('forgot-password') }}">Mot de passe oublié ?</a></p>
                         </div>
                         <div class="form-group form-check text-center">
-                          <p>Vous n'avez pas de compte ?<a href="{{ route('register') }}">Inscrivez-vous</a></p>
+                          <p>Vous n'avez pas de compte ?<a href="#" data-toggle="modal" data-target="#registerModal">Inscrivez-vous</a></p>
                         </div>
                         <button type="submit" class="btn btn-primary w-100 rounded-pill">Se connecter</button>
                       </form>
