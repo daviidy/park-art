@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -113,5 +114,11 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
         return view('projects.index', compact('projects'));
+    }
+
+    public function displayProject($id)
+    {
+        $project = Project::find($id);
+        return view('users.client.projets.show', compact('project'));
     }
 }

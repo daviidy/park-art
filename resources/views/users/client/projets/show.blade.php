@@ -9,8 +9,12 @@
               <div class="card rounded-lg shadow">
                 <div class="mb-5" style="background-image: url('images/myProjet.jpg');background-size: cover;background-repeat: no-repeat; height:160px;" >
                   <div class="position-absolute p-3" style="top:97px">
-                    <img width="100" height="100" src="https://trello-members.s3.amazonaws.com/5a0488143e7858da0f497a05/a2fe363dd6cf7913f7b1e7e76b11880d/30.png" alt="" class=" rounded-lg">
-                    <h4 class="pt-2">nom du client</h4>
+                  @if($project->user->profile_image != "image_default")
+                    <img width="100" height="100" src="/images/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
+                  @else
+                    <img width="100" height="100" src="/default_image/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
+                  @endif
+                    <h4 class="pt-2">{{ $project->user->first_name }} {{ $project->user->last_name }}</h4>
                   </div>
                 </div>
                 <div class="card-body">
@@ -29,7 +33,7 @@
                     <div class="row border rounded-lg mt-3">
                       <div class="col-md-8 py-2 d-flex justify-content-between align-items-center">
                         <h4 class="h6">Budget :</h4>
-                        <p class="mb-0">500€</p>
+                        <p class="mb-0">{{ $project->budget }}</p>
                       </div>
                       <div class="col-md-4 border-left p-3 text-center">
                         <span class="btn btn-primary">Proposer un offre</span>
@@ -38,7 +42,7 @@
                     <div class="row">
                       <div class="col-md-12 pt-md-4 pt-3">
                         <h4 class="pb-3 h6">Description</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>{{ $project->description }}</p>
                       </div>
                     </div>
                   </div>

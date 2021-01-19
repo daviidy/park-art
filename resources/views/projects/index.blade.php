@@ -64,7 +64,7 @@
                   </ul>
                 </div>
                 <div class="text-center">
-                  <a href="#" class="btn btn-primary px-4">Postuler</a>
+                  <a href="{{ url('/nos-projets', $project->id) }}" class="btn btn-primary px-4">Postuler</a>
                   <a href="#" class="btn btn-primary px-5">Voir</a>
                 </div>
 

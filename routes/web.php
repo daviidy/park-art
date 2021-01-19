@@ -37,7 +37,8 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
-Route::get('/les-projets',[ ProjectController::class, 'allProjects']);
+Route::get('/nos-projets',[ ProjectController::class, 'allProjects']);
+Route::get('/nos-projets/{id}', [ProjectController::class, 'displayProject']);
 
 
 //Admin dashboard
