@@ -18,7 +18,7 @@
         <div class="container-fluid">
           @include('includes.alert')
           <div class="row rounded-lg bg-content shadow">
-            @include('includes.menuDashboard')
+            @include('includes.menuDashboardFreelance')
             @yield('content')
 
           </div>
