@@ -56,7 +56,18 @@
                   </div>
                   <div class="col-md-1">
                     <div class="">
-                      <p class="card-text"><a href="{{ route('projects.edit', $project->id) }}"><i class="bi bi-trash text-danger btn-delete"></i></a></p>
+                      <p class="card-text"><a href="{{ route('projects.edit', $project->id) }}">
+                    </a></p>
+
+                    <a href="#">
+                        <form action="{{ route('projects.destroy', $project->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" value="supprimer">
+                            <i class="bi bi-trash text-danger btn-delete"></i>
+                            <input>
+                        </form>
+                    </a>
                     </div>
                   </div>
                 </div>

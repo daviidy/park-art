@@ -46,13 +46,16 @@
       </div>
       <div class="col-md-9">
         <div class="row">
+            @if($projects)
+                @foreach($projects as $project)
 
           <div class="col-md-4">
             <div class="card shadow-sm rounded-lgs">
               <div class="card-body p-3">
                 <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-lgs p-2" style="width: 100px;height: 100px">
-                <h5 class="card-title h6 font-weight-bold">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-title h6 font-weight-bold">{{ $project->title }}</h5>
+                <p class="card-text">{{  \Illuminate\Support\Str::limit($project->description, 200, ) }}</p>
+                <p class="card-text">{{ $project->budget }}</p>
                 <div class="mb-4">
                   <ul class="list-group list-group-horizontal-md d-flex justify-content-between">
                     <li class="list-group-item border-0 badge p-2 bg-primarys">Full time</li>
@@ -69,6 +72,9 @@
             </div>
           </div>
 
+
+          @endforeach
+        @endif
         </div>
       </div>
     </div>
