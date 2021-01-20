@@ -77,7 +77,12 @@ button:focus {
   color: #fff!important;
 }
 
+#pills-tabContent .active {
+  background-color: #fff0;
+}
+
 /*mon profil*/
+
 .card-image-box{
   border-radius: 20px!important;
 }
