@@ -33,24 +33,36 @@
                                 <div class="form-group">
                                   <label for="exampleInputtext">Votre Prénoms</label>
                                   <input type="text" name="first_name" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputText" aria-describedby="textHelp">
-                                  @error('first_name')
-                                      <p>{{ $message }}</p>
-                                  @enderror
                                 </div>
+
+                            <div>
+                                @error('first_name')
+                                    <p class="alert alert-danger">Veillez entré votre prénoms</p>
+                                @enderror
+                            </div>
+
                                 <div class="form-group">
                                   <label for="exampleInputtext">Votre Nom</label>
                                   <input type="text" name="last_name" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputText" aria-describedby="textHelp">
-                                  @error('last_name')
-                                      <p>{{ $message }}</p>
-                                  @enderror
                                 </div>
+
+                                <div>
+                                    @error('last_name')
+                                        <p class="alert alert-danger">Veillez entré votre nom</p>
+                                    @enderror
+                                </div>
+
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Adresse E-mail</label>
                                   <input type="email" name="email" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                  @error('email')
-                                  <small id="emailHelp" class="form-text">{{ $message }}</small>
-                                  @enderror
                                 </div>
+
+                                <div>
+                                    @error('email')
+                                        <p class="alert alert-danger">Veillez entré votre email</p>
+                                    @enderror
+                                </div>
+
                                 <div class="custom-control custom-radio custom-control-inline">
                                   <input type="radio" value="1" name="role_id" id="customRadioInline1" class="custom-control-input"/>
                                   <label class="custom-control-label" for="customRadioInline1">Client</label>
@@ -58,25 +70,36 @@
                                 <div class="custom-control custom-radio custom-control-inline">
                                   <input type="radio" value="2" name="role_id" id="customRadioInline2" class="custom-control-input"/>
                                   <label class="custom-control-label" for="customRadioInline2">Prestataire</label>
-                                  <br>
-                                  @error('role_id')
-                                      <p>{{ $message }}</p>
-                                  @enderror
                                 </div>
+
+                                <div>
+                                    @error('role_id')
+                                        <p class="alert alert-danger">Veillez choisir un role</p>
+                                    @enderror
+                                </div>
+
                                 <div class="form-group">
                                   <label >Mot de passe</label>
                                   <input type="password" name="password" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputPassword1">
-                                  @error('password')
-                                      <p>{{ $message }}</p>
-                                  @enderror
                                 </div>
+
+                                <div>
+                                    @error('password')
+                                        <p class="alert alert-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
                                 <div class="form-group">
                                   <label for="exampleInputPassword1">Confirmez le mot de passe</label>
                                   <input type="password" name="password_confirmation" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputPassword1">
-                                  @error('password_confirmation')
-                                     <p>{{ $message }}</p>
-                                  @enderror
                                 </div>
+
+                                <div>
+                                    @error('password_confirmation')
+                                        <p class="alert alert-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
                                 <div class="form-group form-check text-center">
                                   <p>Avez-vous un compte ?<a href="{{ url('/login') }}">Connectez-vous</a></p>
                                 </div>
