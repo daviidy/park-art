@@ -148,7 +148,8 @@ return [
     */
 
     'attributes' => [
-        'password' => 'mot de passe'
+        'password' => 'mot de passe',
+        'password_register' => 'mot de passe',
     ],
 
 ];
