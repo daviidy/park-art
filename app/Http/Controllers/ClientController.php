@@ -18,10 +18,25 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $projects = Auth::user()->projects;
+        $user = Auth::user();
+        $projects = $user->projects;
         
+        return view('users.client.show', compact('projects','user'));
+    }
+
+
+    /**
+     * This fonction display all Project of client user
+     * in profile
+     * @return Response
+     */
+    public function displayAllMyProjects()
+    {
+        $get_projects = Auth::user()->projects;
+        $projects = $get_projects->sortByDesc('id');
         return view('users.client.home', compact('projects'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -115,4 +130,6 @@ class ClientController extends Controller
     {
         //
     }
+
+
 }

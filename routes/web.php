@@ -19,10 +19,14 @@ use App\Http\Controllers\FreelanceController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 //prestataire routes
 Route::get('/nos-prestataires',[FreelanceController::class, 'allFreelancers']);
 Route::get('/prestataire/{id}',[FreelanceController::class, 'freelancerInfo']);
 
+
+//Group for route require Auth
 Route::group(['middleware' => ['auth']], function () {
 
     //Client dashboard
@@ -30,7 +34,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('client/my-profile', ClientController::class, ["as"=>"client"]);
 
     // Client create and edit new project
-    Route::resource('client/projects', ProjectController::class);
+    Route::resource('client/my-profile/projects', ProjectController::class);
+    //Dislay all client projects
+    Route::get('client/all-projects', [ClientController::class, 'displayAllMyProjects'])->name('displayAllMyProjects');
 
     //Freelancer profile
     Route::resource('/freelance/my-profile', FreelanceController::class);

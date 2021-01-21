@@ -19,7 +19,6 @@
               <img src="/default_image/{{ $user->profile_image }}" class="card-img-top p-2 img-fluid rounded-circle w-50 mx-auto" alt="...">
 
               @endif
-              <h3 class="font-weight-bold text-center ">first_name</h3>
             </div>
             <div class="card-body p-md-2">
               <ul class="list-group text-center">
