@@ -33,7 +33,6 @@
                     </div>
                   </div>
                   <div class="col-md-1">
-<<<<<<< HEAD
                     <div class="">
                       <p class="card-text"><a href="{{ route('projects.edit', $project->id) }}">
                     </a></p>
@@ -47,11 +46,6 @@
                             <input>
                         </form>
                     </a>
-=======
-                    <div class="p-2 p-md-0 justify-content-md-around d-flex align-items-center">
-                      <p class="card-text m-0 pr-3 pr-md-0"><a href="{{ route('projects.edit', $project->id) }}"><i class="bi bi-trash text-danger btn-delete"></i></a></p>
-                      <p class="card-text"><a href="#"  target="_blank"><i class="bi bi-eye btn-delete"></i></a></p>
->>>>>>> f1f4c9e474f23302819e1042d4a96b139fd20482
                     </div>
                   </div>
                 </div>
