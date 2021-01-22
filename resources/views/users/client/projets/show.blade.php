@@ -35,13 +35,18 @@
                         <h4 class="h6">Budget :</h4>
                         <p class="mb-0">{{ $project->budget }}</p>
                       </div>
-
-                      <div class="col-md-4 border-left p-3 text-center">
-                              <a href="{{ route('proposal.create', $project->id) }}">
-                              <span class="btn btn-primary">Proposer une offre</span>
-                            </a>
-                            </div>
+                      @if($proposal->find(Auth::user()->id))
+                        <div class="col-md-4 border-left p-3 text-center">
+                            <p>Vous avez deja postulier merci de bien vouloir patienter 😊</p>
                         </div>
+                      @else
+                        <div class="col-md-4 border-left p-3 text-center">
+                            <a href="{{ route('proposal.create', $project->id) }}">
+                                <span class="btn btn-primary">Proposer une offre</span>
+                            </a>
+                        </div>
+                    </div>
+                    @endif
                     <div class="row">
                       <div class="col-md-12 pt-md-4 pt-3">
                         <h4 class="pb-3 h6">Description</h4>
