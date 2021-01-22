@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FreelanceController;
+use App\Http\Controllers\ProposalController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,4 +55,5 @@ Route::get('/admin/dashboard', function () {
 });
 
 
-
+//Proposal section route
+Route::resource('/nos-projets/{id}/proposal', ProposalController::class);

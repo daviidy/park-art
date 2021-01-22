@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-    
+
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
@@ -46,13 +46,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role() 
+    public function role()
     {
         return $this->belongsTo('App\Models\Role');
     }
 
+    // public function projects()
+    // {
+    //     return $this->hasMany('App\Models\Project');
+    // }
+
     public function projects()
     {
-        return $this->hasMany('App\Models\Project');
+        return $this->belongsToMany(Project::class);
     }
 }

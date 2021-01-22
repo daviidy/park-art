@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Proposal;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -57,9 +58,9 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show(Project $project, Proposal $proposals)
     {
-        return view('projects.show',compact('project'));
+        return view('projects.show',compact('project', 'proposals'));
     }
 
     /**
@@ -120,13 +121,14 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display a project on all projects list 
+     * Display a project on all projects list
      * @param  $project_id
      * @return Response
      */
     public function displayProject($project_id)
     {
+        $proposal = Proposal::find($project_id);
         $project = Project::find($project_id);
-        return view('users.client.projets.show', compact('project'));
+        return view('users.client.projets.show', compact('project', 'proposal'));
     }
 }

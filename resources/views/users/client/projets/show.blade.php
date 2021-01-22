@@ -26,7 +26,7 @@
                         </div>
                         <div class="d-md-flex justify-content-between align-items-center">
                           <p class="h6 badge font-weight-light"> Poster le <span class="font-weight-bold">15/02/2021</span></p>
-                          <p class="h6 badge font-weight-light pl-md-4"><span class="font-weight-bold">50</span> postulant(s)</p>
+                          <p class="h6 badge font-weight-light pl-md-4"><span class="font-weight-bold">{{ count(array($proposal)) }}</span> postulant(s)</p>
                         </div>
                       </div>
                     </div>
@@ -35,10 +35,13 @@
                         <h4 class="h6">Budget :</h4>
                         <p class="mb-0">{{ $project->budget }}</p>
                       </div>
+
                       <div class="col-md-4 border-left p-3 text-center">
-                        <span class="btn btn-primary">Proposer un offre</span>
-                      </div>
-                    </div>
+                              <a href="{{ route('proposal.create', $project->id) }}">
+                              <span class="btn btn-primary">Proposer une offre</span>
+                            </a>
+                            </div>
+                        </div>
                     <div class="row">
                       <div class="col-md-12 pt-md-4 pt-3">
                         <h4 class="pb-3 h6">Description</h4>
