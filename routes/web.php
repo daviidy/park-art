@@ -39,7 +39,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('client/all-projects', [ClientController::class, 'displayAllMyProjects'])->name('displayAllMyProjects');
 
     //Freelancer profile
-    Route::resource('/freelance/my-profile', FreelanceController::class);
+    Route::resource('/freelance/my-profile',FreelanceController::class, ['as' => 'freelance']);
 });
 
 
