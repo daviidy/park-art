@@ -51,12 +51,12 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Role');
     }
 
-    // public function projects()
-    // {
-    //     return $this->hasMany('App\Models\Project');
-    // }
-
     public function projects()
+    {
+        return $this->hasMany('App\Models\Project');
+    }
+
+    public function proposals_projects()
     {
         return $this->belongsToMany(Project::class);
     }

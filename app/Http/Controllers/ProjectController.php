@@ -127,7 +127,7 @@ class ProjectController extends Controller
      */
     public function displayProject($project_id)
     {
-        $proposal = Proposal::find($project_id);
+        $proposal = Proposal::all()->where('project_id', $project_id);
         $project = Project::find($project_id);
         return view('users.client.projets.show', compact('project', 'proposal'));
     }

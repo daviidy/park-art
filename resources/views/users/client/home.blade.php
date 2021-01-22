@@ -19,7 +19,7 @@
                   <div class="col-md-3 pr-4">
                     <div class="p-2 p-md-0 d-flex justify-content-around align-items-center">
                       <img src="https://oschoolelearning.com/images/courses/logos/1580161319.png" alt="" class="img-fluid " style="width: 50px">
-                      <p class="card-text">{{ $project->title }} <span class="pl-1"> <a href="#"><i class="bi bi-pencil-square btn-delete"></i></a></span> </p>
+                      <p class="card-text">{{ $project->title }} <span class="pl-1"> <a href="{{ route('projects.edit', $project->id) }}"><i class="bi bi-pencil-square btn-delete"></i></a></span> </p>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -32,6 +32,9 @@
                       <p class="card-text">{{ $project->budget }}€</p>
                     </div>
                   </div>
+                  {{-- <div>
+                      {{ count($proposals->where('project_id', $project->id)) }}
+                  </div> --}}
                   <div class="col-md-1">
                     <div class="">
                       <p class="card-text"><a href="{{ route('projects.edit', $project->id) }}">
@@ -41,8 +44,8 @@
                         <form action="{{ route('projects.destroy', $project->id) }}" method="post">
                             @csrf
                             @method('delete')
-                            <input type="submit" value="supprimer">
-                            <i class="bi bi-trash text-danger btn-delete"></i>
+                            <input type="submit" value="🗑️">
+                            {{-- <i class="bi bi-trash text-danger btn-delete"></i> --}}
                             <input>
                         </form>
                     </a>

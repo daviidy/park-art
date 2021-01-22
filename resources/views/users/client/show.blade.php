@@ -40,7 +40,7 @@
                 </li>
                 <li class="align-items-center border-0 list-group-item">
                   <!--span class=""><i class="bi bi-envelope h2"></i></span-->
-                  <span class="font-weight-bold badge">Nombre de projet : </span>10
+                  <span class="font-weight-bold badge">Nombre de projet : </span>{{ count($user->projects) }}
                 </li>
               </ul>
               <div class="py-3">

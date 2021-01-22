@@ -9,7 +9,7 @@
               <div class="card rounded-lg shadow">
                 <div class="mb-5" style="background-image: url('images/myProjet.jpg');background-size: cover;background-repeat: no-repeat; height:160px;" >
                   <div class="position-absolute p-3" style="top:97px">
-                  @if($project->user->profile_image != "image_default")
+                  @if($project->user->profile_image != "image_default.png")
                     <img width="100" height="100" src="/images/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
                   @else
                     <img width="100" height="100" src="/default_image/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
@@ -26,7 +26,7 @@
                         </div>
                         <div class="d-md-flex justify-content-between align-items-center">
                           <p class="h6 badge font-weight-light"> Poster le <span class="font-weight-bold">15/02/2021</span></p>
-                          <p class="h6 badge font-weight-light pl-md-4"><span class="font-weight-bold">{{ count(array($proposal)) }}</span> postulant(s)</p>
+                          <p class="h6 badge font-weight-light pl-md-4"><span class="font-weight-bold">{{  count($proposal) }}</span> postulant(s)</p>
                         </div>
                       </div>
                     </div>

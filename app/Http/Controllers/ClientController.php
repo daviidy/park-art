@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Proposal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use ImageResize;
@@ -20,7 +21,7 @@ class ClientController extends Controller
     {
         $user = Auth::user();
         $projects = $user->projects;
-        
+
         return view('users.client.show', compact('projects','user'));
     }
 
@@ -32,9 +33,10 @@ class ClientController extends Controller
      */
     public function displayAllMyProjects()
     {
+        $proposals = Proposal::all();
         $get_projects = Auth::user()->projects;
         $projects = $get_projects->sortByDesc('id');
-        return view('users.client.home', compact('projects'));
+        return view('users.client.home', compact('projects', 'proposals'));
     }
 
 
@@ -98,7 +100,7 @@ class ClientController extends Controller
         ]);
         $user = Auth::user();
         $image = $request->file('profile_image');
-        
+
         if($image){
 
             $ProfileImageName = time().'.'.$image->getClientOriginalExtension();
@@ -106,15 +108,15 @@ class ClientController extends Controller
             $image->move(public_path('images'), $ProfileImageName);
             $user->profile_image = $ProfileImageName;
             $user->save();
-            
+
             return back()
             ->with('success','Image ajouté avec succès.')
-            ->with('image',$ProfileImageName); 
+            ->with('image',$ProfileImageName);
         }
-        
+
         $user->description = $request->input('description');
         $user->save();
-        
+
         return back()
                 ->with('success','Image ajouté avec succès.');
 
