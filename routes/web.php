@@ -55,5 +55,7 @@ Route::get('/admin/dashboard', function () {
 });
 
 
-//Proposal section route
+//Proposal by freelancer route
 Route::resource('/nos-projets/{id}/proposal', ProposalController::class);
+
+
