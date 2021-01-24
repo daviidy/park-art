@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   </head>
@@ -25,15 +26,34 @@
                 <a class="nav-link text-white" href="/">Accueil <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item pr-md-5">
+                <a class="nav-link text-white" href="#">Nos projets</a>
+              </li>
+              <li class="nav-item pr-md-5">
+                <a class="nav-link text-white" href="#">Nos prestataires</a>
+              </li>
+              <li class="nav-item pr-md-5">
                 <a class="nav-link text-white" href="#">A propos</a>
               </li>
               <li class="nav-item pr-md-5">
                 <a class="nav-link text-white" href="#">Contactez-vous</a>
               </li>
             </ul>
-            <span class="navbar-text shadow rounded-pill bg-white">
-              <a href="{{ url('/login') }}" class="text-decoration-none p-3 text-capitalize font-weight-bolder" data-toggle="modal" data-target="#loginModal">Connectez-vous</a>
-            </span>
+            <div class="main-connect">
+              <span class="mb-3 mb-md-0 navbar-text shadow rounded-pill bg-white" data-toggle="tooltip" data-placement="bottom" title="Inscrivez-vous">
+                <a href="#" class="text-decoration-none p-3 text-capitalize font-weight-bolder" data-toggle="modal" data-target="#registerModal">Inscrivez-vous</a>
+              </span>
+              <span class="navbar-text shadow rounded-pill bg-white" data-toggle="tooltip" data-placement="bottom" title="Connectez-vous">
+                <a href="#" class="text-decoration-none p-3 text-capitalize font-weight-bolder" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i></a>
+              </span>
+              <div class="dropdown">
+                <a class="dropdown-toggle p-0 bg-transparent" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="https://oschoolelearning.com/images/courses/logos/1580161319.png" alt="" class="img-fluid rounded-circle" style="width: 50px">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Tableau de bord</a>
+                  <a class="dropdown-item" href="#">Deconnection</a>
+                </div>
+            </div>
           </div>
         </nav>
       </header>

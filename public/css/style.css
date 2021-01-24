@@ -52,6 +52,20 @@ p {
   height: 50px;
   background-image: linear-gradient(to right, #fd2f78, #ef4b82, #e15f8a, #d26e90, #c27b94);
 }
+/*.main-connect .show{
+  padding: 0px !important;
+  background-color: #fff!important;
+}*/
+
+.dropdown-toggle::after {
+    border-top: 0 solid!important;
+    border-right: 0 solid transparent !important;
+}
+
+.dropdown-menu {
+    left: -85px !important;
+}
+
 .figure {
   font-size: 12rem;
   top: -50px;
@@ -102,9 +116,9 @@ p {
 .hero-pr .header-text {
     top: 150px;
 }
-.show {
+.modal .show {
   padding: 1.5rem!important;
-  background-color: #343a40!important;
+  /*background-color: #343a40!important;*/
 }
 
 .img-pr {
@@ -145,4 +159,15 @@ p {
   .display-1 {
     font-size: xxx-large!important;
   }
+
+  #navbarText{
+    padding: 20px !important;
+    background-color: #343a40!important;
+  }
+
+  .dropdown-menu {
+    left: 0px !important;
+    width: 100%;
+  }
+  
 }
