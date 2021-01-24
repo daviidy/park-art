@@ -59,10 +59,9 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::loginView(fn () => view('auth.login'));
 
-
         Fortify::authenticateUsing(function (Request $request) {
             $user = User::where('email', $request->email)->first();
-    
+
             if ($user &&
                 Hash::check($request->password, $user->password)) {
                 return $user;
@@ -70,5 +69,14 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::registerView(fn () => view('auth.register'));
+
+        Fortify::requestPasswordResetLinkView(function () {
+            return view('auth.forgot-password');
+        });
+
+        Fortify::resetPasswordView(function ($request) {
+            return view('auth.reset-password', ['request' => $request]);
+        });
+
     }
 }
