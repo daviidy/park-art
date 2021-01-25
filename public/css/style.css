@@ -59,12 +59,12 @@ p {
 } */
 
 .dropdown-toggle::after {
-    border-top: 0 solid !important;
-    border-right: 0 solid transparent !important;
+  border-top: 0 solid !important;
+  border-right: 0 solid transparent !important;
 }
 
 .dropdown-menu {
-    left: -85px !important;
+  left: -85px !important;
 }
 
 .figure {
@@ -77,17 +77,17 @@ p {
 /* login and register */
 
 .img-login{
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .btn-close{
   right: 15px;
-    top: 0px;
-    z-index: 10;
+  top: 0px;
+  z-index: 10;
 }
 .form-control:focus {
-    box-shadow: 0px 3px 0 0.02rem rgb(0 123 255 / 25%)!important;
+  box-shadow: 0px 3px 0 0.02rem rgb(0 123 255 / 25%)!important;
 }
 .modal-body {
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 31%), 0 6px 20px 0 rgb(0 0 0 / 50%);
@@ -97,16 +97,16 @@ p {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/*prestataires*/
+/* prestataires */
 
 .hero-pr {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: 100%;
-    height: 450px;
-    position: relative;
-    top: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: 450px;
+  position: relative;
+  top: 0;
 }
 
 .hero-pr:before {
@@ -119,28 +119,26 @@ p {
   opacity: 0.7;
 }
 .hero-pr .header-text {
-    top: 150px;
+  top: 150px;
 }
 .modal .show {
   padding: 1.5rem!important;
-
-  /*background-color: #343a40!important;*/
 }
 
 .img-pr {
   width: 155px!important;
 }
 
-/*show projet*/
+/* show projet */
 
 .hero-pro-show {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: 100%;
-    height: 63px;
-    position: relative;
-    top: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: 63px;
+  position: relative;
+  top: 0;
 }
 .hero-pro-show:before {
   content: '';
@@ -152,10 +150,10 @@ p {
   opacity: 0.7;
 }
 
-/*Nos projets*/
+/* Nos projets */
 
 .rounded-lgs {
-    border-radius: 1rem!important;
+  border-radius: 1rem!important;
 }
 .bg-primarys {
   background-color: #007bff33 !important;
@@ -163,13 +161,13 @@ p {
 
 @media only screen and (max-width: 600px) {
   .header-text {
-      top: 100px;
+    top: 100px;
   }
   .display-1 {
     font-size: xxx-large !important;
   }
 
-  #navbarText{
+  #navbarText {
     padding: 20px!important;
     background-color: #343a40 !important;
   }
