@@ -17,7 +17,7 @@ use App\Http\Controllers\ProposalController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Show home page
 Route::get('/', function () {
     return view('welcome');
 });
