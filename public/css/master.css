@@ -109,10 +109,10 @@ button:focus {
 }
 
 @media only screen and (max-width: 600px) {
-  .querryMenu {
+  /* .querryMenu {
     position: absolute !important;
     z-index: 100;
-  }
+  } */
 
   #Menu a span,
   #Menu button span {
