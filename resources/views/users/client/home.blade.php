@@ -1,6 +1,9 @@
 @extends('layouts.menuHomes')
 @section('content')
 <div class="col-12 col-md-11">
+  <span class="d-md-none d-block">
+    <i class="bi bi-list hamburger position-relative border p-2 font-weight-bold shadow-sm bg-light " style="font-size:30px; top:15px" ></i>
+  </span>
   <div class="p-md-4">
     <div class="align-items-center d-flex justify-content-between mb-5 pt-5">
       <h2 class="h3">Mes projets</h2>
@@ -41,7 +44,7 @@
                         <form action="{{ route('projects.destroy', $project->id) }}" method="post">
                             @csrf
                             @method('delete')
-                            <input type="submit" value="supprimer">
+                            <input type="submit" value="">
                             <i class="bi bi-trash text-danger btn-delete"></i>
                             <input>
                         </form>

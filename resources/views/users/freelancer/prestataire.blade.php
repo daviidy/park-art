@@ -26,7 +26,7 @@
               <div class="row rounded-lg box-shadow no-gutters align-items-center">
                 <div class="col-md-4 text-center py-md-0 py-3">
                   @if($freelance->profile_image != "image_default")
-                  <img src="/images/{{ $freelance->profile_image }}" class="card-img img-fluid rounded-circle px-4 img-pr" alt="avatar" width="100">
+                  <i class="bi bi-person-circle text-muted" style="font-size: xxx-large;"></i>
                   @else
                   <img src="/default_image/{{ $freelance->profile_image }}" class="card-img img-fluid rounded-circle px-4 img-pr" alt="avatar" width="100">
                   @endif
@@ -34,7 +34,7 @@
                 <div class="col-md-8">
                   <div class="card-body text-muted">
                     <h5 class="card-title font-weight-bold">{{ $freelance->first_name }} {{ $freelance->last_name }}</h5>
-                    <p class="card-text">{{ \Illuminate\Support\Str::limit($freelance->description, 100, ) }} .</p>
+                    <p class="card-text text-truncate">{{ \Illuminate\Support\Str::limit($freelance->description, 100, ) }} .</p>
                   </div>
                 </div>
               </div>

@@ -26,10 +26,10 @@
                 <a class="nav-link text-white" href="/">Accueil <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item pr-md-5">
-                <a class="nav-link text-white" href="#">Nos projets</a>
+                <a class="nav-link text-white" href="/nos-projets">Nos projets</a>
               </li>
               <li class="nav-item pr-md-5">
-                <a class="nav-link text-white" href="#">Nos prestataires</a>
+                <a class="nav-link text-white" href="/nos-prestataires">Nos prestataires</a>
               </li>
               <li class="nav-item pr-md-5">
                 <a class="nav-link text-white" href="#">A propos</a>
