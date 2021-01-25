@@ -52,6 +52,7 @@ p {
   height: 50px;
   background-image: linear-gradient(to right, #fd2f78, #ef4b82, #e15f8a, #d26e90, #c27b94);
 }
+
 /*.main-connect .show{
   padding: 0px !important;
   background-color: #fff!important;
@@ -72,7 +73,9 @@ p {
   font-family: serif;
   color: #ececec;
 }
+
 /*login and register*/
+
 .img-login{
     background-size: cover;
     background-repeat: no-repeat;
@@ -93,7 +96,9 @@ p {
 .box-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 /*prestataires*/
+
 .hero-pr {
     background-size: cover;
     background-repeat: no-repeat;
@@ -118,13 +123,16 @@ p {
 }
 .modal .show {
   padding: 1.5rem!important;
+
   /*background-color: #343a40!important;*/
 }
 
 .img-pr {
   width: 155px!important;
 }
+
 /*show projet*/
+
 .hero-pro-show {
     background-size: cover;
     background-repeat: no-repeat;
@@ -145,11 +153,12 @@ p {
 }
 
 /*Nos projets*/
+
 .rounded-lgs {
     border-radius: 1rem!important;
 }
 .bg-primarys {
-  background-color: #007bff33!important;
+  background-color: #007bff33 !important;
 }
 
 @media only screen and (max-width: 600px) {
@@ -157,17 +166,17 @@ p {
       top: 100px;
   }
   .display-1 {
-    font-size: xxx-large!important;
+    font-size: xxx-large !important;
   }
 
   #navbarText{
     padding: 20px !important;
-    background-color: #343a40!important;
+    background-color: #343a40 !important;
   }
 
   .dropdown-menu {
     left: 0px !important;
     width: 100%;
   }
-  
+
 }
