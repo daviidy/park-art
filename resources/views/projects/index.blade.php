@@ -49,7 +49,7 @@
             @if($projects)
                 @foreach($projects as $project)
 
-          <div class="col-md-4">
+          <div class="col-md-4 mb-3">
             <div class="card shadow-sm rounded-lgs">
               <div class="card-body p-3">
                 <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-lgs p-2" style="width: 100px;height: 100px">

@@ -64,7 +64,7 @@ p {
 }
 
 .dropdown-menu {
-  left: -85px !important;
+  left: -105px !important;
 }
 
 .figure {
@@ -132,11 +132,12 @@ p {
 /* show projet */
 
 .hero-pro-show {
+  background-image: url('/assets/images/myProjet.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   width: 100%;
-  height: 63px;
+  height: 381px;
   position: relative;
   top: 0;
 }
@@ -146,7 +147,7 @@ p {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 63px;
+  height: 381px;
   opacity: 0.7;
 }
 
@@ -168,12 +169,12 @@ p {
   }
 
   #navbarText {
-    padding: 20px ! important;
+    padding: 20px !important;
     background-color: #343a40 !important;
   }
 
   .dropdown-menu {
-    left: 0 ! important;
+    left: 0 !important;
     width: 100%;
   }
 
