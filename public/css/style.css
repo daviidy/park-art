@@ -53,13 +53,13 @@ p {
   background-image: linear-gradient(to right, #fd2f78, #ef4b82, #e15f8a, #d26e90, #c27b94);
 }
 
-/*.main-connect .show{
+/* .main-connect .show{
   padding: 0px !important;
   background-color: #fff!important;
-}*/
+} */
 
 .dropdown-toggle::after {
-    border-top: 0 solid!important;
+    border-top: 0 solid !important;
     border-right: 0 solid transparent !important;
 }
 
@@ -74,7 +74,7 @@ p {
   color: #ececec;
 }
 
-/*login and register*/
+/* login and register */
 
 .img-login{
     background-size: cover;
