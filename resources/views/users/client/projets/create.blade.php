@@ -1,8 +1,11 @@
 @extends('layouts.menuHomes')
 @section('content')
-<div class="col-12 col-md-11">
+<div class="col-12 col-md-11 side-content">
+  <span class="d-md-none d-block">
+    <i class="bi bi-list hamburger position-relative border p-2 font-weight-bold shadow-sm bg-light " style="font-size:30px; top:15px" ></i>
+  </span>
   <div class="p-md-4">
-    <div class="d-md-flex justify-content-between align-items-center">
+    <div class="d-md-flex justify-content-between align-items-center pt-5">
       <h2>Publier un projet</h2>
     </div>
     <div class="pt-md-5">
