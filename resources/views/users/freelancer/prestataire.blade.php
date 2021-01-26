@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body text-muted">
-                    <h5 class="card-title font-weight-bold">{{ $freelance->first_name }} {{ $freelance->last_name }}</h5>
+                    <h5 class="card-title font-weight-bold text-md-left text-center">{{ $freelance->first_name }} {{ $freelance->last_name }}</h5>
                     <p class="card-text text-truncate">{{ \Illuminate\Support\Str::limit($freelance->description, 100, ) }} .</p>
                   </div>
                 </div>

@@ -1,6 +1,6 @@
 @extends('layouts.menuHomes')
 @section('content')
-<div class="col-12 col-md-11">
+<div class="col-12 col-md-11 side-content">
   <span class="d-md-none d-block">
     <i class="bi bi-list hamburger position-relative border p-2 font-weight-bold shadow-sm bg-light " style="font-size:30px; top:15px" ></i>
   </span>

@@ -31,12 +31,14 @@
       $('.hamburger').click(function() {
         if ($(window).width() < 600) {
             $('.side-menu').toggleClass('d-block');
+            $('.side-content').toggleClass('d-none');
             $('#overlay').fadeToggle(300);
             }
       });
       $('.close-btn').click(function() {
         if ($(window).width() < 600) {
             $('.side-menu').removeClass('d-block');
+            $('.side-content').removeClass('d-none');
             $('#overlay').fadeToggle(300);
             }
       });
