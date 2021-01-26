@@ -70,7 +70,7 @@ return [
     'registered_client' => '/client/my-profile',
     'registered_freelance' => '/freelance/my-profile',
 
-    'login_client' => '/client/my-profile',
+    'login_client' => '/client/all-projects',
     'login_freelance' => '/freelance/my-profile',
 
     /*

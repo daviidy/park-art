@@ -28,7 +28,7 @@
                           </div>
                           <div class="col-md-8">
                             <div class="card-body p-4">
-                              <form method="post" action="register">
+                              <form method="post" action="{{ route('register') }}">
                                 @csrf
                                 <div class="form-group">
                                   <label for="exampleInputtext">Votre Prénoms</label>
@@ -101,7 +101,7 @@
                                 </div>
 
                                 <div class="form-group form-check text-center">
-                                  <p>Avez-vous un compte ?<a href="{{ url('/login') }}">Connectez-vous</a></p>
+                                  <p>Avez-vous un compte ?<a href="{{ route('login') }}">Connectez-vous</a></p>
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100 rounded-pill">S'inscrire</button>
                               </form>
