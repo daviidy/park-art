@@ -110,7 +110,7 @@ class ClientController extends Controller
             $user->save();
 
             return back()
-            ->with('success','Image ajouté avec succès.')
+            ->with('success','Profil modifié avec succès.')
             ->with('image',$ProfileImageName);
         }
 
@@ -118,7 +118,7 @@ class ClientController extends Controller
         $user->save();
 
         return back()
-                ->with('success','Image ajouté avec succès.');
+                ->with('success','Profil modifié avec succès.');
 
     }
 
