@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FreelanceController;
+use App\Http\Controllers\ProposalController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,14 +17,18 @@ use App\Http\Controllers\FreelanceController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Show home page
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 //prestataire routes
 Route::get('/nos-prestataires',[FreelanceController::class, 'allFreelancers']);
 Route::get('/prestataire/{id}',[FreelanceController::class, 'freelancerInfo']);
 
+
+//Group for route require Auth
 Route::group(['middleware' => ['auth']], function () {
 
     //Client dashboard
@@ -30,10 +36,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('client/my-profile', ClientController::class, ["as"=>"client"]);
 
     // Client create and edit new project
-    Route::resource('client/projects', ProjectController::class);
+    Route::resource('client/my-profile/projects', ProjectController::class);
+    //Dislay all client projects
+    Route::get('client/all-projects', [ClientController::class, 'displayAllMyProjects'])->name('displayAllMyProjects');
 
     //Freelancer profile
-    Route::resource('/freelance/my-profile', FreelanceController::class);
+    Route::resource('/freelance/my-profile',FreelanceController::class, ['as' => 'freelance']);
 });
 
 
@@ -46,5 +54,8 @@ Route::get('/admin/dashboard', function () {
     return view('users.admin.home');
 });
 
+
+//Proposal by freelancer route
+Route::resource('/nos-projets/{id}/proposal', ProposalController::class);
 
 

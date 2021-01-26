@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Proposal;
 use Illuminate\Http\Request;
 
@@ -22,9 +24,11 @@ class ProposalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($project_id)
     {
-        //
+        // return $project_id);
+        $user_id = Auth::user()->id;
+        return view('projects.proposals.create', compact('user_id', 'project_id'));
     }
 
     /**
@@ -35,7 +39,15 @@ class ProposalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'budget' => 'required',
+            'deadline' => 'required',
+        ]);
+
+        Proposal::create($request->all());
+
+        return redirect()->route('freelance.my-profile.index')
+                        ->with('success','Proposition Envoyé avec succès.');
     }
 
     /**

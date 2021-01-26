@@ -15,7 +15,7 @@
               <i class="bi bi-speedometer2"></i><br>
               <span class="font-text-menu">Accueil</span>
             </a>
-            <a href="{{ route('client.my-profile.index') }}" class="mr-2 py-2 active text-white text-decoration-none">
+            <a href="{{ route('displayAllMyProjects') }}" class="mr-2 py-2 active text-white text-decoration-none">
               <i class="bi bi-layout-text-window-reverse"></i><br>
               <span class="font-text-menu">Mes projets</span>
             </a>
@@ -23,7 +23,7 @@
               <i class="fas fa-paper-plane text-white"></i><br>
               <span class="font-text-menu">Publier</span>
             </a>
-            <a href="/nos-prestataires" class="mr-2 py-2 text-decoration-none">
+            <a href="{{ url('/nos-prestataires') }}" class="mr-2 py-2 text-decoration-none">
               <i class="bi bi-people-fill text-white"></i><br>
               <span class="font-text-menu">Prestataires</span>
             </a>
@@ -35,7 +35,7 @@
               <i class="bi bi-person-square text-white"></i><br>
               <span class="font-text-menu">Mon profil</span>
             </a>
-            <a href="#" class="mr-2 py-2 text-decoration-none">
+            <a href="{{ route('client.my-profile.edit', Auth::user()->id) }}" class="mr-2 py-2 text-decoration-none">
               <i class="bi bi-gear-fill text-white"></i><br>
               <span class="font-text-menu">Paramètre</span>
             </a>

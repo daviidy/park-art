@@ -9,7 +9,7 @@
               <div class="card rounded-lg shadow">
                 <div class="mb-5" style="background-image: url('images/myProjet.jpg');background-size: cover;background-repeat: no-repeat; height:160px;" >
                   <div class="position-absolute p-3" style="top:97px">
-                  @if($project->user->profile_image != "image_default")
+                  @if($project->user->profile_image != "image_default.png")
                     <img width="100" height="100" src="/images/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
                   @else
                     <img width="100" height="100" src="/default_image/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
@@ -26,7 +26,7 @@
                         </div>
                         <div class="d-md-flex justify-content-between align-items-center">
                           <p class="h6 badge font-weight-light"> Poster le <span class="font-weight-bold">15/02/2021</span></p>
-                          <p class="h6 badge font-weight-light pl-md-4"><span class="font-weight-bold">50</span> postulant(s)</p>
+                          <p class="h6 badge font-weight-light pl-md-4"><span class="font-weight-bold">{{  count($proposal) }}</span> postulant(s)</p>
                         </div>
                       </div>
                     </div>
@@ -35,10 +35,18 @@
                         <h4 class="h6">Budget :</h4>
                         <p class="mb-0">{{ $project->budget }}</p>
                       </div>
-                      <div class="col-md-4 border-left p-3 text-center">
-                        <span class="btn btn-primary">Proposer un offre</span>
-                      </div>
+                      @if($proposal->find(Auth::user()->id))
+                        <div class="col-md-4 border-left p-3 text-center">
+                            <p>Vous avez deja postulier merci de bien vouloir patienter 😊</p>
+                        </div>
+                      @else
+                        <div class="col-md-4 border-left p-3 text-center">
+                            <a href="{{ route('proposal.create', $project->id) }}">
+                                <span class="btn btn-primary">Proposer une offre</span>
+                            </a>
+                        </div>
                     </div>
+                    @endif
                     <div class="row">
                       <div class="col-md-12 pt-md-4 pt-3">
                         <h4 class="pb-3 h6">Description</h4>
