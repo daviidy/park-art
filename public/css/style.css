@@ -52,25 +52,42 @@ p {
   height: 50px;
   background-image: linear-gradient(to right, #fd2f78, #ef4b82, #e15f8a, #d26e90, #c27b94);
 }
+
+/* .main-connect .show{
+  padding: 0px !important;
+  background-color: #fff!important;
+} */
+
+.dropdown-toggle::after {
+  border-top: 0 solid !important;
+  border-right: 0 solid transparent !important;
+}
+
+.dropdown-menu {
+  left: -105px !important;
+}
+
 .figure {
   font-size: 12rem;
   top: -50px;
   font-family: serif;
   color: #ececec;
 }
-/*login and register*/
+
+/* login and register */
+
 .img-login{
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .btn-close{
   right: 15px;
-    top: 0px;
-    z-index: 10;
+  top: 0px;
+  z-index: 10;
 }
 .form-control:focus {
-    box-shadow: 0px 3px 0 0.02rem rgb(0 123 255 / 25%)!important;
+  box-shadow: 0px 3px 0 0.02rem rgb(0 123 255 / 25%)!important;
 }
 .modal-body {
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 31%), 0 6px 20px 0 rgb(0 0 0 / 50%);
@@ -79,15 +96,17 @@ p {
 .box-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-/*prestataires*/
+
+/* prestataires */
+
 .hero-pr {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: 100%;
-    height: 450px;
-    position: relative;
-    top: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: 450px;
+  position: relative;
+  top: 0;
 }
 
 .hero-pr:before {
@@ -100,25 +119,28 @@ p {
   opacity: 0.7;
 }
 .hero-pr .header-text {
-    top: 150px;
+  top: 150px;
 }
-.show {
+
+.modal .show {
   padding: 1.5rem!important;
-  background-color: #343a40!important;
 }
 
 .img-pr {
   width: 155px!important;
 }
-/*show projet*/
+
+/* show projet */
+
 .hero-pro-show {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: 100%;
-    height: 63px;
-    position: relative;
-    top: 0;
+  background-image: url('/assets/images/myProjet.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: 381px;
+  position: relative;
+  top: 0;
 }
 .hero-pro-show:before {
   content: '';
@@ -126,23 +148,35 @@ p {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 63px;
+  height: 381px;
   opacity: 0.7;
 }
 
-/*Nos projets*/
+/* Nos projets */
+
 .rounded-lgs {
-    border-radius: 1rem!important;
+  border-radius: 1rem!important;
 }
 .bg-primarys {
-  background-color: #007bff33!important;
+  background-color: #007bff33 !important;
 }
 
 @media only screen and (max-width: 600px) {
   .header-text {
-      top: 100px;
+    top: 100px;
   }
   .display-1 {
-    font-size: xxx-large!important;
+    font-size: xxx-large !important;
   }
+
+  #navbarText {
+    padding: 20px !important;
+    background-color: #343a40 !important;
+  }
+
+  .dropdown-menu {
+    left: 0 !important;
+    width: 100%;
+  }
+
 }

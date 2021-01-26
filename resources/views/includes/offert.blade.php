@@ -20,7 +20,7 @@
                   </div>
                   <div class="form-group">
                     <label>Délai de réalisation</label>
-                    <input required type="number" name="" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light">
+                    <input required type="text" name="" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" placeholder="Ex: 5 mois">
                   </div>
                   <div class="form-group">
                     <label>Message (Facultatif)</label>

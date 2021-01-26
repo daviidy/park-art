@@ -1,6 +1,18 @@
 @extends('layouts.menu')
 @section('content')
       <section class="hero-pro-show"></section>
+      <section class="mb-5">
+        <div class="">
+          <div class="position-absolute p-3" style="top:250px; left:50px">
+          @if($project->user->profile_image != "image_default")
+            <img width="150" height="150" src="/images/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
+          @else
+            <img width="150" height="150" src="/default_image/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
+          @endif
+            <h4 class="pt-2">{{ $project->user->first_name }} {{ $project->user->last_name }}</h4>
+          </div>
+        </div>
+      </section>
       <section class="p-md-5 p-3">
         <div class="container-fluid">
           <div class="row row-cols-1 row-cols-md-2">
@@ -19,7 +31,7 @@
                 </div>
                 <div class="card-body">
                   <div class="container">
-                    <div class="pt-5">
+                    <div class="pt-3">
                       <div class="d-md-flex justify-content-between align-items-center">
                         <div class="">
                           <p class="h6 badge font-weight-light">Catégories :<span class="font-weight-bold ">Web</span> </p>
@@ -33,7 +45,7 @@
                     <div class="row border rounded-lg mt-3">
                       <div class="col-md-8 py-2 d-flex justify-content-between align-items-center">
                         <h4 class="h6">Budget :</h4>
-                        <p class="mb-0">{{ $project->budget }}</p>
+                        <p class="mb-0">{{ $project->budget }}€</p>
                       </div>
                       @if($proposal->find(Auth::user()->id))
                         <div class="col-md-4 border-left p-3 text-center">
@@ -57,7 +69,6 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3 d-md-block d-none"></div>
           </div>
         </div>
       </section>
