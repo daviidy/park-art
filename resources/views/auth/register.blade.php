@@ -87,7 +87,7 @@
                                     @error('password')
                                       @if($message == "The mot de passe must be at least 8 characters.")
                                         <p class="alert alert-danger">
-                                            Le mot de passe doit être au moins de 8 carateres
+                                            Le mot de passe doit être au moins de 8 caractères
                                         </p>
                                         @else
                                         <p class="alert alert-danger">{{ dd($message) }}</p>
