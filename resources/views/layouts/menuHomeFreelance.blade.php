@@ -45,5 +45,14 @@
             }
       });
     </script>
+
+    <script>
+      $('#date-none #customCheck').click(function() {
+        $('#date').toggleClass('d-none')
+      });
+      $('#date-none-2 #customCheck-2').click(function() {
+        $('#date-2').toggleClass('d-none')
+      });
+    </script>
   </body>
 </html>

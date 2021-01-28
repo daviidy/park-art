@@ -22,6 +22,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/edit', function () {
+    return view('users.freelancer.edit');
+});
 
 //prestataire routes
 Route::get('/nos-prestataires',[FreelanceController::class, 'allFreelancers']);
@@ -57,5 +60,3 @@ Route::get('/admin/dashboard', function () {
 
 //Proposal by freelancer route
 Route::resource('/nos-projets/{id}/proposal', ProposalController::class);
-
-
