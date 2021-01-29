@@ -19,8 +19,8 @@
 
     <div class="pt-md-5">
       <div class="row row-cols-1 row-cols-md-2">
-        <div class="col-md-4 mb-4 d-md-block d-none"> </div>
-        <div class="col-md-4 mb-4">
+        <div class="col-md-3 mb-4 d-md-block d-none"> </div>
+        <div class="col-md-6 mb-4">
           <div class="card box-shadows">
             <div class="text-center card-image-box-set card-image-bg p-md-5">
               @if($user->profile_image != "image_default.png")
@@ -53,20 +53,20 @@
                   <label>Nom</label>
                   <input type="text" class="form-control" name="name" value="{{ $user->last_name }}" readonly>
                 </div>
-                <div class="form-group profit-225">
-                  <label>Votre description</label>
-                  <textarea name="description" id="" cols="30" rows="10">{{ $user->description }}</textarea>
-                </div>
-                <div class="form-group profit-225">
+                <div class="form-group">
                   <label>Adresse email</label>
-                  <input type="email" value="{{ $user->email }}" name="email" class="form-control" readonly>
+                  <input type="email" value="{{ $user->email }}" class="form-control" name="email" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Votre description</label>
+                  <textarea class="form-control" name="description" rows="3">{{ $user->description }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Modifier</button>
               </form>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-4 d-md-block d-none"></div>
+        <div class="col-md-3 mb-4 d-md-block d-none"></div>
       </div>
     </div>
   </div>

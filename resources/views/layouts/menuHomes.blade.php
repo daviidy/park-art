@@ -43,5 +43,15 @@
             }
       });
     </script>
+    <script>
+        const currentLocation =location.href;
+        const menuItem = document.querySelectorAll('#Menu a');
+        const menuLength = menuItem.length;
+        for (let i = 0; i < menuLength; i++) {
+          if (menuItem[i].href === currentLocation) {
+            menuItem[i].className = "mr-2 py-2 active text-white text-decoration-none d-md-block d-flex align-items-center justify-content-around"
+          }
+        }
+    </script>
   </body>
 </html>
