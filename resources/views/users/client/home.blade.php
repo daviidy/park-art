@@ -6,68 +6,36 @@
   </span>
   <div class="p-md-4">
     <div class="align-items-center d-flex justify-content-between mb-5 pt-5">
-      <h2 class="h3">Mes projets</h2>
-      <a href="{{ route('projects.create') }}" class="btn-bg-plus p-2 p-md-3 rounded-lg text-decoration-none text-white shadow">Publier un projet</a>
+      <h2 class="h3">Mes actions</h2>
     </div>
 
     <div class="pt-md-5">
-      <div class="">
-        <div class="container">
-
-          <div class="row">
-            <div class="col-md-12">
-              @foreach($projects as $project)
-              <div class="card border-0 mb-3">
-                <div class="row rounded-lg box-shadow no-gutters p-3 shadow align-items-center">
-                  <div class="col-md-3 pr-4">
-                    <div class="p-2 p-md-0 d-flex justify-content-around align-items-center">
-                      @if(Auth::user()->profile_image != "image_default.png")
-                      <img src="/images/{{Auth::user()->profile_image }}" class="img-fluid" alt="..." style="width: 50px">
-                      @else
-                      <img src="/default_image/{{ $user->profile_image }}" alt="" class="img-fluid " style="width: 50px">
-        
-                      @endif
-                      <p class="card-text">{{ $project->title }} <span class="pl-1"> <a href="{{ route('projects.edit', $project->id) }}"><i class="bi bi-pencil-square btn-delete"></i></a></span> </p>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="p-2 p-md-0">
-                      <p class="card-text">{{ $project->description }}</p>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="p-2 p-md-0">
-                      <p class="card-text">{{ $project->budget }}€</p>
-                    </div>
-                  </div>
-                  {{-- <div>
-                      {{ count($proposals->where('project_id', $project->id)) }}
-                  </div> --}}
-                  <div class="col-md-1">
-                    <div class="">
-                      <p class="card-text"><a href="{{ route('projects.edit', $project->id) }}">
-                    </a></p>
-
-                    <a href="#">
-                        <form action="{{ route('projects.destroy', $project->id) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <input type="submit" value="">
-                            <i class="bi bi-trash text-danger btn-delete"></i>
-                            <input>
-                        </form>
-                    </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              @endforeach
-
+      <div class="card-deck text-center">
+        <div class="card p-4 shadow">
+          <a href="{{ route('projects.create') }}" class="text-decoration-none text-info">
+            <i class="fas fa-paper-plane" style="font-size: 60px;"></i>
+            <div class="card-body">
+              <h5 class="card-title h3">Publier un projet</h5>
             </div>
-          </div>
+          </a>
+        </div>
+        <div class="card p-4 shadow">
+          <a href="#" class="text-decoration-none text-info">
+            <i class="fas fa-users" style="font-size: 60px;"></i>
+            <div class="card-body">
+              <h5 class="card-title h3">Voir les acteurs du milieu de l'art</h5>
+            </div>
+          </a>
+        </div>
+        <div class="card p-4 shadow">
+          <a href="#" class="text-decoration-none text-info">
+            <i class="fas fa-paste" style="font-size: 60px;"></i>
+            <div class="card-body">
+              <h5 class="card-title h3">Voir mes projets</h5>
+            </div>
+          </a>
         </div>
       </div>
-      {{-- {{ $projects->onEachSide(5)->links() }} --}}
     </div>
   </div>
 </div>

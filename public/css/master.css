@@ -108,6 +108,13 @@ button:focus {
     box-shadow: none!important;
 }
 
+/* home */
+
+a.text-info:hover {
+  top: 5px;
+  position: relative;
+}
+
 @media only screen and (max-width: 600px) {
   /* .querryMenu {
     position: absolute !important;

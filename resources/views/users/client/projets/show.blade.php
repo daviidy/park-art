@@ -16,19 +16,8 @@
       <section class="p-md-5 p-3">
         <div class="container-fluid">
           <div class="row row-cols-1 row-cols-md-2">
-            <div class="col-md-3 d-md-block d-none"> </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
               <div class="card rounded-lg shadow">
-                <div class="mb-5" style="background-image: url('images/myProjet.jpg');background-size: cover;background-repeat: no-repeat; height:160px;" >
-                  <div class="position-absolute p-3" style="top:97px">
-                  @if($project->user->profile_image != "image_default.png")
-                    <img width="100" height="100" src="/images/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
-                  @else
-                    <img width="100" height="100" src="/default_image/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
-                  @endif
-                    <h4 class="pt-2">{{ $project->user->first_name }} {{ $project->user->last_name }}</h4>
-                  </div>
-                </div>
                 <div class="card-body">
                   <div class="container">
                     <div class="pt-3">
@@ -53,9 +42,7 @@
                         </div>
                       @else
                         <div class="col-md-4 border-left p-3 text-center">
-                            <a href="{{ route('proposal.create', $project->id) }}">
-                                <span class="btn btn-primary">Proposer une offre</span>
-                            </a>
+                                <span class="btn btn-primary" data-toggle="modal" data-target="#offertModal">Proposer une offre</span>
                         </div>
                     </div>
                     @endif

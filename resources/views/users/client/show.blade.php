@@ -12,8 +12,8 @@
     <div class="pt-md-5">
 
       <div class="row row-cols-1 row-cols-md-2">
-        <div class="col-md-4 mb-4 d-md-block d-none"> </div>
-        <div class="col-md-4 mb-4">
+        <div class="col-md-3 mb-4 d-md-block d-none"> </div>
+        <div class="col-md-6 mb-4">
           <div class="card box-shadows p-1">
             <div class="text-center px-md-5 ">
               @if($user->profile_image != "image_default.png")
@@ -46,14 +46,14 @@
                   <span class="font-weight-bold badge">Nombre de projet : </span>{{ count($user->projects) }}
                 </li>
               </ul>
-              <div class="py-3">
+              <div class="py-3 text-center">
                 <a href="{{ route('client.my-profile.edit',$user->id) }}" class="btn card-image-bg shadow-sm text-btn-size text-white font-weight-bold">Modifier mon profil</a>
                 <a href="{{ route('projects.create') }}" class="btn border ml-md-2 mt-4 mt-md-0 text-btn-size font-weight-bold">Publier un projet</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-4 d-md-block d-none"></div>
+        <div class="col-md-3 mb-4 d-md-block d-none"></div>
       </div>
 
 

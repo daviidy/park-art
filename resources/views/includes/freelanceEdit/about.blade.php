@@ -28,13 +28,13 @@
             <label>Nom</label>
             <input type="text" class="form-control" name="name" value="{{ $user->last_name }}" readonly>
           </div>
-          <div class="form-group profit-225">
-            <label>Votre description</label>
-            <textarea name="description" id="" cols="30" rows="10">{{ $user->description }}</textarea>
-          </div>
-          <div class="form-group profit-225">
+          <div class="form-group">
             <label>Adresse email</label>
-            <input type="email" value="{{ $user->email }}" name="email" class="form-control" readonly>
+            <input type="email" value="{{ $user->email }}" class="form-control" name="email" readonly>
+          </div>
+          <div class="form-group">
+            <label>Votre description</label>
+            <textarea class="form-control" name="description" rows="3">{{ $user->description }}</textarea>
           </div>
           <button type="submit" class="btn btn-primary w-100">Modifier</button>
         </form>
