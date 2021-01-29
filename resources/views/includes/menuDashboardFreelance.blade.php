@@ -7,7 +7,6 @@
         @else
           <img src="/default_image/{{ Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
         @endif
-
       </div>
       <div class="">
         <div class="list-group text-center h1">
