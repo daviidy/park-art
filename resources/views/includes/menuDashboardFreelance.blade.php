@@ -9,12 +9,12 @@
         @endif
       </div>
       <div class="">
-        <div class="list-group text-center h1">
+        <div class="list-group text-center h1" id="menu">
             <a href="/" class="mr-2 py-2 text-white text-decoration-none">
               <i class="bi bi-speedometer2"></i><br>
               <span class="font-text-menu">Accueil</span>
             </a>
-            <a href="{{ route('freelancer-projets') }}" class="mr-2 py-2 active text-white text-decoration-none">
+            <a href="{{ route('freelancer-projets') }}" class="mr-2 py-2 text-white text-decoration-none">
               <i class="bi bi-layout-text-window-reverse"></i><br>
               <span class="font-text-menu">Mes projets</span>
             </a>

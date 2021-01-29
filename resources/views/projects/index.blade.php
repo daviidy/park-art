@@ -6,7 +6,6 @@
       <div class="col-md-12">
         <div class="text-center position-relative header-text">
           <h1 class="display-1 font-weight-bold text-white">Nos Projets</h1>
-          <!--button class="btn mt-4 text-white rounded-pill px-5 font-weight-bolder">Créer un compte</button-->
         </div>
       </div>
     </div>
