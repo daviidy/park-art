@@ -21,7 +21,12 @@
                 <div class="row rounded-lg box-shadow no-gutters p-3 shadow align-items-center">
                   <div class="col-md-3 pr-4">
                     <div class="p-2 p-md-0 d-flex justify-content-around align-items-center">
-                      <img src="https://oschoolelearning.com/images/courses/logos/1580161319.png" alt="" class="img-fluid " style="width: 50px">
+                      @if(Auth::user()->profile_image != "image_default.png")
+                      <img src="/images/{{Auth::user()->profile_image }}" class="img-fluid" alt="..." style="width: 50px">
+                      @else
+                      <img src="/default_image/{{ $user->profile_image }}" alt="" class="img-fluid " style="width: 50px">
+        
+                      @endif
                       <p class="card-text">{{ $project->title }} <span class="pl-1"> <a href="{{ route('projects.edit', $project->id) }}"><i class="bi bi-pencil-square btn-delete"></i></a></span> </p>
                     </div>
                   </div>
