@@ -9,7 +9,7 @@
               @if(Auth::user()->profile_image != "image_default.png")
                 <img src="/images/{{Auth::user()->profile_image }}" class="img-fluid" alt="..." style="width: 50px">
                 @else
-                <img src="/default_image/{{ $user->profile_image }}" alt="" class="img-fluid " style="width: 50px">  
+                <i class="bi bi-person-circle text-secondary" style="font-size: 40px;"></i>
                 @endif
               <p class="card-text text-dark">Projet2 <span class="pl-1"> <a href="#"><i class="bi bi-pencil-square btn-delete"></i></a></span> </p>
             </div>

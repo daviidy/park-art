@@ -28,7 +28,7 @@
                   @if($freelance->profile_image != "image_default.png")
                   <img src="/images/{{ $freelance->profile_image }}" class="card-img img-fluid rounded-circle px-5 img-pr" alt="avatar" width="80%">
                   @else
-                  <img src="/default_image/{{ $freelance->profile_image }}" class="card-img img-fluid rounded-circle px-5 img-pr" alt="avatar" width="80%">
+                  <i class="bi bi-person-circle text-secondary" style="font-size: 60px;"></i>
                   @endif
                 </div>
                 <div class="col-md-8">

@@ -7,7 +7,7 @@
           @if($project->user->profile_image != "image_default")
             <img width="150" height="150" src="/images/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
           @else
-            <img width="150" height="150" src="/default_image/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
+          <i class="bi bi-person-circle text-secondary rounded-lg" style="font-size: 40px;"></i>
           @endif
             <h4 class="pt-2">{{ $project->user->first_name }} {{ $project->user->last_name }}</h4>
           </div>

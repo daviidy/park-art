@@ -19,8 +19,7 @@
                 @if($user->profile_image != "image_default.png")
                 <img src="/images/{{ $user->profile_image }}" class="card-img-top p-2 img-fluid rounded-circle w-50 mx-auto" alt="...">
                 @else
-                <img src="/default_image/{{ $user->profile_image }}" class="card-img-top p-2 img-fluid rounded-circle w-50 mx-auto" alt="...">
-
+                <i class="bi bi-person-circle text-secondary" style="font-size: 130px;"></i>
                 @endif
             </div>
             <div class="card-body p-md-2">

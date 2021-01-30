@@ -6,8 +6,7 @@
         @if(Auth::user()->profile_image != "image_default.png")
         <img src="/images/{{Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle mx-auto" alt="avatar" style="width: 150px;">
         @else
-        <img src="/default_image/{{ $user->profile_image }}" 
-        class="card-img-top img-fluid rounded-circle mx-auto" alt="avatar" style="width: 150px;">
+        <i class="bi bi-person-circle text-white" style="font-size: 110px;"></i>
         @endif
       </div>
       <div class="card-body text-dark">
