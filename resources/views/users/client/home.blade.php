@@ -19,7 +19,6 @@
             </div>
           </a>
         </div>
-
         <div class="card p-4 shadow">
           <a href="#" class="text-decoration-none text-info">
             <i class="fas fa-users" style="font-size: 60px;"></i>

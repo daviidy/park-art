@@ -3,8 +3,11 @@
   <div class="col-md-4 mb-4">
     <div class="card box-shadows">
       <div class="text-center card-image-box-set card-image-bg p-md-2">
-        <img src="https://s3.amazonaws.com/assets.materialup.com/users/pictures/000/526/994/thumb/Group_11999.png?1608275306"
-        class="card-img-top img-fluid rounded-circle mx-auto" alt="avatar" style="width: 150px;">
+        @if(Auth::user()->profile_image != "image_default.png")
+        <img src="/images/{{Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle mx-auto" alt="avatar" style="width: 150px;">
+        @else
+        <i class="bi bi-person-circle text-white" style="font-size: 110px;"></i>
+        @endif
       </div>
       <div class="card-body text-dark">
         <form method="post" action="{{ route('freelancer-update') }}" enctype="multipart/form-data">

@@ -25,10 +25,10 @@
             <div class="card border-0 mb-3" style="max-width: 540px;">
               <div class="row rounded-lg box-shadow no-gutters align-items-center">
                 <div class="col-md-4 text-center py-md-0 py-3">
-                  @if($freelance->profile_image != "image_default")
-                  <i class="bi bi-person-circle text-muted" style="font-size: xxx-large;"></i>
+                  @if($freelance->profile_image != "image_default.png")
+                  <img src="/images/{{ $freelance->profile_image }}" class="card-img img-fluid rounded-circle px-5 img-pr" alt="avatar" width="80%">
                   @else
-                  <img src="/default_image/{{ $freelance->profile_image }}" class="card-img img-fluid rounded-circle px-4 img-pr" alt="avatar" width="100">
+                  <i class="bi bi-person-circle text-secondary" style="font-size: 60px;"></i>
                   @endif
                 </div>
                 <div class="col-md-8">

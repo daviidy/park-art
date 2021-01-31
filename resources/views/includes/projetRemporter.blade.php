@@ -6,7 +6,11 @@
         <div class="row rounded-lg box-shadow no-gutters p-3 shadow align-items-center">
           <div class="col-md-3 pr-4">
             <div class="p-2 p-md-0 d-flex justify-content-around align-items-center">
-              <img src="https://oschoolelearning.com/images/courses/logos/1580161319.png" alt="" class="img-fluid " style="width: 50px">
+              @if(Auth::user()->profile_image != "image_default.png")
+                <img src="/images/{{Auth::user()->profile_image }}" class="img-fluid" alt="..." style="width: 50px">
+                @else
+                <i class="bi bi-person-circle text-secondary" style="font-size: 40px;"></i>
+                @endif
               <p class="card-text text-dark">Projet2 <span class="pl-1"> <a href="#"><i class="bi bi-pencil-square btn-delete"></i></a></span> </p>
             </div>
           </div>

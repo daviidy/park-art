@@ -129,6 +129,7 @@ class FreelanceController extends Controller
     public function allFreelancers ()
     {
         // $freelancers = User::all()->where('role_id', 2);
+        //dd($this->freelanceModel->getAllFreelancers());
         return view('users.freelancer.prestataire', ['freelancers' => $this->freelanceModel->getAllFreelancers()]);
     }
 

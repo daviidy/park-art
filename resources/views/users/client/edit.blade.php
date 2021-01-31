@@ -30,7 +30,7 @@
                     <img src="/images/{{ $user->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
                   @endif
               @else
-                <img src="/default_image/{{ $user->profile_image }}" class="card-img-top img-fluid rounded-circle w-50 mx-auto" alt="...">
+              <i class="bi bi-person-circle text-white" style="font-size: 130px;"></i>
               @endif
 
             </div>
