@@ -34,7 +34,6 @@ class FreelanceController extends Controller
      */
     public function index()
     {
-        //dd('okii');
         return view('users.freelancer.home');
     }
 

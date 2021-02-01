@@ -14,14 +14,14 @@
               <div class="card-body p-4">
                 <form method="POST" action="{{ route('save-proposal') }}">
                   @csrf
-                   <input type="hidden" name="project_id" value="{{ $project->id}}"> 
+                   <input type="hidden" name="project_id" value="{{ $project->id ?? ''}}"> 
                   <div class="form-group">
                     <label>Montant de l'offre</label>
                     <input required type="number" name="budget" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light">
                   </div>
                   <div class="form-group">
-                    <label>Délai de réalisation</label>
-                    <input required type="text" name="deadline" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" placeholder="Ex: 5 mois">
+                    <label>Délai de réalisation (en jour)</label>
+                    <input required type="number" name="deadline" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" placeholder="Ex: 5">
                   </div>
                   <div class="form-group">
                     <label>Message (Facultatif)</label>
