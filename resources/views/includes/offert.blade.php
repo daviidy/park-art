@@ -12,19 +12,20 @@
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">
-                <form >
-
+                <form method="POST" action="{{ route('save-proposal') }}">
+                  @csrf
+                   <input type="hidden" name="project_id" value="{{ $project->id}}"> 
                   <div class="form-group">
                     <label>Montant de l'offre</label>
-                    <input required type="number" name="" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light">
+                    <input required type="number" name="budget" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light">
                   </div>
                   <div class="form-group">
                     <label>Délai de réalisation</label>
-                    <input required type="text" name="" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" placeholder="Ex: 5 mois">
+                    <input required type="text" name="deadline" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" placeholder="Ex: 5 mois">
                   </div>
                   <div class="form-group">
                     <label>Message (Facultatif)</label>
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" name="message"></textarea>
                   </div>
                   <button type="submit" class="btn btn-primary w-100 rounded-pill">Soumettre</button>
                 </form>
