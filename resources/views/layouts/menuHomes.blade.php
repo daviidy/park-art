@@ -20,7 +20,7 @@
           <div class="row rounded-lg bg-content shadow">
             @include('includes.menuDashboard')
             @yield('content')
-
+            @include('includes.offertListe')
           </div>
         </div>
       </section>

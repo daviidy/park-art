@@ -22,6 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/projet', function () {
+    return view('users.client.projets.index');
+});
+
 //prestataire routes
 Route::get('/nos-prestataires',[FreelanceController::class, 'allFreelancers']);
 Route::get('/prestataire/{id}',[FreelanceController::class, 'freelancerInfo']);
