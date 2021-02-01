@@ -4,10 +4,10 @@
       <section class="mb-5">
         <div class="">
           <div class="position-absolute p-3" style="top:250px; left:50px">
-          @if($project->user->profile_image != "image_default")
+          @if($project->user->profile_image != "image_default.png")
             <img width="150" height="150" src="/images/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
           @else
-            <img width="150" height="150" src="/default_image/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
+          <i class="bi bi-person-circle text-info" style="font-size: 110px;"></i>
           @endif
             <h4 class="pt-2">{{ $project->user->first_name }} {{ $project->user->last_name }}</h4>
           </div>
@@ -48,7 +48,7 @@
                         <h4 class="h6">Budget :</h4>
                         <p class="mb-0">{{ $project->budget }}€</p>
                       </div>
-                      @if($proposal->find(Auth::user()->id))
+                      @if($hasProposal)
                         <div class="col-md-4 border-left p-3 text-center">
                             <p>Vous avez deja postulier merci de bien vouloir patienter 😊</p>
                         </div>

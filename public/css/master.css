@@ -115,12 +115,18 @@ a.text-info:hover {
   position: relative;
 }
 
-@media only screen and (max-width: 600px) {
-  /* .querryMenu {
-    position: absolute !important;
-    z-index: 100;
-  } */
+.fixed {
+  width: 130px;
+  position: fixed;
+  z-index: 1;
+  top: 20px;
+  left: 10px;
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
 
+@media only screen and (max-width: 600px) {
   #Menu a span,
   #Menu button span {
     font-size: medium;
