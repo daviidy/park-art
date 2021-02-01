@@ -62,7 +62,6 @@
         @include('includes.login')
         @include('includes.register')
         @include('includes.offert')
-        @include('includes.offertListe')
 
         <footer class="p-4 border-top">
           <p> @ <span id="year">2020</span> Tous droits réservés</p>

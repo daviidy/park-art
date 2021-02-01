@@ -27,7 +27,10 @@
                   </div>
                   <div class="col-md-6">
                     <div class="p-2 p-md-0">
-                      <p class="card-text">{{ $project->description }}</p>
+                      <p style="cursor: pointer" class="card-text" data-toggle="modal" data-target="#offertListModal">
+                        <span><i class="bi bi-eye-fill"></i></span>
+                        Voir la liste des offres
+                      </p>
                     </div>
                   </div>
                   <div class="col-md-2">
