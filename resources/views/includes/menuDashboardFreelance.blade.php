@@ -1,5 +1,5 @@
 <div class="col-1 p-md-3 d-md-block d-none">
-  <div class="bg-menu-left rounded-lg shadow">
+  <div class="bg-menu-left rounded-lg shadow" id="">
     <div class="">
       <div class="text-center p-md-4">
         @if(Auth::user()->profile_image != "image_default.png")
@@ -18,21 +18,14 @@
               <i class="bi bi-layout-text-window-reverse"></i><br>
               <span class="font-text-menu">Mes projets</span>
             </a>
-            <a href="{{ route('projects.create') }}" class="mr-2 py-2 text-decoration-none">
-              <i class="fas fa-paper-plane text-white"></i><br>
-              <span class="font-text-menu">Publier</span>
+
+            <a href="/nos-prestataires" class="mr-2 py-2 text-decoration-none">
+              <i class="bi bi-people text-white"></i><br>
+              <span class="font-text-menu">Liste des prestataires</span>
             </a>
             <a href="/nos-projets" class="mr-2 py-2 text-decoration-none">
               <i class="bi bi-files text-white"></i><br>
               <span class="font-text-menu">Liste des projets</span>
-            </a>
-            {{-- @if(Auth::user()->role_id == 1) --}}
-                <a href="{{ url('freelance/my-profile') }}" class="mr-2 py-2 text-decoration-none">
-            {{-- @elseif(Auth::user()->role_id == 1)
-                  <a href="#" class="mr-2 py-2 text-decoration-none">
-            @endif --}}
-              <i class="bi bi-person-square text-white"></i><br>
-              <span class="font-text-menu">Mon profil</span>
             </a>
             <a href="{{ route('freelancer-edit', Auth::user()->id) }}" class="mr-2 py-2 text-decoration-none">
               <i class="bi bi-gear-fill text-white"></i><br>

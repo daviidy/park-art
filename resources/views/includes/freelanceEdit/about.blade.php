@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-md-4 mb-4 d-md-block d-none"> </div>
-  <div class="col-md-4 mb-4">
+  <div class="col-md-3 mb-4 d-md-block d-none"> </div>
+  <div class="col-md-6 mb-4">
     <div class="card box-shadows">
       <div class="text-center card-image-box-set card-image-bg p-md-2">
         @if(Auth::user()->profile_image != "image_default.png")
@@ -40,5 +40,5 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4 mb-4 d-md-block d-none"></div>
+  <div class="col-md-3 mb-4 d-md-block d-none"></div>
 </div>
