@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Repositories\FreelancerRepository;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\FreelanceModel;
@@ -12,6 +13,7 @@ class FreelanceController extends Controller
 {
 
     private $freelanceModel = null;
+    private $freelancerRepository;
     /**
      * __construct
      * This constructor initialize new instance of FreelanceModel
@@ -19,9 +21,10 @@ class FreelanceController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(FreelancerRepository $freelancerRepository)
     {
         $this->freelanceModel = new FreelanceModel;
+        $this->freelancerRepository = $freelancerRepository;
     }
 
     /**
@@ -31,7 +34,6 @@ class FreelanceController extends Controller
      */
     public function index()
     {
-        //dd('okii');
         return view('users.freelancer.home');
     }
 
@@ -136,5 +138,20 @@ class FreelanceController extends Controller
     public function freelancerInfo ($id)
     {
         return view('users.freelancer.freelancer_profile', ['user' => $this->freelanceModel->getFreelancerInfo()]);
+    }
+
+    public function saveProposal(Request $request)
+    {
+        $datas = $request->all();
+        try {
+            $response = $this->freelancerRepository->saveProposal($datas);
+            
+            if ($response){
+                return back()->with('success', 'Votre proposition a été prise en compte');
+            }
+            return back()->with('error', 'Une erreur est survenue');
+        }catch(\Exception $exception){
+            return back()->with('error', 'Une erreur est survenue');
+        }
     }
 }

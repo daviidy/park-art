@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Models\Proposal;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -128,7 +129,14 @@ class ProjectController extends Controller
     public function displayProject($project_id)
     {
         $proposal = Proposal::all()->where('project_id', $project_id);
+        $hasProposal = false;
+       foreach($proposal as $p){
+           if ($p->user_id == Auth::user()->id){
+               $hasProposal = true;
+               break;
+           }
+       }
         $project = Project::find($project_id);
-        return view('users.client.projets.show', compact('project', 'proposal'));
+        return view('users.client.projets.show', compact('project', 'proposal','hasProposal'));
     }
 }
