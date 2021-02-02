@@ -3,13 +3,10 @@
       <section class="hero-pro-show"></section>
       <section class="mb-5">
         <div class="">
-          <div class="position-absolute p-3" style="top:250px; left:50px">
-          @if($project->user->profile_image != "image_default")
-            <img width="150" height="150" src="/images/{{ $project->user->profile_image }}" alt="" class=" rounded-lg">
-          @else
-          <i class="bi bi-person-circle text-secondary rounded-lg" style="font-size: 40px;"></i>
-          @endif
-            <h4 class="pt-2">{{ $project->user->first_name }} {{ $project->user->last_name }}</h4>
+          <div class="position-absolute p-3 text-center" style="top:220px; left:50px">
+            <img width="150" height="150" class="rounded-circle" src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" >
+            <i class="bi bi-person-circle text-white bg-dark p-3 rounded-lg" style="font-size: 100px;"></i>
+            <h4 class="pt-2">Arsene</h4>
           </div>
         </div>
       </section>
@@ -17,45 +14,36 @@
         <div class="container-fluid">
           <div class="row row-cols-1 row-cols-md-2">
             <div class="col-md-12">
-              <div class="card rounded-lg shadow">
-                <div class="card-body">
-                  <div class="container">
-                    <div class="pt-3">
-                      <div class="d-md-flex justify-content-between align-items-center">
-                        <div class="">
-                          <p class="h6 badge font-weight-light">Catégories :<span class="font-weight-bold ">Web</span> </p>
-                        </div>
-                        <div class="d-md-flex justify-content-between align-items-center">
-                          <p class="h6 badge font-weight-light"> Poster le <span class="font-weight-bold">15/02/2021</span></p>
-                          <p class="h6 badge font-weight-light pl-md-4"><span class="font-weight-bold">{{  count($proposal) }}</span> postulant(s)</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row border rounded-lg mt-3">
-                      <div class="col-md-8 py-2 d-flex justify-content-between align-items-center">
-                        <h4 class="h6">Budget :</h4>
-                        <p class="mb-0">{{ $project->budget }}€</p>
-                      </div>
-                      @if($proposal->find(Auth::user()->id))
-                        <div class="col-md-4 border-left p-3 text-center">
-                            <p>Vous avez deja postulier merci de bien vouloir patienter 😊</p>
-                        </div>
-                      @else
-                        <div class="col-md-4 border-left p-3 text-center">
-                                <span class="btn btn-primary" data-toggle="modal" data-target="#offertModal">Proposer une offre</span>
-                        </div>
-                    </div>
-                    @endif
-                    <div class="row">
-                      <div class="col-md-12 pt-md-4 pt-3">
-                        <h4 class="pb-3 h6">Description</h4>
-                        <p>{{ $project->description }}</p>
-                      </div>
-                    </div>
+              <div class="">
+                <ul class="nav nav-pills p-md-4 shadow-sm bg-white mb-3 justify-content-center" id="pills-tab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="pills-presentation-tab" data-toggle="pill" href="#pills-presentation" role="tab" aria-controls="pills-presentation" aria-selected="true">Présentation</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="pills-reference-tab" data-toggle="pill" href="#pills-reference" role="tab" aria-controls="pills-reference" aria-selected="false">Référence</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="pills-formation-tab" data-toggle="pill" href="#pills-formation" role="tab" aria-controls="pills-formation" aria-selected="false">Formation</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="pills-projet-tab" data-toggle="pill" href="#pills-projet" role="tab" aria-controls="pills-projet" aria-selected="false">Projets remportés</a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade p-3 show active" id="pills-presentation" role="tabpanel" aria-labelledby="pills-presentation-tab">
+                    @include('includes.freelanceShow.presentation')
+                  </div>
+                  <div class="tab-pane fade p-3" id="pills-reference" role="tabpanel" aria-labelledby="pills-reference-tab">
+                    @include('includes.freelanceShow.reference')
+                  </div>
+                  <div class="tab-pane fade p-3" id="pills-formation" role="tabpanel" aria-labelledby="pills-formation-tab">
+                    @include('includes.freelanceShow.formation')
+                  </div>
+                  <div class="tab-pane fade p-3" id="pills-projet" role="tabpanel" aria-labelledby="pills-projet-tab">
+                    @include('includes.freelanceShow.projetRemporte')
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </section>
