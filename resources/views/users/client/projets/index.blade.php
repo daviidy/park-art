@@ -38,9 +38,6 @@
                       <p class="card-text">{{ $project->budget }}€</p>
                     </div>
                   </div>
-                  {{-- <div>
-                      {{ count($proposals->where('project_id', $project->id)) }}
-                  </div> --}}
                   <div class="col-md-1">
                     <div class="">
                       <p class="card-text"><a href="{{ route('projects.edit', $project->id) }}">
