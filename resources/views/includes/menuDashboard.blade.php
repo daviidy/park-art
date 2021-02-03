@@ -16,7 +16,7 @@
               <i class="bi bi-speedometer2"></i><br>
               <span class="font-text-menu">Accueil</span>
             </a>
-            <a href="/" class="mr-2 py-2 text-white text-decoration-none d-md-block d-flex align-items-center justify-content-around">
+            <a href="{{ route('actions') }}" class="mr-2 py-2 text-white text-decoration-none d-md-block d-flex align-items-center justify-content-around">
               <i class="bi bi-gem"></i><br>
               <span class="font-text-menu">Actions</span>
             </a>

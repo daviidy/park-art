@@ -36,7 +36,16 @@ class ClientController extends Controller
         $proposals = Proposal::all();
         $get_projects = Auth::user()->projects;
         $projects = $get_projects->sortByDesc('id');
-        return view('users.client.home', compact('projects', 'proposals'));
+        return view('users.client.projets.index', compact('projects', 'proposals'));
+    }
+
+      /**
+     * This function show user actions page
+     * @return Response
+     */
+    public function actions()
+    {
+        return view('users.client.home');
     }
 
 
