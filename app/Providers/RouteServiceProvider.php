@@ -20,7 +20,7 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/';
     public const REGISTERED_REDIRECT_CLIENT = '/client/my-profile';
     public const REGISTERED_REDIRECT_FREELANCER = '/freelance/my-profile';
-    public const CLIENT_HOME = '/client/all-projects';
+    public const CLIENT_HOME = '/client/actions';
     public const FREELANCE_HOME = '/freelance/my-profile';
     public const ADMIN_HOME = '/admin/dashboard';
     /**
