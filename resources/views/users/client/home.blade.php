@@ -20,7 +20,7 @@
           </a>
         </div>
         <div class="card p-4 shadow">
-          <a href="#" class="text-decoration-none text-info">
+          <a href="{{ url('/nos-prestataires') }}" class="text-decoration-none text-info">
             <i class="fas fa-users" style="font-size: 60px;"></i>
             <div class="card-body">
               <h5 class="card-title h3">Voir les acteurs du milieu de l'art</h5>
@@ -28,7 +28,7 @@
           </a>
         </div>
         <div class="card p-4 shadow">
-          <a href="#" class="text-decoration-none text-info">
+          <a href="{{ route('displayAllMyProjects') }}" class="text-decoration-none text-info">
             <i class="fas fa-paste" style="font-size: 60px;"></i>
             <div class="card-body">
               <h5 class="card-title h3">Voir mes projets</h5>

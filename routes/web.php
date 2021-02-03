@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('client/my-profile/projects', ProjectController::class);
     //Dislay all client projects
     Route::get('client/all-projects', [ClientController::class, 'displayAllMyProjects'])->name('displayAllMyProjects');
+    Route::get('client/actions', [ClientController::class, 'actions'])->name('actions');
 
     //Freelancer profile
    // Route::resource('/freelance/my-profile',FreelanceController::class, ['as' => 'freelance']);

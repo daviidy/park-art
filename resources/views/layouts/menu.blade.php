@@ -39,21 +39,35 @@
               </li>
             </ul>
             <div class="main-connect">
-              <span class="mb-3 mb-md-0 navbar-text shadow rounded-pill bg-white" data-toggle="tooltip" data-placement="bottom" title="Inscrivez-vous">
+              {{--  <span class="mb-3 mb-md-0 navbar-text shadow rounded-pill bg-white" data-toggle="tooltip" data-placement="bottom" title="Inscrivez-vous">
                 <a href="#" class="text-decoration-none p-3 text-capitalize font-weight-bolder" data-toggle="modal" data-target="#registerModal">Inscrivez-vous</a>
-              </span>
+              </span>  --}}
+              @if(!Auth::user())
               <span class="navbar-text shadow rounded-pill bg-white" data-toggle="tooltip" data-placement="bottom" title="Connectez-vous">
-                <a href="#" class="text-decoration-none p-3 text-capitalize font-weight-bolder" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i></a>
+                <a href="#" class="text-decoration-none p-3 text-capitalize font-weight-bolder" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i> Connexion</a>
               </span>
+              @else
               <div class="dropdown">
                 <a class="dropdown-toggle p-0 bg-transparent" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img src="https://oschoolelearning.com/images/courses/logos/1580161319.png" alt="" class="img-fluid rounded-circle" style="width: 50px">
+                  @if(Auth::user()->profile_image != "image_default.png")
+                    <img src="/images/{{ Auth::user()->profile_image }}" alt="avatar" width="50" class="img-fluid rounded-circle">
+                  @else
+                    <i class="bi bi-person-circle text-white" style="font-size: 30px;"></i>
+                  @endif
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Tableau de bord</a>
-                  <a class="dropdown-item" href="#">Deconnection</a>
+                  <a class="dropdown-item" href="{{ Auth::user()->role->name == "client" ? route('displayAllMyProjects') : route('freelancer-projets') }}">Tableau de bord</a>
+                  <a class="dropdown-item" href="#">
+                    <form action="{{ route('logout') }}" method="post">
+                      @csrf
+                        <button type="submit" class="">
+                          <span class="font-text-menu">Deconnexion</span>
+                        </button>
+                    </form>
+                  </a>
                 </div>
             </div>
+            @endif
           </div>
         </nav>
       </header>
