@@ -22,8 +22,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/client-show', function () {
-    return view('users.freelancer.show');
+Route::get('/admin', function () {
+    return view('users.admin.home');
 });
 
 //prestataire routes
