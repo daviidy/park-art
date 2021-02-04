@@ -7,21 +7,23 @@ body {
   overflow-x: hidden;
 }
 
-a{
-  cursor: pointer!important;
+a {
+  cursor: pointer !important;
 }
 
-.cusor{
-  cursor: pointer!important;
+.cusor {
+  cursor: pointer !important;
 }
 
 .main-content1 {
   background-color: #f2f7fb;
 }
+
 .bg-menu {
   background-color: #263544!important;
   color: #fff!important;
 }
+
 .bg-menu:hover {
   background-color: #263544!important;
 }
@@ -32,7 +34,7 @@ a{
   width: 13%;
 }
 
-.bg-main{
+.bg-main {
   background-color: #1a1b20;
 }
 
@@ -50,7 +52,7 @@ a{
 
 .dropdown-menu {
   position: absolute !important;
-  left: -90px!important;
+  left: -90px !important;
 }
 
 .main-content1 header {
@@ -60,36 +62,41 @@ a{
 }
 
 /* main */
+
 .main-content {
   margin-top: 5rem;
 }
 
 .pr-b i {
-  font-size: 25px!important;
+  font-size: 25px !important;
 }
 
 .box-shadow {
     box-shadow: -1px 0px 4px 0 rgb(0 0 0 / 70%), 0px 2px 10px 0 rgb(0 0 0 / 70%);
 }
+
 a:hover {
+  color: #1a1b20 !important;
+}
+
+a {
   color: #1a1b20!important;
 }
 
-a{
-  color: #1a1b20!important;
-}
 .box-hover:hover {
   top: 5px;
   position: relative;
 }
+
 .pcard-box {
-  padding: 1.25rem 0.25rem!important;
+  padding: 1.25rem 0.25rem !important;
 }
 
 .pcard-boxm {
-  padding: 0.25rem 1.25rem!important;
+  padding: 0.25rem 1.25rem !important;
   background-color: #212c3a;
 }
+
 .pcard-boxm .list-group-item {
   background-color: #212c3a;
   color: #fff!important;
@@ -97,12 +104,12 @@ a{
 
 .box-img {
   width: 90px;
-    height: 90px;
-    overflow: visible;
+  height: 90px;
+  overflow: visible;
 }
 
 i {
-  font-size: 15px!important;
+  font-size: 15px !important;
 }
 
 .dropdown-item:focus, .dropdown-item:hover {
@@ -112,7 +119,9 @@ i {
 .side-menu .card {
   background-color: #263544 !important;
 }
+
 /* curriculum */
+
 .side-menu {
   z-index: 100;
   margin-top: 4rem;
@@ -124,12 +133,12 @@ i {
 }
 
 .side-menu .d-md-block,
-.side-menu .d-block{
+.side-menu .d-block {
   -webkit-transition: all 2s ease-in-out;
-    -moz-transition: all 2s ease-in-out;
-    -ms-transition: all 2s ease-in-out;
-    -o-transition: all 2s ease-in-out;
-    transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -ms-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 
 
@@ -145,6 +154,7 @@ i {
 }
 
 /* media queries */
+
 @media screen and (max-width: 599px) {
   .dropdown-menu {
     left: 0!important;
