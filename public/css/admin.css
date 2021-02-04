@@ -53,6 +53,12 @@ a{
   left: -90px!important;
 }
 
+.main-content1 header {
+  background-color: #263544;
+  z-index: 9999!important;
+  height: 65px;
+}
+
 /* main */
 .main-content {
   margin-top: 5rem;
