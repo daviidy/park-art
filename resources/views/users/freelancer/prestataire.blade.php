@@ -14,12 +14,11 @@
 </section>
 <section class="p-md-5 p-3">
   <div class="container-fluid">
-    @if(count($freelancers) > 0)
-
-    @foreach($freelancers as $freelance)
 
       <div class="row">
+        @if(count($freelancers) > 0)
 
+        @foreach($freelancers as $freelance)
         <div class="col-md-4">
           <a href="{{ url('/prestataire', $freelance->id) }}" class="text-decoration-none ">
             <div class="card border-0 mb-3" style="max-width: 540px;">
@@ -41,10 +40,10 @@
             </div>
           </a>
         </div>
-
+        @endforeach
+        @else
       </div>
-    @endforeach
-    @else
+
       <h3>Pas encore de Prestataire</h3>
     @endif
 
