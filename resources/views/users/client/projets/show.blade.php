@@ -38,15 +38,15 @@
                           <p class="h6 badge font-weight-light">Catégories :<span class="font-weight-bold ">Web</span> </p>
                         </div>
                         <div class="d-md-flex justify-content-between align-items-center">
-                          <p class="h6 badge font-weight-light"> Poster le <span class="font-weight-bold">15/02/2021</span></p>
-                          <p class="h6 badge font-weight-light pl-md-4"><span class="font-weight-bold">{{  count($proposal) }}</span> postulant(s)</p>
+                          <p class="h6 badge font-weight-light"> Posté le <span class="font-weight-bold">15/02/2021</span></p>
+                          <p class="h6 badge font-weight-light pl-md-4"><span class="font-weight-bold">{{  count($proposal) }}</span> offre(s)</p>
                         </div>
                       </div>
                     </div>
                     <div class="row border rounded-lg mt-3">
                       <div class="col-md-8 py-2 d-flex justify-content-between align-items-center">
                         <h4 class="h6">Budget :</h4>
-                        <p class="mb-0">{{ $project->budget }}€</p>
+                        <p class="mb-0 font-weight-bold">{{ $project->budget }}€</p>
                       </div>
                       @if($hasProposal)
                         <div class="col-md-4 border-left p-3 text-center">
@@ -60,7 +60,7 @@
                     @endif
                     <div class="row">
                       <div class="col-md-12 pt-md-4 pt-3">
-                        <h4 class="pb-3 h6">Description</h4>
+                        <h4 class="pb-3 font-weight-bold">Description</h4>
                         <p>{{ $project->description }}</p>
                       </div>
                     </div>
