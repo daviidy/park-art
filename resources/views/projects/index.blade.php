@@ -6,7 +6,6 @@
       <div class="col-md-12">
         <div class="text-center position-relative header-text">
           <h1 class="display-1 font-weight-bold text-white">Nos Projets</h1>
-          <!--button class="btn mt-4 text-white rounded-pill px-5 font-weight-bolder">Créer un compte</button-->
         </div>
       </div>
     </div>
@@ -49,7 +48,7 @@
             @if($projects)
                 @foreach($projects as $project)
 
-          <div class="col-md-4">
+          <div class="col-md-4 mb-3">
             <div class="card shadow-sm rounded-lgs">
               <div class="card-body p-3">
                 <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-lgs p-2" style="width: 100px;height: 100px">
@@ -59,13 +58,11 @@
                 <div class="mb-4">
                   <ul class="list-group list-group-horizontal-md d-flex justify-content-between">
                     <li class="list-group-item border-0 badge p-2 bg-primarys">Full time</li>
-                    <li class="list-group-item border-0 badge p-2 bg-primarys">Min. 1 an</li>
-                    <li class="list-group-item border-0 badge p-2 bg-primarys">senior level</li>
                   </ul>
                 </div>
-                <div class="text-center">
-                  <a href="{{ url('/nos-projets', $project->id) }}" class="btn btn-primary px-4">Postuler</a>
-                  <a href="#" class="btn btn-primary px-5">Voir</a>
+                <div class="">
+                  {{--  <a href="{{ route('proposal.create', $project->id) }}" class="btn btn-primary px-4">Postuler</a>  --}}
+                  <a href="{{ url('/nos-projets', $project->id) }}" class="btn btn-primary px-5">Voir</a>
                 </div>
 
               </div>

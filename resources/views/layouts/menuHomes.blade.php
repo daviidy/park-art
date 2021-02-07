@@ -20,7 +20,7 @@
           <div class="row rounded-lg bg-content shadow">
             @include('includes.menuDashboard')
             @yield('content')
-
+            @include('includes.offertListe')
           </div>
         </div>
       </section>
@@ -30,20 +30,28 @@
     <script>
       $('.hamburger').click(function() {
         if ($(window).width() < 600) {
-            $('.side-menu').toggleClass('col-3');
-            $('.side-menu').toggleClass('d-none');
-            $('.side-menu').toggleClass('col-8');
             $('.side-menu').toggleClass('d-block');
-            $('.main-content').toggleClass('d-none');
+            $('.side-content').toggleClass('d-none');
             $('#overlay').fadeToggle(300);
-            } else {
-            $('.side-menu').toggleClass('d-md-block');
-            $('.main-content').toggleClass('col-md-9');
-            $('.main-content').toggleClass('col-md-12');
-            $('main').toggleClass('container-fluid');
-            $('main').toggleClass('container');
             }
       });
+      $('.close-btn').click(function() {
+        if ($(window).width() < 600) {
+            $('.side-menu').removeClass('d-block');
+            $('.side-content').removeClass('d-none');
+            $('#overlay').fadeToggle(300);
+            }
+      });
+    </script>
+    <script>
+        const currentLocation =location.href;
+        const menuItem = document.querySelectorAll('#Menu a');
+        const menuLength = menuItem.length;
+        for (let i = 0; i < menuLength; i++) {
+          if (menuItem[i].href === currentLocation) {
+            menuItem[i].className = "mr-2 py-2 active text-white text-decoration-none d-md-block d-flex align-items-center justify-content-around"
+          }
+        }
     </script>
   </body>
 </html>

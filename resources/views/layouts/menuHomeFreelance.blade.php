@@ -45,5 +45,41 @@
             }
       });
     </script>
+
+    <script>
+      $('#date-none #customCheck').click(function() {
+        $('#date').toggleClass('d-none')
+      });
+      $('#date-none-2 #customCheck-2').click(function() {
+        $('#date-2').toggleClass('d-none')
+      });
+    </script>
+    <script>
+        const currentLocation =location.href;
+        const menuItem = document.querySelectorAll('#menu a');
+        const menuLength = menuItem.length;
+        for (let i = 0; i < menuLength; i++) {
+          if (menuItem[i].href === currentLocation) {
+            menuItem[i].className = "mr-2 py-2 active text-white text-decoration-none d-md-block d-flex align-items-center justify-content-around"
+          }
+        }
+    </script>
+
+    <script>
+    $(document).ready(function() {
+      var distance = $('#menu-left').offset().top;
+
+        $(window).scroll(function () {
+
+             if ($(window).scrollTop() >= distance) {
+                 $('#menu-left').addClass("fixed");
+
+             } else {
+                 $('#menu-left').removeClass("fixed");
+             }
+         });
+
+    });
+    </script>
   </body>
 </html>

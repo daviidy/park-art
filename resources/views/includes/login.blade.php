@@ -12,9 +12,6 @@
                   </div>
                   <div class="col-md-8">
 
-
-
-
                     <div class="card-body p-4">
                       <form action="/login" method="post">
                         @csrf
