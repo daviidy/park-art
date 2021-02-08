@@ -35,6 +35,14 @@
                         <input type="text" name="title" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputEmail1" aria-describedby="emailHelp">
                       </div>
                       <div class="form-group">
+                        <label>Catégorie</label>
+                        <select name="category_id" required class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" aria-describedby="emailHelp">
+                          @foreach ($categories as $categ)
+                          <option value="{{ $categ['id'] }}"> {{ $categ['name'] }}</option>
+                        @endforeach
+                        </select>  
+                      </div>
+                      <div class="form-group">
                         <label >Description du projet</label>
                         <textarea class="form-control" name="description" rows="3"></textarea>
                       </div>

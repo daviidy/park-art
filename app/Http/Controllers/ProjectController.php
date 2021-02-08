@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Project;
 use App\Models\Proposal;
 use App\Models\User;
@@ -18,7 +19,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::latest();
-
+    
         return view('users.projets.index', compact('projects'));
 
     }
@@ -31,7 +32,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('users.client.projets.create');
+        $categories = Category::all();
+        return view('users.client.projets.create', compact('categories'));
     }
 
     /**
@@ -117,7 +119,7 @@ class ProjectController extends Controller
      */
     public function allProjects()
     {
-        $projects = Project::all();
+        $projects = Project::with('users')->get();
         return view('projects.index', compact('projects'));
     }
 
@@ -138,5 +140,12 @@ class ProjectController extends Controller
        }
         $project = Project::find($project_id);
         return view('users.client.projets.show', compact('project', 'proposal','hasProposal'));
+    }
+
+    public function getProjectProposals($project_id)
+    {
+        $project = Project::where('id', $project_id)->with(['proposals'=>function($proposal){
+            $proposal->with('user');
+        }]);
     }
 }

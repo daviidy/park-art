@@ -69,17 +69,6 @@
 
     <script>
     $(document).ready(function() {
-      /*var distance = $('#menu-left').offset().top;
-        $(window).scroll(function () {
-
-             if ($(window).scrollTop() >= distance) {
-                 $('#menu-left').addClass("fixed");
-
-             } else {
-                 $('#menu-left').removeClass("fixed");
-             }
-         });*/
-
          /** Load updated education form and display update education  modal*/
       $('.update-education').click(function(e) {
         e.preventDefault();
