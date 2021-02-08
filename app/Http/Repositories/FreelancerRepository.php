@@ -16,6 +16,9 @@ class FreelancerRepository{
         ->with(['educations'=>function($education){
             $education->with('medias');
         }])
+        ->with(['experiences'=>function($experience){
+            $experience->with('medias');
+        }])
         ->first();
         return $user;
     }
@@ -79,9 +82,9 @@ class FreelancerRepository{
         $objExperience->description = $datas['description'];
         $objExperience->begin_at = $datas['begin_at'];
         $objExperience->end_at = $datas['end_at'];
-        $objExperience->user_id = $datas['user_id'];
+        $objExperience->user_id = Auth::user()->id;
 
-        return $objExperience->save();
+        return $objExperience->save() ? $objExperience : null;
     }
 
     public function deleteExperience($experienceId)

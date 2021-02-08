@@ -45,25 +45,10 @@
                   </div>
                   <form method="POST" action="{{ route('save-education') }}" enctype="multipart/form-data">
                     @csrf
-                    <!--<div class="form-group text-black-50">
-                      <label>Type</label>
-                      <select required class="form-control border-left-0 border-right-0 border-top-0 border-primary" id="exampleFormControlSelect1">
-                        <option>Diplôme</option>
-                        <option>Certification</option>
-                      </select>
-                    </div>-->
                     <div class="form-group text-black-50">
                       <label>Titre</label>
                       <input required type="text" name="title" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light">
                     </div>
-                    <div class="form-group text-black-50">
-                      <label>Description</label>
-                      <input required type="text" name="description" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light">
-                    </div>
-                   <!-- <div class="form-group text-black-50">
-                      <label>Etablissement</label>
-                      <input required type="text" name="etablissement" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light">
-                    </div> -->
                     <div class="form-group text-black-50">
                       <label>Date de début</label>
                       <input required type="date" name="begin_at" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light">
@@ -76,6 +61,10 @@
                       <label>Medias</label>
                       <input type="file" name="medias[]" id="date-2" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light"
                       accept="image/x-png,image/gif,image/jpeg" placeholder="" multiple>
+                    </div>
+                    <div class="form-group text-black-50">
+                      <label>description (Facultatif)</label>
+                      <textarea class="form-control" rows="3" name="description"></textarea>
                     </div>
                     <div class="form-group form-check text-black-50" id="date-none">
                       <input type="checkbox" class="form-check-input border-left-0 border-right-0 border-top-0 border-primary" id="customCheck">

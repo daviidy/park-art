@@ -181,7 +181,7 @@ class FreelanceController extends Controller
                 if (isset($datas['medias'])){
                     foreach($datas['medias'] as $media){
                         $freelanceMediaName = $media->getClientOriginalName();
-                        $path = $this->createFolder('educations', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
+                        $path = $this->createFolder('images/freelancers/educations', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
                         $media->move(public_path($path), $freelanceMediaName);
                         $datas['media'] = $freelanceMediaName;
                         $datas['educations_id'] = $education->id;
@@ -223,7 +223,7 @@ class FreelanceController extends Controller
 
     private function createFolder($name,$doc)
     {
-        $path = 'images/freelancers/'.$name.'/'. $doc;
+        $path = $name.'/'. $doc;
     
         /* Check if the directory already exists. */
         if(!is_dir($path)){
@@ -254,7 +254,7 @@ class FreelanceController extends Controller
                     Media::where('educations_id', $datas['education_id'])->delete();
                     foreach($datas['medias'] as $media){
                         $freelanceMediaName = $media->getClientOriginalName();
-                        $path = $this->createFolder('educations', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
+                        $path = $this->createFolder('images/freelancers/educations', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
                         $media->move(public_path($path), $freelanceMediaName);
                         $datas['media'] = $freelanceMediaName;
                         $datas['educations_id'] = $education->id;
@@ -310,6 +310,66 @@ class FreelanceController extends Controller
         $education = $this->freelancerRepository->getEducation($id);
 
         return view('users.freelancer.pLoad.modal-edit-formation', compact('education'));
+    }
+
+    public function addExperience(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'begin_at' => 'required',
+            'end_at' => 'required',
+        ]);
+
+        try {
+            DB::beginTransaction();
+            $datas = $request->all();
+            $success = false;
+            $experience = $this->freelancerRepository->addExperience($datas);
+                
+            if ($experience){
+                if (isset($datas['medias'])){
+                    foreach($datas['medias'] as $media){
+                        $freelanceMediaName = $media->getClientOriginalName();
+                        $path = $this->createFolder('images/freelancers/experiences', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
+                        $media->move(public_path($path), $freelanceMediaName);
+                        $datas['media'] = $freelanceMediaName;
+                        $datas['experience_id'] = $experience->id;
+                        if(!$this->freelancerRepository->addMedia($datas)){
+                            $success = false;
+                            break;
+                        }
+                        $success = true;
+                        }
+                }else{
+                    $success = true;
+                }
+            }
+            if($success ){
+                DB::commit();
+                session(['notification_icon'=>'check_circle']);
+                Flashy::success('Formation ajoutée avec succès');
+                return back();
+            }else{
+                   DB::rollBack();
+                   session(['notification_icon'=>'error']);
+                   Flashy::error('Une erreur est survenue lors de l\'enregistrement');
+                   return back();
+                }
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            $codeDupicateValue = 23000;
+            $message = '';
+            dd($exception);
+            if($exception->getCode() == $codeDupicateValue){
+                $message = 'Vous avez déjà enregistré cette formation';
+            }else{
+                $message = 'Une erreur est survenue lors de l\'enregistrement';
+            }
+            session(['notification_icon'=>'error']);
+            Flashy::error($message);
+            return back();
+        }
     }
    
 }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Experience extends Model
 {
     use HasFactory;
+
+    public function medias()
+    {
+        return $this->hasMany(Media::class, 'experience_id');
+    }
 }
