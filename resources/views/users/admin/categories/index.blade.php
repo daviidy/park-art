@@ -25,14 +25,16 @@
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach( $categories as $categ)
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
+                        <th scope="row">{{ $categ['id'] }}</th>
+                        <td>{{ $categ['name'] }}</td>
                         <td>
-                          <a href="#" class="text-white bg-primary rounded p-1 pb-2 text-decoration-none"><i class="bi bi-pencil-square p-1"></i></a>
-                          <a href="#" class="text-white bg-danger rounded p-1 pb-2 text-decoration-none"><i class="bi bi-trash p-1"></i></a>
+                          <a href="{{ route('edit-category', ['id'=>$categ['id']]) }}" class="text-white bg-primary rounded p-1 pb-2 text-decoration-none"><i class="bi bi-pencil-square p-1"></i></a>
+                          <a onclick="return confirm('Voulez-vous vraiment supprimée cette catégorie ?')" href="{{ route('delete-category', ['id'=>$categ['id']]) }}" class="text-white bg-danger rounded p-1 pb-2 text-decoration-none"><i class="bi bi-trash p-1"></i></a>
                         </td>
                       </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>

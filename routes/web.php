@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProjectController;
@@ -65,6 +66,12 @@ Route::group(['middleware' => ['auth']], function () {
    /*----------------------------------Adminstrator routes ----------------------------------------------------*/
    Route::prefix('admin')->group(function () {
     Route::get('/dashboard',[AdminController::class, 'home'])->name('admin-home');
+    Route::get('/categories',[CategoryController::class, 'index'])->name('list-categorie');
+    Route::post('/categorie',[CategoryController::class, 'saveCategory'])->name('save-categorie');
+    Route::post('/update-categorie',[CategoryController::class, 'updateCategory'])->name('update-categorie');
+    Route::get('/delete-category/{id}',[CategoryController::class, 'deleteCategory'])->name('delete-category');
+    Route::get('/create-category',[CategoryController::class, 'create'])->name('create-category');
+    Route::get('/edit/{id}',[CategoryController::class, 'edit'])->name('edit-category');
    });
 });
 

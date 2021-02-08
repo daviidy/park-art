@@ -17,10 +17,14 @@
               <div class="card mx-auto" style="width: 30rem;">
                 <div class="card-body">
                   <h5 class="card-title">Ajouter une catégorie</h5>
-                  <form>
+                  <form method="post" action="{{ route('save-categorie') }}">
+                    @csrf
                     <div class="form-group">
-                      <input type="text" class="form-control">
+                      <input type="text" name="name" class="form-control">
                     </div>
+                    @error('name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                     <button type="submit" class="btn btn-primary">Ajouter</button>
                   </form>
                 </div>
