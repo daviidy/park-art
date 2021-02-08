@@ -66,12 +66,14 @@ return [
     // 'registered_freelancer' => RouteServiceProvider::REGISTERED_REDIRECT_FREELANCER,
     'login_client' => RouteServiceProvider::CLIENT_HOME,
     'login_freelance' => RouteServiceProvider::FREELANCE_HOME,
+    'login_admin' => RouteServiceProvider::ADMIN_HOME,
     
     'registered_client' => '/client/my-profile',
     'registered_freelance' => '/freelance/my-profile',
 
     'login_client' => '/client/actions',
     'login_freelance' => '/freelance/my-profile',
+    'login_admin' => '/admin/dashboard',
 
     /*
     |--------------------------------------------------------------------------
