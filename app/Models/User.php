@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Project::class,'proposals');
     }
+
+    public function educations()
+    {
+        return $this->hasMany(Education::class);
+    }
 }
