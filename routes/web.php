@@ -6,6 +6,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FreelanceController;
 use App\Http\Controllers\ProposalController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,10 @@ use App\Http\Controllers\ProposalController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 //Show home page
 Route::get('/', function () {
     return view('welcome');
@@ -47,6 +52,14 @@ Route::group(['middleware' => ['auth']], function () {
    Route::get('freelance/my-profile/{id}/edit',[FreelanceController::class, 'edit'])->name('freelancer-edit');
    Route::post('freelance/my-profile/update',[FreelanceController::class, 'update'])->name('freelancer-update');
    Route::post('freelance/proposal',[FreelanceController::class, 'saveProposal'])->name('save-proposal');
+   Route::post('freelance/education',[FreelanceController::class, 'addEducation'])->name('save-education');
+   Route::post('freelance/update-education',[FreelanceController::class, 'updateEducation'])->name('update-education');
+   Route::post('freelance/update-experience',[FreelanceController::class, 'updateExperience'])->name('update-experience');
+   Route::get('freelance/delete-education/{id}',[FreelanceController::class, 'deleteFormation'])->name('delete-education');
+   Route::get('freelance/delete-experience/{id}',[FreelanceController::class, 'deleteExperience'])->name('delete-experience');
+   Route::get('freelance/edit-education/{id}',[FreelanceController::class, 'editFormation'])->name('edit-education');
+   Route::get('freelance/edit-experience/{id}',[FreelanceController::class, 'editExperience'])->name('edit-experience');
+   Route::post('freelance/experience',[FreelanceController::class, 'addExperience'])->name('save-experience');
 });
 
 
