@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProjectController;
@@ -60,17 +61,16 @@ Route::group(['middleware' => ['auth']], function () {
    Route::get('freelance/edit-education/{id}',[FreelanceController::class, 'editFormation'])->name('edit-education');
    Route::get('freelance/edit-experience/{id}',[FreelanceController::class, 'editExperience'])->name('edit-experience');
    Route::post('freelance/experience',[FreelanceController::class, 'addExperience'])->name('save-experience');
+
+   /*----------------------------------Adminstrator routes ----------------------------------------------------*/
+   Route::prefix('admin')->group(function () {
+    Route::get('/dashboard',[AdminController::class, 'home'])->name('admin-home');
+   });
 });
 
 
 Route::get('/nos-projets',[ ProjectController::class, 'allProjects']);
 Route::get('/nos-projets/{id}', [ProjectController::class, 'displayProject']);
-
-
-//Admin dashboard
-Route::get('/admin/dashboard', function () {
-    return view('users.admin.home');
-});
 
 
 //Proposal by freelancer route
