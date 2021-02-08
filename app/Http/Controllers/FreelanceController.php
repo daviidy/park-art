@@ -185,18 +185,8 @@ class FreelanceController extends Controller
                 
             if ($education){
                 if (isset($datas['medias'])){
-                    foreach($datas['medias'] as $media){
-                        $freelanceMediaName = $media->getClientOriginalName();
-                        $path = $this->createFolder('images/freelancers/educations', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
-                        $media->move(public_path($path), $freelanceMediaName);
-                        $datas['media'] = $freelanceMediaName;
-                        $datas['educations_id'] = $education->id;
-                        if(!$this->freelancerRepository->addMedia($datas)){
-                            $success = false;
-                            break;
-                        }
-                        $success = true;
-                        }
+                    $folder = 'images/freelancers/educations';
+                    $success = $this->saveMedia($datas['medias'], $datas,$folder, $education->id, false);
                 }else{
                     $success = true;
                 }
@@ -245,7 +235,6 @@ class FreelanceController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
             'begin_at' => 'required',
             'end_at' => 'required',
         ]);
@@ -258,18 +247,8 @@ class FreelanceController extends Controller
             if ($education){
                 if (isset($datas['medias'])){
                     Media::where('educations_id', $datas['education_id'])->delete();
-                    foreach($datas['medias'] as $media){
-                        $freelanceMediaName = $media->getClientOriginalName();
-                        $path = $this->createFolder('images/freelancers/educations', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
-                        $media->move(public_path($path), $freelanceMediaName);
-                        $datas['media'] = $freelanceMediaName;
-                        $datas['educations_id'] = $education->id;
-                        if(!$this->freelancerRepository->addMedia($datas)){
-                            $success = false;
-                            break;
-                        }
-                        $success = true;
-                        }
+                    $folder = 'images/freelancers/educations';
+                    $success = $this->saveMedia($datas['medias'], $datas,$folder, $education->id, false);
                 }else{
                     $success = true;
                 }
@@ -287,7 +266,6 @@ class FreelanceController extends Controller
                 }
         } catch (\Exception $exception) {
             DB::rollBack();
-            dd($exception);
             $codeDupicateValue = 23000;
             $message = '';
             if($exception->getCode() == $codeDupicateValue){
@@ -301,9 +279,9 @@ class FreelanceController extends Controller
         }
     }
 
-    public function deleteFormation($id)
+    public function deleteFormation($formation_id)
     {
-        $response = $this->freelancerRepository->deleteEducation($id);
+        $response = $this->freelancerRepository->deleteEducation($formation_id);
 
         if($response){
             session(['notification_icon'=>'check_circle']);
@@ -312,8 +290,8 @@ class FreelanceController extends Controller
         }
     }
 
-    public function editFormation($id){
-        $education = $this->freelancerRepository->getEducation($id);
+    public function editFormation($formation_id){
+        $education = $this->freelancerRepository->getEducation($formation_id);
 
         return view('users.freelancer.pLoad.modal-edit-formation', compact('education'));
     }
@@ -322,7 +300,6 @@ class FreelanceController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
             'begin_at' => 'required'
         ]);
 
@@ -334,18 +311,8 @@ class FreelanceController extends Controller
                 
             if ($experience){
                 if (isset($datas['medias'])){
-                    foreach($datas['medias'] as $media){
-                        $freelanceMediaName = $media->getClientOriginalName();
-                        $path = $this->createFolder('images/freelancers/experiences', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
-                        $media->move(public_path($path), $freelanceMediaName);
-                        $datas['media'] = $freelanceMediaName;
-                        $datas['experience_id'] = $experience->id;
-                        if(!$this->freelancerRepository->addMedia($datas)){
-                            $success = false;
-                            break;
-                        }
-                        $success = true;
-                        }
+                    $folder = 'images/freelancers/experiences';
+                    $success = $this->saveMedia($datas['medias'], $datas,$folder, false, $experience->id);
                 }else{
                     $success = true;
                 }
@@ -380,7 +347,6 @@ class FreelanceController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
             'begin_at' => 'required'
         ]);
 
@@ -393,18 +359,8 @@ class FreelanceController extends Controller
             if ($experience){
                 if (isset($datas['medias'])){
                     Media::where('experience_id', $datas['experience_id'])->delete();
-                    foreach($datas['medias'] as $media){
-                        $freelanceMediaName = $media->getClientOriginalName();
-                        $path = $this->createFolder('images/freelancers/experiences', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
-                        $media->move(public_path($path), $freelanceMediaName);
-                        $datas['media'] = $freelanceMediaName;
-                        $datas['experience_id'] = $experience->id;
-                        if(!$this->freelancerRepository->addMedia($datas)){
-                            $success = false;
-                            break;
-                        }
-                        $success = true;
-                        }
+                    $folder = 'images/freelancers/experiences';
+                    $success = $this->saveMedia($datas['medias'], $datas,$folder, false, $experience->id);
                 }else{
                     $success = true;
                 }
@@ -424,7 +380,6 @@ class FreelanceController extends Controller
             DB::rollBack();
             $codeDupicateValue = 23000;
             $message = '';
-            dd($exception);
             if($exception->getCode() == $codeDupicateValue){
                 $message = 'Vous avez déjà enregistré cette formation';
             }else{
@@ -436,9 +391,29 @@ class FreelanceController extends Controller
         }
     }
 
-    public function deleteExperience($id)
+    public function saveMedia($medias, $datas,$folder, $education = null, $experience = null)
     {
-        $response = $this->freelancerRepository->deleteExperience($id);
+        $success = false;
+        foreach($medias as $media){
+            $freelanceMediaName = $media->getClientOriginalName();
+            $path = $this->createFolder($folder, Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
+            $media->move(public_path($path), $freelanceMediaName);
+            $datas['media'] = $freelanceMediaName;
+            if($education) $datas['educations_id'] = $education;
+            if($experience) $datas['experience_id'] = $experience;
+            if(!$this->freelancerRepository->addMedia($datas)){
+                $success = false;
+                break;
+            }
+            $success = true;
+            }
+
+            return $success;
+    }
+
+    public function deleteExperience($experience_id)
+    {
+        $response = $this->freelancerRepository->deleteExperience($experience_id);
 
         if($response){
             session(['notification_icon'=>'check_circle']);
@@ -447,8 +422,8 @@ class FreelanceController extends Controller
         }
     }
 
-    public function editExperience($id){
-        $experience = $this->freelancerRepository->getExperience($id);
+    public function editExperience($experience_id){
+        $experience = $this->freelancerRepository->getExperience($experience_id);
 
         return view('users.freelancer.pLoad.modal-edit-experience', compact('experience'));
     }
