@@ -320,7 +320,7 @@ class FreelanceController extends Controller
             if($success ){
                 DB::commit();
                 session(['notification_icon'=>'check_circle']);
-                Flashy::success('Formation ajoutée avec succès');
+                Flashy::success('Nouvelle référence ajoutée');
                 return back();
             }else{
                    DB::rollBack();
@@ -333,7 +333,7 @@ class FreelanceController extends Controller
             $codeDupicateValue = 23000;
             $message = '';
             if($exception->getCode() == $codeDupicateValue){
-                $message = 'Vous avez déjà enregistré cette formation';
+                $message = 'Vous avez déjà enregistré cette référence';
             }else{
                 $message = 'Une erreur est survenue lors de l\'enregistrement';
             }
@@ -368,7 +368,7 @@ class FreelanceController extends Controller
             if($success ){
                 DB::commit();
                 session(['notification_icon'=>'check_circle']);
-                Flashy::success('Formation ajoutée avec succès');
+                Flashy::success('Référence modifiée');
                 return back();
             }else{
                    DB::rollBack();
@@ -381,7 +381,7 @@ class FreelanceController extends Controller
             $codeDupicateValue = 23000;
             $message = '';
             if($exception->getCode() == $codeDupicateValue){
-                $message = 'Vous avez déjà enregistré cette formation';
+                $message = 'Vous avez déjà enregistré cette référence';
             }else{
                 $message = 'Une erreur est survenue lors de l\'enregistrement';
             }
