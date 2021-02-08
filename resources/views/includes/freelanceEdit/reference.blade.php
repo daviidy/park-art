@@ -1,12 +1,18 @@
 <div class="p-3 d-md-flex d-inline justify-content-around align-items-center w-75 mb-3 mx-auto">
   <p class="mb-3"><a href="#" class="p-2 border rounded border-info text-white text-decoration-none shadow bg-info" data-toggle="modal" data-target="#addReferenceModal">Ajouter une reférence</a></p>
-  <p class="mt-4 mt-md-0"><a href="#" class="p-2 border rounded border-primary text-white text-decoration-none shadow bg-primary" data-toggle="modal" data-target="#editReferenceModal">Modifier mes reférences</a></p>
+  {{--  <p class="mt-4 mt-md-0"><a href="#" class="p-2 border rounded border-primary text-white text-decoration-none shadow bg-primary" data-toggle="modal" data-target="#editReferenceModal">Modifier mes reférences</a></p>  --}}
 </div>
 @foreach($user->experiences as $experience)
 <div class="card mb-3 text-dark p-3 shadow ml-md-3 mx-md-auto" style="max-width: 750px;">
     <div class="row no-gutters">
       <div class="col-md-2 text-center">
-        <i class="bi bi-person-circle" style="font-size: 55px;"></i>
+        @if(Auth::user()->profile_image != "image_default.png")
+        <img src="/images/{{Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle mx-auto" alt="avatar" style="width: 55px;">
+        @else
+        <i class="bi bi-person-circle text-white" style="font-size: 110px;"></i>
+        @endif
+        <br>
+        <br>
         @foreach ($experience['medias'] as $media)
         <img class="img-fluid rounded-circle" style="width: 80px; height: 80px;"
          src="/images/freelancers/experiences/{{ Auth::user()->first_name.'_'.Auth::user()->last_name.'_'

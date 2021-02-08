@@ -9,7 +9,13 @@
 <div class="card mb-3 text-dark p-3 shadow mx-auto" style="max-width: 750px;">
     <div class="row no-gutters">
       <div class="col-md-2 text-center">
-        <i class="bi bi-person-circle" style="font-size: 55px;"></i>
+        @if(Auth::user()->profile_image != "image_default.png")
+        <img src="/images/{{Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle mx-auto" alt="avatar" style="width: 55px;">
+        @else
+        <i class="bi bi-person-circle text-white" style="font-size: 110px;"></i>
+        @endif
+        <br>
+        <br>
         @foreach ($education['medias'] as $media)
         <img class="img-fluid rounded-circle" style="width: 80px; height: 80px;"
          src="/images/freelancers/educations/{{ Auth::user()->first_name.'_'.Auth::user()->last_name.'_'

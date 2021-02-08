@@ -118,9 +118,9 @@ class FreelanceController extends Controller
             $user->last_name = $datas['last_name'];
             $user->save();
 
-            return back()
-            ->with('success','Image ajouté avec succès.')
-            ->with('image',$ProfileImageName);
+            session(['notification_icon'=>'check_circle']);
+            Flashy::success('Profile modifié avec succès');
+            return back();
         }
 
         $user->description = $request->input('description');
