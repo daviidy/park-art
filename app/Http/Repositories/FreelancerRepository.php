@@ -78,7 +78,7 @@ class FreelancerRepository{
 
     public function updateExperience($datas)
     {
-        $objEducation = Experience::where('id', $datas['education_id']);
+        $objEducation = Experience::where('id', $datas['experience_id'])->first();
         return $this->saveEducation($datas, $objEducation);
     }
     
@@ -107,5 +107,10 @@ class FreelancerRepository{
     public function getEducation($id)
     {
         return Education::where('id', $id)->firstOrFail();
+    }
+
+    public function getExperience($id)
+    {
+        return Experience::where('id', $id)->firstOrFail();
     }
 }

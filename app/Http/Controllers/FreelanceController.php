@@ -317,8 +317,7 @@ class FreelanceController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'begin_at' => 'required',
-            'end_at' => 'required',
+            'begin_at' => 'required'
         ]);
 
         try {
@@ -329,6 +328,65 @@ class FreelanceController extends Controller
                 
             if ($experience){
                 if (isset($datas['medias'])){
+                    foreach($datas['medias'] as $media){
+                        $freelanceMediaName = $media->getClientOriginalName();
+                        $path = $this->createFolder('images/freelancers/experiences', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
+                        $media->move(public_path($path), $freelanceMediaName);
+                        $datas['media'] = $freelanceMediaName;
+                        $datas['experience_id'] = $experience->id;
+                        if(!$this->freelancerRepository->addMedia($datas)){
+                            $success = false;
+                            break;
+                        }
+                        $success = true;
+                        }
+                }else{
+                    $success = true;
+                }
+            }
+            if($success ){
+                DB::commit();
+                session(['notification_icon'=>'check_circle']);
+                Flashy::success('Formation ajoutée avec succès');
+                return back();
+            }else{
+                   DB::rollBack();
+                   session(['notification_icon'=>'error']);
+                   Flashy::error('Une erreur est survenue lors de l\'enregistrement');
+                   return back();
+                }
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            $codeDupicateValue = 23000;
+            $message = '';
+            if($exception->getCode() == $codeDupicateValue){
+                $message = 'Vous avez déjà enregistré cette formation';
+            }else{
+                $message = 'Une erreur est survenue lors de l\'enregistrement';
+            }
+            session(['notification_icon'=>'error']);
+            Flashy::error($message);
+            return back();
+        }
+    }
+
+    public function updateExperience(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'begin_at' => 'required'
+        ]);
+
+        try {
+            DB::beginTransaction();
+            $datas = $request->all();
+            $success = false;
+            $experience = $this->freelancerRepository->updateExperience($datas);
+                
+            if ($experience){
+                if (isset($datas['medias'])){
+                    Media::where('experience_id', $datas['experience_id'])->delete();
                     foreach($datas['medias'] as $media){
                         $freelanceMediaName = $media->getClientOriginalName();
                         $path = $this->createFolder('images/freelancers/experiences', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
@@ -381,6 +439,12 @@ class FreelanceController extends Controller
             Flashy::success('Expérience supprimée avec succès');
             return back();
         }
+    }
+
+    public function editExperience($id){
+        $experience = $this->freelancerRepository->getExperience($id);
+
+        return view('users.freelancer.pLoad.modal-edit-experience', compact('experience'));
     }
    
 }

@@ -79,6 +79,8 @@
                  $('#menu-left').removeClass("fixed");
              }
          });*/
+
+         /** Load updated education form and display update education  modal*/
       $('.update-education').click(function(e) {
         e.preventDefault();
         var education = $(this).data('education');
@@ -92,6 +94,52 @@
               }
             });
       });
+
+      /* Load experience form and show experience modal*/
+      $('.update-experience').on('click', function(e) {
+        e.preventDefault();
+        var experience = $(this).data('experience');
+        $.ajax({
+              url: "/freelance/edit-experience/" + experience,
+              type: 'get',
+              success: function(data) {
+                  $('#update-experience').html(data);
+                  $('#editReferenceModal').modal('show')  
+              }
+            });
+      });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      var distance = $('#menu-left').offset().top;
+        $(window).scroll(function () {
+
+             if ($(window).scrollTop() >= distance) {
+                 $('#menu-left').addClass("fixed");
+
+             } else {
+                 $('#menu-left').removeClass("fixed");
+             }
+         });
     });
     </script>
 @include('flashy::message')
