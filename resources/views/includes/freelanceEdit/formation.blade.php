@@ -24,7 +24,8 @@
           <p class="card-text">{{ $education['description'] }}.</p>
           <p class="card-text">
             <a href="#" class="p-2 border rounded border-primary text-decoration-none">Modifier</a>
-            <a href="#" class="p-2 border rounded border-danger text-danger text-decoration-none">Supprimer</a>
+            <a onclick="return confirm('Voulez-vous vraiment supprimée cette formation ?')" href="{{ route('delete-education', ['id'=>$education['id']]) }}" 
+              class="p-2 border rounded border-danger text-danger text-decoration-none">Supprimer</a>
           </p>
         </div>
       </div>

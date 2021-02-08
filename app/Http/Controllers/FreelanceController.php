@@ -233,5 +233,16 @@ class FreelanceController extends Controller
 
         return $path;
     }
+
+    public function deleteFormation($id)
+    {
+        $response = $this->freelancerRepository->deleteEducation($id);
+
+        if($response){
+            session(['notification_icon'=>'check_circle']);
+            Flashy::success('Formation supprimée avec succès');
+            return back();
+        }
+    }
    
 }

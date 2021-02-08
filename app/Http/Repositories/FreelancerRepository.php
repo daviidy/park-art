@@ -57,7 +57,8 @@ class FreelancerRepository{
 
     public function deleteEducation($educationId)
     {
-
+        $education = Education::where('id', $educationId)->firstOrFail();
+        return $education->delete();
     }
 
     public function addExperience($datas)
