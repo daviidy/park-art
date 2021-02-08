@@ -102,16 +102,20 @@ class FreelanceController extends Controller
     {
         $request->validate([
             'profile_image' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'first_name' => 'required',
+            'last_name' => 'required',
         ]);
         $user = Auth::user();
         $image = $request->file('profile_image');
-
+        $datas = $request->all();    
         if($image){
 
             $ProfileImageName = time().'.'.$image->getClientOriginalExtension();
             ImageResize::make($image->path())->resize(300, 300)->save(public_path('images/' . $ProfileImageName));
             $image->move(public_path('images'), $ProfileImageName);
             $user->profile_image = $ProfileImageName;
+            $user->first_name = $datas['first_name'];
+            $user->last_name = $datas['last_name'];
             $user->save();
 
             return back()
@@ -120,10 +124,12 @@ class FreelanceController extends Controller
         }
 
         $user->description = $request->input('description');
+        $user->first_name = $datas['first_name'];
+        $user->last_name = $datas['last_name'];
         $user->save();
-
-        return back()
-                ->with('success','Image ajouté avec succès.');
+        session(['notification_icon'=>'check_circle']);
+                Flashy::success('Profile modifié avec succès');
+        return back();
     }
 
     /**
