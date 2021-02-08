@@ -64,6 +64,12 @@ class FreelancerRepository{
         return $education->delete();
     }
 
+    public function deleteExperience($experienceId)
+    {
+        $education = Experience::where('id', $experienceId)->firstOrFail();
+        return $education->delete();
+    }
+
     public function addExperience($datas)
     {
         $objEducation = new Experience();
@@ -85,11 +91,6 @@ class FreelancerRepository{
         $objExperience->user_id = Auth::user()->id;
 
         return $objExperience->save() ? $objExperience : null;
-    }
-
-    public function deleteExperience($experienceId)
-    {
-
     }
 
     public function addMedia($datas)

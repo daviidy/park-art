@@ -371,5 +371,16 @@ class FreelanceController extends Controller
             return back();
         }
     }
+
+    public function deleteExperience($id)
+    {
+        $response = $this->freelancerRepository->deleteExperience($id);
+
+        if($response){
+            session(['notification_icon'=>'check_circle']);
+            Flashy::success('Expérience supprimée avec succès');
+            return back();
+        }
+    }
    
 }
