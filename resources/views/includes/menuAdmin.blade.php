@@ -17,7 +17,7 @@
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body list-group pcard-boxm rounded-0">
-        <a href="#" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Accueil</a>
+        <a href="{{ route('admin-home') }}" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Accueil</a>
       </div>
     </div>
   </div>
@@ -35,8 +35,8 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body list-group pcard-boxm rounded-0">
-        <a href="#" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Liste des catégories</a>
-        <a href="#" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Ajouter une catégories</a>
+        <a href="{{ route('list-categorie') }}" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Liste des catégories</a>
+        <a href="{{ route('create-category') }}" class="list-group-item text-decoration-none border-0 list-group-item text-decoration-none border-0-action">Ajouter une catégories</a>
       </div>
     </div>
   </div>

@@ -16,7 +16,7 @@
             <div class="col-md-12">
               <div class="card-deck">
                 <div class="card shadow border-0 box-hover">
-                  <a href="#" class="text-decoration-none p-3">
+                  <a href="{{ route('list-categorie') }}" class="text-decoration-none p-3">
                   <div class="box-img m-auto py-3">
                     <svg width="164" height="144" viewBox="0 0 164 144" fill="none" class="img-fluid">
                         <rect x="20" y="82" width="135" height="36" rx="18" fill="#FFCDB2"></rect>

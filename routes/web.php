@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FreelanceController;
 use App\Http\Controllers\ProposalController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +20,10 @@ use App\Http\Controllers\ProposalController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 //Show home page
 Route::get('/', function () {
     return view('welcome');
@@ -47,17 +54,30 @@ Route::group(['middleware' => ['auth']], function () {
    Route::get('freelance/my-profile/{id}/edit',[FreelanceController::class, 'edit'])->name('freelancer-edit');
    Route::post('freelance/my-profile/update',[FreelanceController::class, 'update'])->name('freelancer-update');
    Route::post('freelance/proposal',[FreelanceController::class, 'saveProposal'])->name('save-proposal');
+   Route::post('freelance/education',[FreelanceController::class, 'addEducation'])->name('save-education');
+   Route::post('freelance/update-education',[FreelanceController::class, 'updateEducation'])->name('update-education');
+   Route::post('freelance/update-experience',[FreelanceController::class, 'updateExperience'])->name('update-experience');
+   Route::get('freelance/delete-education/{id}',[FreelanceController::class, 'deleteFormation'])->name('delete-education');
+   Route::get('freelance/delete-experience/{id}',[FreelanceController::class, 'deleteExperience'])->name('delete-experience');
+   Route::get('freelance/edit-education/{id}',[FreelanceController::class, 'editFormation'])->name('edit-education');
+   Route::get('freelance/edit-experience/{id}',[FreelanceController::class, 'editExperience'])->name('edit-experience');
+   Route::post('freelance/experience',[FreelanceController::class, 'addExperience'])->name('save-experience');
+
+   /*----------------------------------Adminstrator routes ----------------------------------------------------*/
+   Route::prefix('admin')->group(function () {
+    Route::get('/dashboard',[AdminController::class, 'home'])->name('admin-home');
+    Route::get('/categories',[CategoryController::class, 'index'])->name('list-categorie');
+    Route::post('/categorie',[CategoryController::class, 'saveCategory'])->name('save-categorie');
+    Route::post('/update-categorie',[CategoryController::class, 'updateCategory'])->name('update-categorie');
+    Route::get('/delete-category/{id}',[CategoryController::class, 'deleteCategory'])->name('delete-category');
+    Route::get('/create-category',[CategoryController::class, 'create'])->name('create-category');
+    Route::get('/edit/{id}',[CategoryController::class, 'edit'])->name('edit-category');
+   });
 });
 
 
 Route::get('/nos-projets',[ ProjectController::class, 'allProjects']);
 Route::get('/nos-projets/{id}', [ProjectController::class, 'displayProject']);
-
-
-//Admin dashboard
-Route::get('/admin/dashboard', function () {
-    return view('users.admin.home');
-});
 
 
 //Proposal by freelancer route

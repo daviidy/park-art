@@ -168,6 +168,7 @@ return [
          */
         App\Providers\FortifyServiceProvider::class,
         'Intervention\Image\ImageServiceProvider',
+        MercurySeries\Flashy\FlashyServiceProvider::class,
 
 
         /*
@@ -231,6 +232,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'ImageResize' => 'Intervention\Image\Facades\Image',
+        'Flashy' => MercurySeries\Flashy\Flashy::class,
 
     ],
 
