@@ -57,7 +57,9 @@ Route::group(['middleware' => ['auth']], function () {
    Route::post('freelance/my-profile/update',[FreelanceController::class, 'update'])->name('freelancer-update');
    Route::post('freelance/proposal',[FreelanceController::class, 'saveProposal'])->name('save-proposal');
    Route::post('freelance/education',[FreelanceController::class, 'addEducation'])->name('save-education');
+   Route::post('freelance/update-education',[FreelanceController::class, 'updateEducation'])->name('update-education');
    Route::get('freelance/delete-education/{id}',[FreelanceController::class, 'deleteFormation'])->name('delete-education');
+   Route::get('freelance/edit-education/{id}',[FreelanceController::class, 'editFormation'])->name('edit-education');
 });
 
 

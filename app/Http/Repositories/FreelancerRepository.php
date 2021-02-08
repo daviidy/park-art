@@ -40,7 +40,7 @@ class FreelancerRepository{
 
     public function updateEducation($datas)
     {
-        $objEducation = Education::where('id', $datas['education_id']);
+        $objEducation = Education::where('id', $datas['education_id'])->firstOrFail();
         return $this->saveEducation($datas, $objEducation);
     }
     
@@ -98,5 +98,10 @@ class FreelancerRepository{
         if(isset($datas['experience_id']))$mediaObjet->experience_id = $datas['experience_id'];
 
         return $mediaObjet->save();
+    }
+
+    public function getEducation($id)
+    {
+        return Education::where('id', $id)->firstOrFail();
     }
 }

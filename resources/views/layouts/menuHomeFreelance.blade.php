@@ -69,8 +69,7 @@
 
     <script>
     $(document).ready(function() {
-      var distance = $('#menu-left').offset().top;
-
+      /*var distance = $('#menu-left').offset().top;
         $(window).scroll(function () {
 
              if ($(window).scrollTop() >= distance) {
@@ -79,8 +78,20 @@
              } else {
                  $('#menu-left').removeClass("fixed");
              }
-         });
-
+         });*/
+      $('.update-education').click(function(e) {
+        e.preventDefault();
+        var education = $(this).data('education');
+        $.ajax({
+              url: "/freelance/edit-education/" + education,
+              type: 'get',
+              success: function(data) {
+                console.log(data);
+                  $('#update-education').html(data);
+                  $('#editFormationModal').modal('show')  
+              }
+            });
+      });
     });
     </script>
 @include('flashy::message')

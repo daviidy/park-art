@@ -6,6 +6,7 @@ use App\Http\Repositories\FreelancerRepository;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\FreelanceModel;
+use App\Models\Media;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Log\Logger;
 use Illuminate\Support\Facades\Auth;
@@ -175,10 +176,10 @@ class FreelanceController extends Controller
             $datas = $request->all();
             $success = false;
             $education = $this->freelancerRepository->addEducation($datas);
-            $medias = $datas['medias'];    
+                
             if ($education){
-                if ($medias){
-                    foreach($medias as $media){
+                if (isset($datas['medias'])){
+                    foreach($datas['medias'] as $media){
                         $freelanceMediaName = $media->getClientOriginalName();
                         $path = $this->createFolder('educations', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
                         $media->move(public_path($path), $freelanceMediaName);
@@ -234,6 +235,66 @@ class FreelanceController extends Controller
         return $path;
     }
 
+    public function updateEducation(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'begin_at' => 'required',
+            'end_at' => 'required',
+        ]);
+
+        try {
+            DB::beginTransaction();
+            $datas = $request->all();
+            $success = false;
+            $education = $this->freelancerRepository->updateEducation($datas); 
+            if ($education){
+                if (isset($datas['medias'])){
+                    Media::where('educations_id', $datas['education_id'])->delete();
+                    foreach($datas['medias'] as $media){
+                        $freelanceMediaName = $media->getClientOriginalName();
+                        $path = $this->createFolder('educations', Auth::user()->first_name.'_'.Auth::user()->last_name.'_'.Auth::user()->id.'_'. $datas['title']);
+                        $media->move(public_path($path), $freelanceMediaName);
+                        $datas['media'] = $freelanceMediaName;
+                        $datas['educations_id'] = $education->id;
+                        if(!$this->freelancerRepository->addMedia($datas)){
+                            $success = false;
+                            break;
+                        }
+                        $success = true;
+                        }
+                }else{
+                    $success = true;
+                }
+            }
+            if($success ){
+                DB::commit();
+                session(['notification_icon'=>'check_circle']);
+                Flashy::success('La formation a été modifiée avec succès');
+                return back();
+            }else{
+                   DB::rollBack();
+                   session(['notification_icon'=>'error']);
+                   Flashy::error('Une erreur est survenue lors de la modification');
+                   return back();
+                }
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            dd($exception);
+            $codeDupicateValue = 23000;
+            $message = '';
+            if($exception->getCode() == $codeDupicateValue){
+                $message = 'Vous avez déjà enregistré cette formation';
+            }else{
+                $message = 'Une erreur est survenue lors de l\'enregistrement';
+            }
+            session(['notification_icon'=>'error']);
+            Flashy::error($message);
+            return back();
+        }
+    }
+
     public function deleteFormation($id)
     {
         $response = $this->freelancerRepository->deleteEducation($id);
@@ -243,6 +304,12 @@ class FreelanceController extends Controller
             Flashy::success('Formation supprimée avec succès');
             return back();
         }
+    }
+
+    public function editFormation($id){
+        $education = $this->freelancerRepository->getEducation($id);
+
+        return view('users.freelancer.pLoad.modal-edit-formation', compact('education'));
     }
    
 }
