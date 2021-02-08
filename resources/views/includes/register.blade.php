@@ -48,11 +48,11 @@
 
                   <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" value="1" name="role_id" id="customRadioInline1" class="custom-control-input"/>
-                    <label class="custom-control-label" for="customRadioInline1">Client</label>
+                    <label class="custom-control-label" for="customRadioInline1">Visiteur </label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" value="2" name="role_id" id="customRadioInline2" class="custom-control-input"/>
-                    <label class="custom-control-label" for="customRadioInline2">Prestataire</label>
+                    <label class="custom-control-label" for="customRadioInline2">Acteur du milieu de l'art</label>
                     <br>
                 </div>
 
@@ -63,7 +63,7 @@
                   </div>
 
 
-                  <div class="form-group">
+                  <div class="form-group mt-3">
                     <label for="exampleInputPassword1">Mot de passe</label>
                     <input type="password" name="password_register" class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" id="exampleInputPassword1">
                 </div>

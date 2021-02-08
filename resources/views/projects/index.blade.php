@@ -58,11 +58,9 @@
                 <div class="mb-4">
                   <ul class="list-group list-group-horizontal-md d-flex justify-content-between">
                     <li class="list-group-item border-0 badge p-2 bg-primarys">Full time</li>
-                    <li class="list-group-item border-0 badge p-2 bg-primarys">Min. 1 an</li>
-                    <li class="list-group-item border-0 badge p-2 bg-primarys">senior level</li>
                   </ul>
                 </div>
-                <div class="text-center">
+                <div class="">
                   {{--  <a href="{{ route('proposal.create', $project->id) }}" class="btn btn-primary px-4">Postuler</a>  --}}
                   <a href="{{ url('/nos-projets', $project->id) }}" class="btn btn-primary px-5">Voir</a>
                 </div>
