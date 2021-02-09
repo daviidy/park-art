@@ -53,13 +53,16 @@
             <div class="col-md-4 mb-3">
               <div class="card shadow-sm rounded-lgs">
                 <div class="card-body p-3">
-                  <img src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" alt="" class="img-fluid rounded-lgs p-2" style="width: 100px;height: 100px">
-                  <h5 class="card-title h6 font-weight-bold">{{ $project->title }}</h5>
+                  @if($project->user->profile_image != "image_default.png")
+                  <img src="/images/{{$project->user->profile_image }}" class="card-img-top img-fluid rounded-circle mx-auto" alt="avatar" style="width: 150px;">
+                  @else
+                  <i class="bi bi-person-circle text-black" style="font-size: 80px;"></i>
+                  @endif                  <h5 class="card-title h6 font-weight-bold">{{ $project->title }}</h5>
                   <p class="card-text">{{  \Illuminate\Support\Str::limit($project->description, 200, ) }}</p>
-                  <p class="card-text">{{ $project->budget }}</p>
+                  <p class="card-text"> <strong>{{ $project->budget }}  € </strong> </p>
                   <div class="mb-4">
                     <ul class="list-group list-group-horizontal-md d-flex justify-content-between">
-                      <li class="list-group-item border-0 badge p-2 bg-primarys">Full time</li>
+                      <li class="list-group-item border-0 badge p-2 bg-primarys">{{ $category['name'] }}</li>
                     </ul>
                   </div>
                   <div class="">

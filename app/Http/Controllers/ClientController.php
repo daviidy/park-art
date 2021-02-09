@@ -9,6 +9,7 @@ use App\Models\Proposal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use ImageResize;
+use MercurySeries\Flashy\Flashy;
 
 class ClientController extends Controller
 {
@@ -118,19 +119,16 @@ class ClientController extends Controller
             ImageResize::make($image->path())->resize(300, 300)->save(public_path('images/' . $ProfileImageName));
             $image->move(public_path('images'), $ProfileImageName);
             $user->profile_image = $ProfileImageName;
-            $user->save();
-
-            return back()
-            ->with('success','Image ajouté avec succès.')
-            ->with('image',$ProfileImageName);
+            $user->profile_image = $ProfileImageName;
         }
 
         $user->description = $request->input('description');
+        $user->first_name = $request->input('first_name');
+        $user->last_name =$request->input('last_name');
         $user->save();
-
-        return back()
-                ->with('success','Image ajouté avec succès.');
-
+        session(['notification_icon'=>'check_circle']);
+                Flashy::success('Profile modifié avec succès');
+        return back();
     }
 
     /**
