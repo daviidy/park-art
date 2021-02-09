@@ -50,7 +50,7 @@
                       </div>
                       @if($hasProposal)
                         <div class="col-md-4 border-left p-3 text-center">
-                            <p>Vous avez deja postulier merci de bien vouloir patienter 😊</p>
+                            <p>Vous avez déjà postulé merci de bien vouloir patienter 😊</p>
                         </div>
                       @else
                         <div class="col-md-4 border-left p-3 text-center">

@@ -34,8 +34,10 @@ class ClientController extends Controller
     public function displayAllMyProjects()
     {
         $proposals = Proposal::all();
-        $get_projects = Auth::user()->projects;
-        $projects = $get_projects->sortByDesc('id');
+        $projects = Project::where('user_id', Auth::user()->id)
+        ->with('users')
+        ->orderBy('id', 'desc')
+        ->get();
         return view('users.client.projets.index', compact('projects', 'proposals'));
     }
 
@@ -140,6 +142,13 @@ class ClientController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getProjectProposals(Request $request)
+    {
+        $offers = $request->all();
+        // return response()->json(['offert'=>$offers]);
+        return view('users.client.projets.loadProposals', compact('offers'));
     }
 
 

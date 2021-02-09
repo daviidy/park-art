@@ -63,6 +63,14 @@
 
                   <input type="hidden" name="user_id" value="{{ \Auth::user()->id }}">
                 </div>
+                <div class="form-group">
+                  <label>Catégorie</label>
+                  <select name="category_id" required class="form-control border-left-0 border-right-0 border-top-0 border-primary bg-light" aria-describedby="emailHelp">
+                    @foreach ($categories as $categ)
+                    <option value="{{ $categ['id'] }}" @if($categ['id'] == $project->category_id) selected @endif> {{ $categ['name'] }}</option>
+                  @endforeach
+                  </select>  
+                </div>
                 <button type="submit" class="btn btn-primary w-100 rounded-pill">Modifier le projet</button>
               </form>
             </div>
