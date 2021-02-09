@@ -34,4 +34,8 @@ class Project extends Model
         return $this->belongsToMany(User::class, 'proposals')->withPivot(['user_id','project_id','budget','deadline']);
     }
 
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
+
 }

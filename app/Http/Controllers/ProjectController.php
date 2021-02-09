@@ -75,7 +75,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('users.client.projets.edit', compact('project'));
+        $categories = Category::all();
+        return view('users.client.projets.edit', compact(['project','categories']));
     }
 
     /**
@@ -94,9 +95,11 @@ class ProjectController extends Controller
         ]);
 
         $project->update($request->all());
+        session(['notification_icon'=>'check_circle']);
+        Flashy::success('Projet modifié avec succès');
+        return back();
 
-            return redirect()->route('displayAllMyProjects')
-                            ->with('success','Projet modifié avec succès');
+            return redirect()->route('displayAllMyProjects');
 
     }
 
@@ -120,8 +123,10 @@ class ProjectController extends Controller
      */
     public function allProjects()
     {
-        $projects = Project::with('users')->get();
-        return view('projects.index', compact('projects'));
+        $categories = Category::with('projects')
+        ->get();
+       // return response()->json($projects);
+        return view('projects.index', compact('categories'));
     }
 
     /**
