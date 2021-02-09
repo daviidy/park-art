@@ -35,10 +35,10 @@
                     <div class="pt-3">
                       <div class="d-md-flex justify-content-between align-items-center">
                         <div class="">
-                          <p class="h6 badge font-weight-light">Catégories :<span class="font-weight-bold ">Web</span> </p>
+                          <p class="h6 badge font-weight-light">Catégorie :<span class="font-weight-bold ">{{ $project->category->name }}</span> </p>
                         </div>
                         <div class="d-md-flex justify-content-between align-items-center">
-                          <p class="h6 badge font-weight-light"> Posté le <span class="font-weight-bold">15/02/2021</span></p>
+                          <p class="h6 badge font-weight-light"> Posté le <span class="font-weight-bold"> {{ \Carbon\Carbon::parse($project->created_at)->format('d/m/Y') }}</span></p>
                           <p class="h6 badge font-weight-light pl-md-4"><span class="font-weight-bold">{{  count($proposal) }}</span> offre(s)</p>
                         </div>
                       </div>
@@ -46,11 +46,11 @@
                     <div class="row border rounded-lg mt-3">
                       <div class="col-md-8 py-2 d-flex justify-content-between align-items-center">
                         <h4 class="h6">Budget :</h4>
-                        <p class="mb-0 font-weight-bold">{{ $project->budget }}€</p>
+                        <p class="mb-0 font-weight-bold">{{ $project->budget }} €</p>
                       </div>
                       @if($hasProposal)
                         <div class="col-md-4 border-left p-3 text-center">
-                            <p>Vous avez deja postulier merci de bien vouloir patienter 😊</p>
+                            <p>Vous avez déjà postulé merci de bien vouloir patienter 😊</p>
                         </div>
                       @else
                         <div class="col-md-4 border-left p-3 text-center">

@@ -21,13 +21,17 @@
                 <div class="row rounded-lg box-shadow no-gutters p-3 shadow align-items-center">
                   <div class="col-md-3 pr-4">
                     <div class="p-2 p-md-0 d-flex justify-content-around align-items-center">
-                      <img src="https://oschoolelearning.com/images/courses/logos/1580161319.png" alt="" class="img-fluid " style="width: 50px">
+                      @if(Auth::user()->profile_image != "image_default.png")
+                      <img src="/images/{{Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle mx-auto" alt="avatar" style="width: 80px;">
+                      @else
+                      <i class="bi bi-person-circle text-black" style="font-size: 55px;"></i>
+                      @endif
                       <p class="card-text">{{ $project->title }} <span class="pl-1"> <a href="{{ route('projects.edit', $project->id) }}"><i class="bi bi-pencil-square btn-delete"></i></a></span> </p>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="p-2 p-md-0">
-                      <p style="cursor: pointer" class="card-text" data-toggle="modal" data-target="#offertListModal">
+                      <p style="cursor: pointer" data-proposals="{{ $project->users }}" class="card-text proposals" data-toggle="modal">
                         <span><i class="bi bi-eye-fill"></i></span>
                         Voir la liste des offres
                       </p>
@@ -43,14 +47,8 @@
                       <p class="card-text"><a href="{{ route('projects.edit', $project->id) }}">
                     </a></p>
 
-                    <a href="#">
-                        <form action="{{ route('projects.destroy', $project->id) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <input type="submit" value="">
-                            <i class="bi bi-trash text-danger btn-delete"></i>
-                            <input>
-                        </form>
+                    <a  onclick="return confirm('Voulez-vous vraiment supprimée ce projet ?')" href="{{ route('delete-project', $project->id) }}">
+                      <i class="bi bi-trash text-danger btn-delete"></i>
                     </a>
                     </div>
                   </div>

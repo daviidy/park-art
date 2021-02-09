@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Project;
 use App\Models\Proposal;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use MercurySeries\Flashy\Flashy;
 
 class ProjectController extends Controller
 {
@@ -18,7 +20,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::latest();
-
+    
         return view('users.projets.index', compact('projects'));
 
     }
@@ -31,7 +33,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('users.client.projets.create');
+        $categories = Category::all();
+        return view('users.client.projets.create', compact('categories'));
     }
 
     /**
@@ -72,7 +75,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('users.client.projets.edit', compact('project'));
+        $categories = Category::all();
+        return view('users.client.projets.edit', compact(['project','categories']));
     }
 
     /**
@@ -91,9 +95,11 @@ class ProjectController extends Controller
         ]);
 
         $project->update($request->all());
+        session(['notification_icon'=>'check_circle']);
+        Flashy::success('Projet modifié avec succès');
+        return back();
 
-            return redirect()->route('displayAllMyProjects')
-                            ->with('success','Projet modifié avec succès');
+            return redirect()->route('displayAllMyProjects');
 
     }
 
@@ -117,8 +123,11 @@ class ProjectController extends Controller
      */
     public function allProjects()
     {
-        $projects = Project::all();
-        return view('projects.index', compact('projects'));
+        $categories = Category::with(['projects'=>function($project){
+            $project->with('user');
+        }])
+        ->get();
+        return view('projects.index', compact('categories'));
     }
 
     /**
@@ -136,7 +145,21 @@ class ProjectController extends Controller
                break;
            }
        }
-        $project = Project::find($project_id);
+        $project = Project::where('id', $project_id)->with('category')->first();
         return view('users.client.projets.show', compact('project', 'proposal','hasProposal'));
+    }
+
+    public function deleteProject($project_id)
+    {
+        $project = Project::where('id', $project_id)->first();
+        if($project->delete()){
+            session(['notification_icon'=>'check_circle']);
+            Flashy::success('Projet supprimé avec succès');
+            return back();
+        }
+
+        session(['notification_icon'=>'error']);
+        Flashy::success('Une erreur est survenue lors de la suppression');
+        return back();
     }
 }
