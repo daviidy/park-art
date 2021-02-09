@@ -11,7 +11,7 @@
                 @else
                 <i class="bi bi-person-circle text-secondary" style="font-size: 40px;"></i>
                 @endif
-              <p class="card-text text-dark">Projet2 <span class="pl-1"> <a href="#"><i class="bi bi-pencil-square btn-delete"></i></a></span> </p>
+              <p class="card-text text-dark">Projet2 <span class="pl-1"></p>
             </div>
           </div>
           <div class="col-md-6">
@@ -26,7 +26,6 @@
           </div>
           <div class="col-md-1">
             <div class="p-2 p-md-0 justify-content-md-around d-flex align-items-center">
-              <p class="card-text m-0 pr-3 pr-md-0"><a href="#"><i class="bi bi-trash text-danger btn-delete"></i></a></p>
               <p class="card-text"><a href="#"  target="_blank"><i class="bi bi-eye btn-delete"></i></a></p>
             </div>
           </div>
