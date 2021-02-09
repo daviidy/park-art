@@ -47,14 +47,8 @@
                       <p class="card-text"><a href="{{ route('projects.edit', $project->id) }}">
                     </a></p>
 
-                    <a href="#">
-                        <form action="{{ route('projects.destroy', $project->id) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <input type="submit" value="">
-                            <i class="bi bi-trash text-danger btn-delete"></i>
-                            <input>
-                        </form>
+                    <a  onclick="return confirm('Voulez-vous vraiment supprimée ce projet ?')" href="{{ route('delete-project', $project->id) }}">
+                      <i class="bi bi-trash text-danger btn-delete"></i>
                     </a>
                     </div>
                   </div>

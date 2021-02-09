@@ -8,6 +8,7 @@ use App\Models\Proposal;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use MercurySeries\Flashy\Flashy;
 
 class ProjectController extends Controller
 {
@@ -142,10 +143,17 @@ class ProjectController extends Controller
         return view('users.client.projets.show', compact('project', 'proposal','hasProposal'));
     }
 
-    public function getProjectProposals($project_id)
+    public function deleteProject($project_id)
     {
-        $project = Project::where('id', $project_id)->with(['proposals'=>function($proposal){
-            $proposal->with('user');
-        }]);
+        $project = Project::where('id', $project_id)->first();
+        if($project->delete()){
+            session(['notification_icon'=>'check_circle']);
+            Flashy::success('Projet supprimé avec succès');
+            return back();
+        }
+
+        session(['notification_icon'=>'error']);
+        Flashy::success('Une erreur est survenue lors de la suppression');
+        return back();
     }
 }
