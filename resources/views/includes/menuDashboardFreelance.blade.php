@@ -1,9 +1,9 @@
 <div class="col-1 p-md-3 d-md-block d-none">
   <div class="bg-menu-left rounded-lg shadow" id="">
     <div class="">
-      <div class="text-center p-md-4">
+      <div class="text-center py-md-4">
         @if(Auth::user()->profile_image != "image_default.png")
-          <img src="/images/{{ Auth::user()->profile_image }}" alt="avatar" width="50" class="img-fluid rounded-circle">
+          <img src="/images/{{ Auth::user()->profile_image }}" alt="avatar" width="50" class="img-fluid rounded-circle" style="height: 50px;">
         @else
         <i class="bi bi-person-circle text-white" style="font-size: 30px;"></i>
         @endif

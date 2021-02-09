@@ -5,7 +5,7 @@
         <div class="">
           <div class="position-absolute p-3 text-center" style="top:220px; left:50px">
             @if($user->profile_image != "image_default.png")
-            <img src="/images/{{ $user->profile_image }}" class="card-img-top p-2 img-fluid rounded-circle w-50 mx-auto" alt="...">
+            <img src="/images/{{ $user->profile_image }}" class="card-img-top p-2 img-fluid rounded-circle mx-auto" alt="..." style="height: 150px; width: 150px;">
             @else
             <i class="bi bi-person-circle text-secondary" style="font-size: 130px;"></i>
             @endif
