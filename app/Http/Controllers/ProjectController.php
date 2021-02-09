@@ -123,9 +123,10 @@ class ProjectController extends Controller
      */
     public function allProjects()
     {
-        $categories = Category::with('projects')
+        $categories = Category::with(['projects'=>function($project){
+            $project->with('user');
+        }])
         ->get();
-       // return response()->json($projects);
         return view('projects.index', compact('categories'));
     }
 
@@ -144,7 +145,7 @@ class ProjectController extends Controller
                break;
            }
        }
-        $project = Project::find($project_id);
+        $project = Project::where('id', $project_id)->with('category')->first();
         return view('users.client.projets.show', compact('project', 'proposal','hasProposal'));
     }
 
