@@ -4,7 +4,7 @@
     <div class="card shadow-sm">
       <div class="card-body">
         <h5 class="card-title font-weight-bold text-uppercase">Présentation</h5>
-        <p class="card-text font-weight-lighter">With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text font-weight-lighter">{{ $user->description}}.</p>
       </div>
     </div>
   </div>
