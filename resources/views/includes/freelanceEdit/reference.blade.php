@@ -23,7 +23,7 @@
         <div class="card-body pt-2">
           <h5 class="card-title d-md-flex align-items-center justify-content-between font-weight-bold">{{ $experience['title'] }}
             <span class="badge font-weight-light" style="font-size: x-small;">
-              {{ \Carbon\Carbon::parse($experience['begin_at'])->format('d/m/Y') }} au : {{ \Carbon\Carbon::parse($experience['end_at'])->format('d/m/Y') }}</span>
+             Du {{ \Carbon\Carbon::parse($experience['begin_at'])->format('d/m/Y') }} au : {{ \Carbon\Carbon::parse($experience['end_at'])->format('d/m/Y') }}</span>
           </h5>
           <p class="card-text">{{ $experience['description'] }}</p>
           @if(count($experience['medias']))

@@ -25,7 +25,7 @@
               <div class="row rounded-lg box-shadow no-gutters align-items-center">
                 <div class="col-md-4 text-center py-md-0 py-3">
                   @if($freelance->profile_image != "image_default.png")
-                  <img src="/images/{{ $freelance->profile_image }}" class="card-img img-fluid rounded-circle px-5 img-pr" alt="avatar" width="80%">
+                  <img src="/images/{{ $freelance->profile_image }}" class="card-img rounded-circle px-md-5 py-md-3 img-pr" alt="avatar" style="height: 100px;">
                   @else
                   <i class="bi bi-person-circle text-secondary" style="font-size: 60px;"></i>
                   @endif

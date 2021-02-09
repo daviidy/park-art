@@ -36,7 +36,7 @@
         <div class="dropdown">
           <a class="dropdown-toggle p-0 bg-transparent" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             @if(Auth::user()->profile_image != "image_default.png")
-              <img src="/images/{{ Auth::user()->profile_image }}" alt="avatar" width="50" class="img-fluid rounded-circle">
+              <img src="/images/{{ Auth::user()->profile_image }}" alt="avatar" width="50" class="img-fluid rounded-circle" style="height: 50px;">
             @else
               <i class="bi bi-person-circle text-white" style="font-size: 30px;"></i>
             @endif

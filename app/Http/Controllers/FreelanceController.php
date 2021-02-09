@@ -143,7 +143,9 @@ class FreelanceController extends Controller
 
     public function freelancerInfo ($id)
     {
-        return view('users.freelancer.freelancer_profile', ['user' => $this->freelanceModel->getFreelancerInfo()]);
+        $user = $this->freelancerRepository->getUser($id);
+       //return response()->json($user);
+        return view('users.freelancer.show', ['user' => $user, 'canUpdate' => false]);
     }
 
     public function saveProposal(Request $request)

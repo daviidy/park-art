@@ -19,17 +19,17 @@
               @foreach($projects as $project)
               <div class="card border-0 mb-3">
                 <div class="row rounded-lg box-shadow no-gutters p-3 shadow align-items-center">
-                  <div class="col-md-3 pr-4">
-                    <div class="p-2 p-md-0 d-flex justify-content-around align-items-center">
+                  <div class="col-md-5 pr-4">
+                    <div class="p-2 p-md-0 d-flex justify-content-between align-items-center">
                       @if(Auth::user()->profile_image != "image_default.png")
-                      <img src="/images/{{Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle mx-auto" alt="avatar" style="width: 80px;">
+                      <img src="/images/{{Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle " alt="avatar" style="width: 50px;height: 50px">
                       @else
                       <i class="bi bi-person-circle text-black" style="font-size: 55px;"></i>
                       @endif
-                      <p class="card-text">{{ $project->title }} <span class="pl-1"> <a href="{{ route('projects.edit', $project->id) }}"><i class="bi bi-pencil-square btn-delete"></i></a></span> </p>
+                      <p class="card-text p-3">{{ $project->title }} <span class="pl-1"> <a href="{{ route('projects.edit', $project->id) }}"><i class="bi bi-pencil-square btn-delete"></i></a></span> </p>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-5">
                     <div class="p-2 p-md-0">
                       <p style="cursor: pointer" data-proposals="{{ $project->users }}" class="card-text proposals" data-toggle="modal">
                         <span><i class="bi bi-eye-fill"></i></span>
@@ -39,17 +39,13 @@
                   </div>
                   <div class="col-md-2">
                     <div class="p-2 p-md-0">
-                      <p class="card-text">{{ $project->budget }}€</p>
-                    </div>
-                  </div>
-                  <div class="col-md-1">
-                    <div class="">
-                      <p class="card-text"><a href="{{ route('projects.edit', $project->id) }}">
-                    </a></p>
-
-                    <a  onclick="return confirm('Voulez-vous vraiment supprimée ce projet ?')" href="{{ route('delete-project', $project->id) }}">
-                      <i class="bi bi-trash text-danger btn-delete"></i>
-                    </a>
+                      <p class="card-text d-flex justify-content-between align-items-center">{{ $project->budget }}€
+                        <span>
+                          <a  onclick="return confirm('Voulez-vous vraiment supprimée ce projet ?')" href="{{ route('delete-project', $project->id) }}">
+                        <i class="bi bi-trash text-danger btn-delete"></i>
+                      </a>
+                    </span>
+                    </p>
                     </div>
                   </div>
                 </div>
