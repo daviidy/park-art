@@ -22,7 +22,7 @@
                   <div class="col-md-5 pr-4">
                     <div class="p-2 p-md-0 d-flex justify-content-between align-items-center">
                       @if(Auth::user()->profile_image != "image_default.png")
-                      <img src="/images/{{Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle mx-auto" alt="avatar" style="width: 80px;">
+                      <img src="/images/{{Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle " alt="avatar" style="width: 50px;height: 50px">
                       @else
                       <i class="bi bi-person-circle text-black" style="font-size: 55px;"></i>
                       @endif

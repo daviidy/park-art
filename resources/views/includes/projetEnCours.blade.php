@@ -8,7 +8,7 @@
           <div class="col-md-4 pr-4">
             <div class="p-2 p-md-0 d-flex justify-content-between align-items-center">
               @if(Auth::user()->profile_image != "image_default.png")
-                <img src="/images/{{Auth::user()->profile_image }}" class="img-fluid" alt="..." style="width: 50px">
+                <img src="/images/{{Auth::user()->profile_image }}" class="img-fluid rounded-circle" alt="..." style="width: 60px;height:60px">
                 @else
                 <i class="bi bi-person-circle text-secondary" style="font-size: 40px;"></i>
                 @endif
@@ -42,7 +42,7 @@
           <div class="col-md-4 pr-4">
             <div class="p-2 p-md-0 d-flex justify-content-between align-items-center">
               @if(Auth::user()->profile_image != "image_default.png")
-                <img src="/images/{{Auth::user()->profile_image }}" class="img-fluid" alt="..." style="width: 50px">
+                <img src="/images/{{Auth::user()->profile_image }}" class="img-fluid rounded-circle" alt="..." style="width: 60px;height:60px">
                 @else
                 <i class="bi bi-person-circle text-secondary" style="font-size: 40px;"></i>
                 @endif

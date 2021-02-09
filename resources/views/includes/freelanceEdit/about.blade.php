@@ -4,7 +4,7 @@
     <div class="card box-shadows">
       <div class="text-center card-image-box-set card-image-bg p-md-2">
         @if(Auth::user()->profile_image != "image_default.png")
-        <img src="/images/{{Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle mx-auto" alt="avatar" style="width: 150px;">
+        <img src="/images/{{Auth::user()->profile_image }}" class="card-img-top img-fluid rounded-circle mx-auto" alt="avatar" style="width: 150px;height: 150px;">
         @else
         <i class="bi bi-person-circle text-white" style="font-size: 110px;"></i>
         @endif
