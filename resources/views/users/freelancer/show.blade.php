@@ -4,9 +4,12 @@
       <section class="mb-5">
         <div class="">
           <div class="position-absolute p-3 text-center" style="top:220px; left:50px">
-            <img width="150" height="150" class="rounded-circle" src="https://process.filestackapi.com/AtM7HNKzQZ6u2HxwJF1Jiz/compress/quality=value:90/0tTy4z3lTbCkw18ehjQ8" >
-            <i class="bi bi-person-circle text-white bg-dark p-3 rounded-lg" style="font-size: 100px;"></i>
-            <h4 class="pt-2">Arsene</h4>
+            @if($user->profile_image != "image_default.png")
+            <img src="/images/{{ $user->profile_image }}" class="card-img-top p-2 img-fluid rounded-circle w-50 mx-auto" alt="...">
+            @else
+            <i class="bi bi-person-circle text-secondary" style="font-size: 130px;"></i>
+            @endif
+            <h4 class="pt-2">{{ $user->last_name . ' '. $user->first_name }}</h4>
           </div>
         </div>
       </section>
