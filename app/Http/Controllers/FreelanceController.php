@@ -114,13 +114,6 @@ class FreelanceController extends Controller
             ImageResize::make($image->path())->resize(300, 300)->save(public_path('images/' . $ProfileImageName));
             $image->move(public_path('images'), $ProfileImageName);
             $user->profile_image = $ProfileImageName;
-            $user->first_name = $datas['first_name'];
-            $user->last_name = $datas['last_name'];
-            $user->save();
-
-            session(['notification_icon'=>'check_circle']);
-            Flashy::success('Profile modifié avec succès');
-            return back();
         }
 
         $user->description = $request->input('description');

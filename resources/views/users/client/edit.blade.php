@@ -47,11 +47,11 @@
                 </div>
                 <div class="form-group profit-225">
                   <label>Prénoms</label>
-                  <input type="text" class="form-control" name="name" value="{{ $user->first_name }}" readonly>
+                  <input type="text" class="form-control" name="first_name" value="{{ $user->first_name }}">
                 </div>
                 <div class="form-group profit-225">
                   <label>Nom</label>
-                  <input type="text" class="form-control" name="name" value="{{ $user->last_name }}" readonly>
+                  <input type="text" class="form-control" name="last_name" value="{{ $user->last_name }}">
                 </div>
                 <div class="form-group">
                   <label>Adresse email</label>
